@@ -1,0 +1,253 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'Roboto Condensed';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url(https://fonts.gstatic.com/s/robotocondensed/v16/ieVl2ZhZI2eCN5jzbjEETS9weq8-19-7DRs5.woff2) format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/*Body Layout*/
+
+* {
+	font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	background-color: #111;
+	/*max-width: 1150px;
+    min-width: 640px;*/
+	font-size: 15px;
+
+	/*  temporRY BALIAO AH */
+	/* background-image: url(../Image/minimalist-space-z8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+/*---Header Layout-----*/
+
+
+/* HEADER BAR */
+
+.header-bar {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 1.0), rgba(0, 0, 64, 0.8));
+	width: 100%;
+}
+
+.header-container {
+	padding: 10px;
+	min-width: 600pt;
+	max-width: 920pt;
+	width: 95%;
+	margin: auto;
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-columns: 20% 40% 30% 10%;
+	grid-template-rows: 120px auto;
+}
+
+.header-header {
+	margin: 0 auto;
+}
+
+.header-header img {
+	height: 100%;
+}
+
+.header-title {
+	margin: 0 auto;
+	color: white;
+	font-size: 2em;
+}
+
+.header-title img {
+	height: 100%;
+}
+
+.header-searchbar {
+	text-align: left;
+	vertical-align: middle;
+	margin: auto;
+}
+
+.header-searchbar input {
+	margin: 0;
+	float: left;
+	padding: 6px;
+	border-radius: 20px 0 0 20px;
+	border: none;
+	font-size: 20px;
+}
+
+.header-searchbar button {
+	margin: 0;
+	float: left;
+	padding: 5px 12px;
+	background: #ddd;
+	border-radius: 10%;
+	border: none;
+	border-radius: 0 20px 20px 0;
+
+	cursor: pointer;
+}
+
+.header-cart{
+	margin: auto;
+}
+
+
+/* NAVIGATION BAR */
+
+.nav-bar {
+	background: linear-gradient(to bottom, rgba(0, 0, 64, 0.8), rgba(0, 0, 127, 0.0));
+	width: 100%;
+}
+
+.nav-container {
+	padding: 5px;
+	min-width: 600pt;
+	max-width: 920pt;
+	width: 95%;
+	margin: auto;
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.nav-container a {
+	text-decoration: none;
+	color: white;
+}
+
+.nav-container a:hover,
+.nav-item-dropdown a:hover {
+	text-decoration: none;
+}
+
+.nav-item {
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 0.5em;
+	font-size: 1.5em;
+	color: white;
+	text-align: left;
+	background-repeat: no-repeat;
+	background-position: 95% center;
+	background-size: 32px 32px;
+}
+
+.nav-item:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item-dropdown {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.8);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 0.5em;
+	color: white;
+	text-align: left;
+}
+
+.nav-item:hover .nav-item-dropdown {
+	display: block;
+}
+
+#TVSeries {
+	grid-column: 1;
+	grid-row: 1;
+	background-image: url(Image/TVSeries.svg);
+}
+
+#Movies {
+	grid-column: 2;
+	grid-row: 1;
+	background-image: url(Image/Movies.svg);
+}
+
+#Promotions {
+	grid-column: 3;
+	grid-row: 1;
+	background-image: url(Image/Promotions.svg);
+}
+
+#About {
+	grid-column: 4;
+	grid-row: 1;
+	background-image: url(Image/About.svg);
+}
+
+#Account {
+	grid-column: 5;
+	grid-row: 1;
+	background-image: url(Image/Account.svg);
+}
+
+
+.container {
+	/* width: 100%; */
+	margin: auto;
+	/* padding: 0; */
+	min-width: 600pt;
+	max-width: 920pt;
+	width: 95%;
+}
+
+
+/* Footer layout and style */
+
+.footer {
+	color: aliceblue;
+	margin: auto;
+	padding: 0;
+	width: 100%;
+	background-color: #333;
+	display: grid;
+	grid-template-columns: 15% 15% 30% 15% 25%;
+}
+
+.footer-box {
+	padding: 20px;
+}
+
+#foot1 {
+	padding-left: 100px;
+}
+
+.footer img[src="../Logo.png"] {
+	width: 100%;
+}
+
+.footer img[src="../Image/Logo-char.png"] {
+	position: relative;
+	top: 35px;
+	right: 70px;
+	width: 100%;
+}
+
+.footer ul li {
+	list-style: none;
+	display: block;
+	padding: 5px;
+}
+
+.footer ul li a {
+	text-decoration: none;
+	color: aliceblue;
+}
+
+.footer ul li a:hover {
+	text-decoration: none;
+	text-shadow: 0 0 3px #9ecaed;
+}

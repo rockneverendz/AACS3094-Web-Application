@@ -1,0 +1,154 @@
+body {
+	background-image: url(../Image/minimalist-space-z8.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container {
+	display: grid;
+	color: #fff;
+	grid-template-columns: 60% 40%;
+	grid-gap: 10px;
+}
+
+.box {
+	margin-bottom: 10px;
+	background-color: rgba(0, 0, 0, 0.75);
+	border-radius: 10px;
+	box-shadow: 0 0 20px 5px rgb(255, 255, 255);
+}
+
+#deliInfo {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+#ordSumary {
+	grid-column: 2;
+	grid-row: 1/ span 2;
+}
+
+#payMetd {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+#deliInfo:hover,
+#ordSumary:hover,
+#payMetd:hover {
+	box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+}
+
+/*-----Delivery Information------*/
+
+#delivery {
+	margin: 0;
+	padding: 20px;
+}
+
+legend {
+	display: inline-block;
+	padding: 5px 15px;
+	font-size: 25px;
+	font-weight: bold;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+}
+
+.delField {
+	border-style: none;
+}
+
+label {
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+.formRow {
+	margin: 20px;
+}
+
+.formRow > input,
+textarea {
+	width: 30%;
+	padding: 5px 10px;
+	display: block;
+	border-radius: 10px;
+	transition: ease-in-out, width .35s ease-in-out;
+}
+
+select {
+	padding: 5px;
+	border-radius: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	width: 50%;
+	box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+	outline-color: rgb(12, 147, 218);
+	outline: none;
+}
+
+input:focus:valid,
+textarea:focus:valid {
+	box-shadow: 0 0 20px 5px rgb(63, 190, 1);
+	outline: none;
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+	box-shadow: 0 0 20px 5px rgb(202, 2, 2);
+	outline-color: rgb(202, 2, 2);
+	outline: none;
+}
+
+/*Summit button */
+
+button#submitBtn {
+	display: block;
+	margin: 0;
+	float: right;
+	padding: 25px;
+	/* width: 150px;
+	height: 50px; */
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	font-size: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 5px white;
+	cursor: pointer;
+}
+
+button#submitBtn:hover {
+	color: rgb(12, 147, 218);
+	box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+}
+
+/* Order Summary Table */
+
+.ordTable {
+	margin: 15px;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 5px rgb(255, 255, 0);
+}
+
+caption {
+	margin: 10px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+th,
+td {
+	padding: 10px;
+	text-align: center;
+}
+
+em {
+	font-weight: bold;
+	color: #FFFF00;
+}
