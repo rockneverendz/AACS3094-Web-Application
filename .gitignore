@@ -27,3 +27,6 @@ AACS3094-Web-Application.iml
 .idea/
 out/
 /nbproject/private/
+
+# NetBean project settings
+nbproject/
