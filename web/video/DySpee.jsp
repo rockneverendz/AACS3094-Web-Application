@@ -1,4 +1,11 @@
-<!doctype html>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%--<%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
+<%--<%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>--%>
+<%--<sql:setDataSource var = "snapshot" driver = "org.apache.derby.jdbc.ClientDataSource"--%>
+				   <%--url = "jdbc:mysql:DySpee"--%>
+				   <%--user = ""  password = ""/>--%>
+
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -10,6 +17,42 @@
 </head>
 
 <body>
+
+<%--<sql:query dataSource = "${snapshot}" var = "result">--%>
+    <%--SELECT * FROM NEWS--%>
+<%--</sql:query>--%>
+<%--<c:forEach var = "row" items = "${result.rows}">--%>
+    <%--<tr>--%>
+        <%--<td> <c:out value = "${row.news_id}"/></td>--%>
+        <%--<td> <c:out value = "${row.news_title}"/></td>--%>
+        <%--<td> <c:out value = "${row.news_desc}"/></td>--%>
+    <%--</tr>--%>
+<%--</c:forEach>--%>
+
+<%
+
+	try {
+		String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+		Class.forName(driver);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	try {
+		Connection conn = DriverManager.getConnection("jdbc:mysql:DySpee");
+		PreparedStatement stmt = conn.prepareStatement("SELECT * FROM NEWS");
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()){
+			out.println(rs.getInt("news_ID"));
+			out.println(rs.getString("news_Title"));
+			out.println(rs.getString("news_Desc"));
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+%>
+
 <header>
 	<%@ include file="../layout/header.jsp"%>
 </header>
