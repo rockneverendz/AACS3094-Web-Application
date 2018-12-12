@@ -1,0 +1,48 @@
+.article-container {
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-columns: 70% 25%;
+}
+
+#News img {
+	float: left;
+	width: 150px;
+	padding: 20px;
+}
+
+#News p {
+	min-height: 180px;
+}
+
+#Popular {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+}
+
+#Popular ul {
+	text-align: center;
+	padding: 10px;
+}
+
+#Popular img {
+	margin: 0px 0px;
+	width: 150px;
+	padding: 20px;
+}
+
+#Reviews img {
+	float: right;
+	width: 150px;
+	padding: 20px;
+}
+
+#Reviews cite {
+	float: right;
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.5);
+	font-style: italic;
+}
+
+#Reviews p {
+	min-height: 220px;
+}
