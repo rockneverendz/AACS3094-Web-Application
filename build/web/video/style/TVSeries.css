@@ -1,0 +1,37 @@
+.article-container {
+	display: grid;
+	grid-template-columns: 95%;
+}
+
+.article-item {
+	overflow: auto;
+	white-space: nowrap;
+	overflow-y: hidden;
+}
+
+.article-item span{
+	position: relative;
+}
+
+.article-item span a img {
+	padding: 10px;
+	height: 250px;
+}
+
+.article-item span a label {
+	position: absolute;
+	opacity: 0;
+	padding: 10px;
+    bottom: 10px;
+    left: 10px;
+	width: 80%;
+	display: inline-block;
+	text-align: left;
+	background: linear-gradient(to top, rgba(0, 0, 0, 1.0),rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.0));
+	word-wrap:break-word;
+	
+}
+
+.article-item span a:hover label {
+  opacity: 1;
+}
