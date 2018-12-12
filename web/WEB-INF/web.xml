@@ -4,9 +4,17 @@
         <servlet-name>NewServ1</servlet-name>
         <servlet-class>control.NewServ1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>User</servlet-name>
+        <servlet-class>domain.Customer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServ1</servlet-name>
         <url-pattern>/NewServ1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>User</servlet-name>
+        <url-pattern>/User</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

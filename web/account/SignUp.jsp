@@ -14,7 +14,11 @@
 <header>
 	<%@ include file="../layout/header.jsp"%>
 </header>
-
+        <%@ page import="business.User"%>
+        <%
+            
+        %>
+        
 	<div class="article-container">
 
 		<form>
