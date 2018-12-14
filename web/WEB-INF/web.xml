@@ -5,17 +5,19 @@
         <servlet-class>control.NewServ1</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>User</servlet-name>
-        <servlet-class>domain.Customer</servlet-class>
+        <servlet-name>AddCustomer</servlet-name>
+        <servlet-class>control.AddCustomer</servlet-class>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>NewServ1</servlet-name>
         <url-pattern>/NewServ1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>User</servlet-name>
-        <url-pattern>/User</url-pattern>
+        <servlet-name>AddCustomer</servlet-name>
+        <url-pattern>/account/AddCustomer</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
