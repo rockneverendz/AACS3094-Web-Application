@@ -9,7 +9,7 @@ import domain.Customer;
 
 import javax.swing.*;
 import java.sql.*;
-import java.util.Arrays;
+//import java.util.Arrays;
 
 /**
  *
@@ -17,7 +17,7 @@ import java.util.Arrays;
  */
 public class CustomerDA {
 
-    private String tableName = "CUSTOMER";
+    private final String tableName = "CUSTOMER";
     private static Connection conn;
     private static PreparedStatement stmt;
 
@@ -43,7 +43,7 @@ public class CustomerDA {
                         rs.getString("NAME"), 
                         rs.getString("EMAIL"),
                         rs.getString("DOB"),
-                        rs.getString("PASSWORD").toCharArray()
+                        rs.getString("PASSWORD")
                 );
             }
         } catch (SQLException ex) {
@@ -65,7 +65,7 @@ public class CustomerDA {
             stmt.setString(2, customer.getName());
             stmt.setString(3, customer.getEmail());
             stmt.setString(4, customer.getDob());
-            stmt.setString(5, Arrays.toString(customer.getPassword()));
+            stmt.setString(5, customer.getPassword());
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(
@@ -92,7 +92,7 @@ public class CustomerDA {
             stmt.setString(1, customer.getName());
             stmt.setString(2, customer.getEmail());
             stmt.setString(3, customer.getDob());
-            stmt.setString(4, Arrays.toString(customer.getPassword()));
+            stmt.setString(4, customer.getPassword());
             stmt.setString(5, customer.getID());
             stmt.executeUpdate();
 
@@ -112,10 +112,10 @@ public class CustomerDA {
 
     public void deleteRecord(Customer customer) {
 
-        String delStr = "DELETE FROM " + tableName + " WHERE Code = ?";
+        String delStr = "DELETE FROM " + tableName + " WHERE ID = ?";
         try {
             stmt = conn.prepareStatement(delStr);
-            stmt.setString(1, Arrays.toString(customer.getPassword()));
+            stmt.setString(1, customer.getID());
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(

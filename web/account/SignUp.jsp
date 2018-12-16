@@ -22,7 +22,7 @@
                     "Fake Name",
                     "fakeEmail@gmail",
                     "2017-12-31",
-                    new char[]{'a', 'r', 't', 'i', 's', 't'}
+                    "artist"
             );
         %>
 
@@ -36,19 +36,19 @@
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email" required/>
+                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email"/>
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
-                        <input name = dob" value = "<%= customer.getDob()%>" type="date" />
+                        <input name = "dob" value = "<%= customer.getDob()%>" type="date" />
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>
-                        <input name = "password" type="password" placeholder="Password" required/>
+                        <input name = "password" type="password" placeholder="Password"/>
                     </div>
                     <div class="formRow">
                         <label>*Retype Password :&ensp;</label>
-                        <input name = "passwordRe" type="password" placeholder="Password" required/>
+                        <input name = "passwordRe" type="password" placeholder="Password"/>
                     </div>
                     <div class="formRow">
                         <label>&ensp;</label>

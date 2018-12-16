@@ -5,12 +5,12 @@
  */
 package control;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import domain.Customer;
+import da.CustomerDA;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  *
@@ -33,20 +33,45 @@ public class AddCustomer extends HttpServlet {
     )
             throws ServletException, IOException {
 
+        //Get parameter from the form
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String dob = request.getParameter("dob");
         String password = request.getParameter("password");
+        String passwordRe = request.getParameter("passwordRe");
 
-        response.setContentType("text/html");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println(name);
-            out.println(email);
-            out.println(dob);
-            out.println(password);
-            out.close();
+        //Print to console <Debugging Purposes only>
+        System.out.println(name);
+        System.out.println(email);
+        System.out.println(dob);
+        System.out.println(password);
+        System.out.println(passwordRe);
+
+        //Create a customer opbject
+        Customer customer = new Customer(name, email, dob, password);
+
+        //Validate parameters
+        String message;
+        String url;
+        if (
+                name.isEmpty() || 
+                email.isEmpty() || 
+                dob.isEmpty() || 
+                password.isEmpty() || 
+                passwordRe.isEmpty()
+                ) {
+            message = "Please fill out all the text fields";
+            url = "/accout/SignUp.jsp";
         }
+//        else if (){
+//TODO Add email check
+//        }
+        else {
+            url = "/account/Settings.jsp";
+        }
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
