@@ -39,4 +39,9 @@ class DA {
             }
         }
     }
+    
+    public static void main(String[] args) {
+        Connection conn = DA.createConnection();
+        DA.shutDown(conn);
+    }
 }

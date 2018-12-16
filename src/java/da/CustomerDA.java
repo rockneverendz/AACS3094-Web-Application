@@ -39,7 +39,7 @@ public class CustomerDA {
 
             if (rs.next()) {
                 customer = new Customer(
-                        ID, 
+                        ID,
                         rs.getString("NAME"), 
                         rs.getString("EMAIL"),
                         rs.getString("DOB"),
