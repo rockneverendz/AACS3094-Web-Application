@@ -1,6 +1,5 @@
 package da;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,22 +8,23 @@ import java.util.logging.Logger;
 
 class DA {
 
-    static Connection createConnection() {
-        Connection conn = null;
+    static Connection createConnection() throws Exception {
         try {
+            String url = "jdbc:oracle:thin:@localhost:1521:xe";
+            String username = "verniy"; //Change to your database account
+            String password = "123456"; 
+            
             Class.forName("oracle.jdbc.driver.OracleDriver");
-
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:xe", "verniy", "123456"
-            );
+            Connection conn = 
+                    DriverManager.getConnection(url, username, password);
+            
             System.out.println("Connection established Successfully");
-        } catch (SQLException ex) {
-            System.out.println("Connection Failed");
-            ex.printStackTrace();
+            return conn;
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DA.class.getName()).log(Level.SEVERE, null, ex);
+            throw new Exception("Class not fond. Missing \"ojdbc14.jar\"?");
+        } catch (SQLException ex) {
+            throw new Exception("Is database on?");
         }
-        return conn;
     }
 
     static void shutDown(Connection conn) {
@@ -35,14 +35,19 @@ class DA {
             } catch (SQLException ex) {
                 System.out.println("Connection Termination Failed");
             }
-        }
-        else{
+        } else {
             System.out.println("Connection is empty");
         }
     }
+
     public static void main(String[] args) {
-        Connection conn = DA.createConnection();
-        DA.shutDown(conn);
+        Connection conn;
+        try {
+            conn = DA.createConnection();
+            DA.shutDown(conn);
+        } catch (Exception ex) {
+            Logger.getLogger(DA.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println("END OF PROGRAM");
     }
 }

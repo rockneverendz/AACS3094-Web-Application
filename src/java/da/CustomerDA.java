@@ -21,7 +21,7 @@ public class CustomerDA {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public CustomerDA() {
+    public CustomerDA() throws Exception {
         conn = DA.createConnection();
     }
 

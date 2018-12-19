@@ -22,13 +22,14 @@ To undo the above command just change '3010' to your default port. (8080)
 
 ### Connect Oracle Database through NetBeans
 
-Navigate through **<u>W</u>indow** > **<u>S</u>ervice** > **Database**  
+Navigate through **Window** > **Service** > **Database**  
 Right click **Database** and click **New Connection...**.  
-Select *"Oracle Thin"* as the **<u>D</u>river**.  
-Download and add the required **Dri<u>v</u>er File**. (I use *ojdbc14.jar*)  
+Select *"Oracle Thin"* as the **Driver**.  
+Download and add the required **Driver File**. (I use [*ojdbc14.jar*](https://www.oracle.com/technetwork/apps-tech/jdbc-10201-088211.html))  
+Locate it to ```C:\Program Files\Java\jdk1.8.0_192\jre\lib\ext``` 
 
-Next, insert your database account into **<u>U</u>sername** & **Pass<u>w</u>ord**.  
-Press **Test <u>C</u>onnection** and it should says "*Connection Succeeded*."
+Next, insert your database account into **Username** & **Password**.  
+Press **Test Connection** and it should says "*Connection Succeeded*."
 
 Congratulations. You have your database setup and ready.  
 If you have any alternatives or ideas regrading the port thingy,  
@@ -41,11 +42,18 @@ will replace them with valid CREATE TABLE statements
 
 CUSTOMER TABLE
 
-    ID INTEGER INCREMENT BY 1;
-    NAME VARCHAR 100;
-    EMAIL VARCHAR 100;
-    DOB DATE;
-    PASSWORD VARCHAR;
+    CUST_ID INTEGER INCREMENT BY 1;
+    CUST_NAME VARCHAR 100;
+    CUST_EMAIL VARCHAR 100;
+    CUST_DOB DATE;
+    CUST_PASSWORD VARCHAR;
 
 We understood the potential danger on storing unencrypted passwords  
 but for the sake of simplicity we will use raw text for now.
+
+PURCHASE ORDER TABLE
+
+    PURCHASE_ID INTEGER INCREMENT BY 1;
+    PURCHASE_QUANTITY INTEGER;
+    PURCHASE_DOB DATE;
+
