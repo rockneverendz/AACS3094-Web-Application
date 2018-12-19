@@ -68,6 +68,8 @@ public class AddCustomer extends HttpServlet {
 //        }
         else {
             url = "/account/Settings.jsp";
+            CustomerDA customerDA = new CustomerDA();
+            customerDA.addRecord(customer);
         }
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
