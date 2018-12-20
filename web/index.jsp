@@ -21,12 +21,29 @@
                 status = "Failed - " + ex.getMessage();
             }
         %>
-        
+
         index.jsp
         <br/> <a href="video/DySpee.jsp">Click here to redirect to the DySpee Web Application.</a>
         <br/>
-        <br/> Database Connection : <%= status %>
+        <br/> Database Connection : <%= status%>
 
+        <table cellspacing="5">
+            <tr>
+                <td>Cookie Name</td>
+                <td>Cookie Value</td>
+            </tr>
+            <%
+                Cookie[] cookies = request.getCookies();
+                for (Cookie c : cookies) {
+            %>
+            <tr>
+                <td><%= c.getName()%></td>
+                <td><%= c.getValue()%></td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
     </body>
 
 </html>
