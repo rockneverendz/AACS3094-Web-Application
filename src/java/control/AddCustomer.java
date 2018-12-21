@@ -51,21 +51,16 @@ public class AddCustomer extends HttpServlet {
         Customer customer = new Customer(name, email, dob, password);
 
         //Validate parameters
-        String message;
-        String url;
-        if (name.isEmpty() || email.isEmpty() || dob.isEmpty() || password.isEmpty() || passwordRe.isEmpty()) {
-            message = "Please fill out all the text fields";
-            url = "/account/SignUp.jsp";
-        } //        else if (){
-        //TODO Add email check
-        //        }
-        else {
+        String message = null;
+        String url = null; 
+        
+        try {
             CustomerDA customerDA = new CustomerDA();
             customerDA.addRecord(customer);
             message = "Successfully Created";
             url = "/account/Settings.jsp";
+        } catch (Exception e) {
         }
-
         request.setAttribute("customer", customer);
         request.setAttribute("message", message);
 

@@ -9,6 +9,8 @@ import domain.Customer;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import java.util.Arrays;
 
 /**
@@ -57,29 +59,20 @@ public class CustomerDA {
     }
 
     public void addRecord(Customer customer) {
-        String queryStr = "INSERT INTO " + tableName + " VALUES(?, ?, ?, ?, ?)";
+        String queryStr = "INSERT INTO " + tableName + " VALUES(DEFAULT, ?, ?, ?, ?)";
 
         try {
             stmt = conn.prepareStatement(queryStr);
-            stmt.setString(1, customer.getID());
-            stmt.setString(2, customer.getName());
-            stmt.setString(3, customer.getEmail());
-            stmt.setString(4, customer.getDob());
-            stmt.setString(5, customer.getPassword());
+            stmt.setString(1, customer.getName());
+            stmt.setString(2, customer.getEmail());
+            stmt.setString(3, customer.getDob());
+            stmt.setString(4, customer.getPassword());
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Customer \"" + customer.getID() + "\" has been successfully created."
-            );
+            System.out.println("Successfully Added");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    ex.getMessage(),
-                    "ERROR",
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
+            Logger.getLogger(CustomerDA.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
     public void updateRecord(Customer customer) {
