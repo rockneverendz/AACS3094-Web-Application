@@ -122,30 +122,4 @@ public class Customer implements Serializable {
     public void setCustPassword(String custPassword) {
         this.custPassword = custPassword;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (custId != null ? custId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
-            return false;
-        }
-        Customer other = (Customer) object;
-        if ((this.custId == null && other.custId != null) || (this.custId != null && !this.custId.equals(other.custId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.Customer[ custId=" + custId + " ]";
-    }
-    
 }
