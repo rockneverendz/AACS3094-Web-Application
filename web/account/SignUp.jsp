@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!doctype html>
 <html>
 
@@ -14,25 +16,31 @@
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-        <%@ page import="domain.Customer"%>
+            <%@ page import="entity.Customer"%>
         <%
             //Test Data
+         
+            String date = "2013-05-29";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date dob = sdf.parse(date);
+            
             Customer customer = new Customer(
-                    "00001",
                     "Fake Name",
                     "fakeEmail@gmail",
-                    "2017-12-31",
+                    dob,
                     "artist"
             );
+            
+            
         %>
 
         <div class="article-container">
-            <form action="AddCustomer" method="get">
+            <form action="AddCustomer2" method="get">
                 <fieldset id="settings">
                     <legend>Sign Up</legend>
                     <div class="formRow">
                         <label>Name :&ensp;</label>
-                        <input name = "name" value = "<%= customer.getName()%>" type="text" placeholder="Name" />
+                        <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" />
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
@@ -40,7 +48,7 @@
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
-                        <input name = "dob" value = "<%= customer.getDob()%>" type="date" />
+                        <input name = "dob" value = "<%= sdf.format(customer.getDob()) %>" type="date" />
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>

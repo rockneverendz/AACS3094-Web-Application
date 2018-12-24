@@ -1,43 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
+import entity.Customer;
 
-import domain.Customer;
-import da.CustomerDA;
-
+// Servlet Libraries
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+// Entity Libraries
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 
-import javax.annotation.Resource;
-import javax.persistence.PersistenceContext;
-
-/**
- *
- * @author Verniy
- */
 public class AddCustomer extends HttpServlet {
     @PersistenceContext EntityManager em;
     @Resource UserTransaction utx;
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(
-            HttpServletRequest request,
-            HttpServletResponse response
-    )
+    protected void processRequest(            HttpServletRequest request,            HttpServletResponse response    )
             throws ServletException, IOException {
 
         //Get parameter from the form
@@ -54,21 +35,27 @@ public class AddCustomer extends HttpServlet {
         System.out.println(password);
         System.out.println(passwordRe);
 
-        //Create a customer opbject
-        Customer customer = new Customer(name, email, dob, password);
-
         //Validate parameters
-        String message = null;
-        String url = null; 
+        String message = "";
+        String url = ""; 
         
         try {
-            CustomerDA customerDA = new CustomerDA();
-            customerDA.addRecord(customer);
+            java.util.Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dob);
+            Customer customer = new Customer(name, email, date, password);
+            
+            utx.begin();
+            em.persist(customer);
+            utx.commit();
+
             message = "Successfully Created";
             url = "/account/Settings.jsp";
+            request.setAttribute("customer", customer);
+        } catch (ParseException e){
+            message = "Unable to parse Date";
         } catch (Exception e) {
+            
         }
-        request.setAttribute("customer", customer);
+        
         request.setAttribute("message", message);
 
         RequestDispatcher dispatcher
@@ -76,43 +63,21 @@ public class AddCustomer extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Register customer";
     }// </editor-fold>
-
 }

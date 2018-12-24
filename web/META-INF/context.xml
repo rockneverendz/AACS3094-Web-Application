@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/AACS3094-Web-Application">
-    <Resource name="jdbc/DySpee" 
-              auth="Container"
-              type="javax.sql.DataSource" 
-              username="nbuser" 
-              password="nbuser"
-              driverClassName="org.apache.derby.jdbc.ClientDriver"
-              url="jdbc:derby://localhost:1527/DySpee" 
-              maxActive="8"    /> 
 </Context>
