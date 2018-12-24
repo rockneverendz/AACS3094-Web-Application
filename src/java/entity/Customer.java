@@ -7,54 +7,147 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Verniy
  */
 @Entity
+@Table(name = "CUSTOMER")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")
+    , @NamedQuery(name = "Customer.findByCustid", query = "SELECT c FROM Customer c WHERE c.custid = :custid")
+    , @NamedQuery(name = "Customer.findByCustname", query = "SELECT c FROM Customer c WHERE c.custname = :custname")
+    , @NamedQuery(name = "Customer.findByPhoneno", query = "SELECT c FROM Customer c WHERE c.phoneno = :phoneno")
+    , @NamedQuery(name = "Customer.findByAddress", query = "SELECT c FROM Customer c WHERE c.address = :address")
+    , @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")
+    , @NamedQuery(name = "Customer.findByDob", query = "SELECT c FROM Customer c WHERE c.dob = :dob")
+    , @NamedQuery(name = "Customer.findByPassword", query = "SELECT c FROM Customer c WHERE c.password = :password")})
 public class Customer implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "CUST_ID")
-    private Integer custId;
-    @Column(name = "CUST_NAME")
-    private String custName;
-    @Column(name = "CUST_EMAIL")
-    private String custEmail;
-    @Column(name = "CUST_DOB")
-    @Temporal(TemporalType.DATE)
-    private Date custDob;
-    @Column(name = "CUST_PASSWORD")
-    private String custPassword;
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "CUSTID")
+    private Integer custid;
+    @Basic(optional = false)
+    @Column(name = "CUSTNAME")
+    private String custname;
+    @Column(name = "PHONENO")
+    private String phoneno;
+    @Column(name = "ADDRESS")
+    private String address;
+    @Column(name = "EMAIL")
+    private String email;
+    @Column(name = "DOB")
+    @Temporal(TemporalType.DATE)
+    private Date dob;
+    @Basic(optional = false)
+    @Column(name = "PASSWORD")
+    private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "custid")
+    private List<Custorder> custorderList;
 
-    public Long getId() {
-        return id;
+    public Customer() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Customer(Integer custid) {
+        this.custid = custid;
+    }
+
+    public Customer(Integer custid, String custname, String password) {
+        this.custid = custid;
+        this.custname = custname;
+        this.password = password;
+    }
+
+    public Integer getCustid() {
+        return custid;
+    }
+
+    public void setCustid(Integer custid) {
+        this.custid = custid;
+    }
+
+    public String getCustname() {
+        return custname;
+    }
+
+    public void setCustname(String custname) {
+        this.custname = custname;
+    }
+
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @XmlTransient
+    public List<Custorder> getCustorderList() {
+        return custorderList;
+    }
+
+    public void setCustorderList(List<Custorder> custorderList) {
+        this.custorderList = custorderList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (custid != null ? custid.hashCode() : 0);
         return hash;
     }
 
@@ -65,7 +158,7 @@ public class Customer implements Serializable {
             return false;
         }
         Customer other = (Customer) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.custid == null && other.custid != null) || (this.custid != null && !this.custid.equals(other.custid))) {
             return false;
         }
         return true;
@@ -73,53 +166,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Customer[ id=" + id + " ]";
+        return "entity.Customer[ custid=" + custid + " ]";
     }
-
-    public Customer() {
-    }
-
-    public Customer(Integer custId) {
-        this.custId = custId;
-    }
-
-    public Integer getCustId() {
-        return custId;
-    }
-
-    public void setCustId(Integer custId) {
-        this.custId = custId;
-    }
-
-    public String getCustName() {
-        return custName;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
-    }
-
-    public String getCustEmail() {
-        return custEmail;
-    }
-
-    public void setCustEmail(String custEmail) {
-        this.custEmail = custEmail;
-    }
-
-    public Date getCustDob() {
-        return custDob;
-    }
-
-    public void setCustDob(Date custDob) {
-        this.custDob = custDob;
-    }
-
-    public String getCustPassword() {
-        return custPassword;
-    }
-
-    public void setCustPassword(String custPassword) {
-        this.custPassword = custPassword;
-    }
+    
 }

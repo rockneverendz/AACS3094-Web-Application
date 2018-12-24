@@ -3,6 +3,9 @@
   <persistence-unit name="AACS3094-Web-ApplicationPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.Customer</class>
+    <class>entity.Product</class>
+    <class>entity.Custorder</class>
+    <class>entity.Orderlist</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/DySpee"/>
