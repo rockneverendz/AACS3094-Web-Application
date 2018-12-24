@@ -18,6 +18,8 @@
         </header>
             <%@ page import="entity.Customer"%>
         <%
+            String message = (String) request.getAttribute("message");
+            
             //Test Data
          
             String date = "2013-05-29";
@@ -35,16 +37,19 @@
         %>
 
         <div class="article-container">
-            <form action="AddCustomer2" method="get">
+            <form action="AddCustomer" method="get">
                 <fieldset id="settings">
                     <legend>Sign Up</legend>
+                    
+                    <p><i><%=message%></i></p>
+                    
                     <div class="formRow">
-                        <label>Name :&ensp;</label>
-                        <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" />
+                        <label>*Name :&ensp;</label>
+                        <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required="true"/>
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email"/>
+                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email" required="true"/>
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
@@ -52,11 +57,11 @@
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>
-                        <input name = "password" type="password" placeholder="Password"/>
+                        <input name = "password" type="password" placeholder="Password" required="true"/>
                     </div>
                     <div class="formRow">
                         <label>*Retype Password :&ensp;</label>
-                        <input name = "passwordRe" type="password" placeholder="Password"/>
+                        <input name = "passwordRe" type="password" placeholder="Password" required="true"/>
                     </div>
                     <div class="formRow">
                         <label>&ensp;</label>

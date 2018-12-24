@@ -1,24 +1,38 @@
 package control;
+
 import entity.Customer;
 
 // Servlet Libraries
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 // Entity Libraries
-import javax.annotation.Resource;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
+import javax.servlet.RequestDispatcher;
 
+/**
+ *
+ * @author Verniy
+ */
 public class AddCustomer extends HttpServlet {
-    @PersistenceContext EntityManager em;
-    @Resource UserTransaction utx;
 
-    protected void processRequest(            HttpServletRequest request,            HttpServletResponse response    )
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         //Get parameter from the form
@@ -28,34 +42,44 @@ public class AddCustomer extends HttpServlet {
         String password = request.getParameter("password");
         String passwordRe = request.getParameter("passwordRe");
 
-        //Print to console <Debugging Purposes only>
-        System.out.println(name);
-        System.out.println(email);
-        System.out.println(dob);
-        System.out.println(password);
-        System.out.println(passwordRe);
+        String message;
+        String url = "/account/SignUp.jsp";
 
-        //Validate parameters
-        String message = "";
-        String url = ""; 
-        
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AACS3094-Web-ApplicationPU");
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+
         try {
-            java.util.Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dob);
-            Customer customer = new Customer(name, email, date, password);
-            
-            utx.begin();
-            em.persist(customer);
-            utx.commit();
+            if (!password.equals(passwordRe)) {
+                throw new IllegalArgumentException();
+            }
 
-            message = "Successfully Created";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = sdf.parse(dob);
+
+            Customer customer = new Customer(
+                    name,
+                    email,
+                    date,
+                    password
+            );
+
+            entitymanager.persist(customer);
+            entitymanager.getTransaction().commit();
+
+            entitymanager.close();
+            emfactory.close();
+
+            message = "Succesfully Registered";
             url = "/account/Settings.jsp";
-            request.setAttribute("customer", customer);
-        } catch (ParseException e){
-            message = "Unable to parse Date";
-        } catch (Exception e) {
-            
+        } catch (ParseException ex) {
+            message = "Invalid Date.";
+        } catch (IllegalArgumentException ex) {
+            message = "Retyped password doesn't not match.";
+        } catch (RollbackException ex) {
+            message = "Account already exists.";
         }
-        
+
         request.setAttribute("message", message);
 
         RequestDispatcher dispatcher
@@ -63,7 +87,7 @@ public class AddCustomer extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

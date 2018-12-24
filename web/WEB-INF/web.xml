@@ -4,10 +4,6 @@
         <servlet-name>AddCustomer</servlet-name>
         <servlet-class>control.AddCustomer</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>AddCustomer2</servlet-name>
-        <servlet-class>control.AddCustomer2</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>AddCustomer</servlet-name>
         <url-pattern>/account/AddCustomer</url-pattern>
@@ -18,10 +14,6 @@
         <resource-env-ref-name>jdbc/DySpee</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
-    <servlet-mapping>
-        <servlet-name>AddCustomer2</servlet-name>
-        <url-pattern>/account/AddCustomer2</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
