@@ -11,12 +11,19 @@ import da.CustomerDA;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.persistence.EntityManager;
+import javax.transaction.UserTransaction;
+
+import javax.annotation.Resource;
+import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author Verniy
  */
 public class AddCustomer extends HttpServlet {
+    @PersistenceContext EntityManager em;
+    @Resource UserTransaction utx;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

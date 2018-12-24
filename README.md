@@ -1,12 +1,9 @@
 # AACS3094-Web-Application
 
-```
-create table "NBUSER".CUSTOMER
-(
-	CUST_ID INTEGER default AUTOINCREMENT: start 1 increment 1 not null primary key,
-	CUST_NAME VARCHAR(100),
-	CUST_EMAIL VARCHAR(100),
-	CUST_DOB DATE,
-	CUST_PASSWORD VARCHAR(20)
-)
-```
+## Libraries Required
+- derbyclient.jar
+- EclipseLink (JPA 2.1)
+- jboss-transaction....jar
+  - Usually located at  
+  ``C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar``
+
