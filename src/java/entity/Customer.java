@@ -83,13 +83,6 @@ public class Customer implements Serializable {
         this.password = password;
     }
 
-    public Customer(String custname, String email, Date dob, String password) {
-        this.custname = custname;
-        this.email = email;
-        this.dob = dob;
-        this.password = password;
-    }
-
     public Integer getCustid() {
         return custid;
     }

@@ -13,12 +13,9 @@
     </head>
 
     <body>
-        <header>
-            <%@ include file="../layout/header.jsp"%>
-        </header>
         <%@ page import="entity.Customer"%>
         <%
-            //If no message recived, set it to empty string.
+            //If no object are recieved, create a new object.
             String message = (String) request.getAttribute("message");
             Customer customer = (Customer) request.getAttribute("customer");
             if (message == null) message = "";
@@ -27,6 +24,10 @@
             //For parsing date in Date of Birth field
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         %>
+        
+        <header>
+            <%@ include file="../layout/header.jsp"%>
+        </header>
 
         <div class="article-container">
             <form action="AddCustomer" method="post">

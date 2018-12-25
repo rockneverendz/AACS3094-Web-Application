@@ -1,7 +1,9 @@
 <div class="header-bar">
     <div class="header-container">
         <div class="header-header"><a href="../video/DySpee.jsp"><img src="../layout/image/DySpee.png" /></a></div>
-        <div class="header-title"><img src="../layout/image/DySpeeOnline.png" /></div>
+        <div class="header-title"><img src="../layout/image/DySpeeOnline.png" />
+        <!--Debug here-->
+        </div>
         <div class="header-searchbar">
             <form action="/action_page.php">
                 <input type="text" placeholder="Search..." name="search">

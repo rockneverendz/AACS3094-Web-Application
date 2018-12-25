@@ -42,6 +42,7 @@ public class AddCustomer extends HttpServlet {
         String password = request.getParameter("password");
         String passwordRe = request.getParameter("passwordRe");
 
+        //Initialize variables
         String message;
         Customer customer = new Customer();
         String url = "/account/SignUp.jsp";
@@ -84,7 +85,7 @@ public class AddCustomer extends HttpServlet {
             
         } catch (IllegalArgumentException ex) {
             
-            message = "Retyped password doesn't not match.";
+            message = "Retyped password does not match.";
             customer.setPassword("");
             
         } catch (RollbackException ex) {
