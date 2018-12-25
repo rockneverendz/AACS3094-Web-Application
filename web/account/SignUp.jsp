@@ -16,33 +16,27 @@
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-            <%@ page import="entity.Customer"%>
+        <%@ page import="entity.Customer"%>
         <%
+            //If no message recived, set it to empty string.
             String message = (String) request.getAttribute("message");
+            Customer customer = (Customer) request.getAttribute("customer");
+            if (message == null) message = "";
+            if (customer == null) customer = new Customer();
             
-            //Test Data
-         
-            String date = "2013-05-29";
+            //For parsing date in Date of Birth field
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date dob = sdf.parse(date);
-            
-            Customer customer = new Customer(
-                    "Fake Name",
-                    "fakeEmail@gmail",
-                    dob,
-                    "artist"
-            );
-            
-            
         %>
 
         <div class="article-container">
-            <form action="AddCustomer" method="get">
+            <form action="AddCustomer" method="post">
                 <fieldset id="settings">
                     <legend>Sign Up</legend>
-                    
-                    <p><i><%=message%></i></p>
-                    
+
+                    <!--TODO Display error message better-->
+
+                    <p><%=message%></p>
+
                     <div class="formRow">
                         <label>*Name :&ensp;</label>
                         <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required="true"/>
@@ -53,7 +47,7 @@
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
-                        <input name = "dob" value = "<%= sdf.format(customer.getDob()) %>" type="date" />
+                        <input name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>

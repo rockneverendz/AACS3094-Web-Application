@@ -43,45 +43,60 @@ public class AddCustomer extends HttpServlet {
         String passwordRe = request.getParameter("passwordRe");
 
         String message;
+        Customer customer = new Customer();
         String url = "/account/SignUp.jsp";
 
+        //Create EM
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AACS3094-Web-ApplicationPU");
         EntityManager entitymanager = emfactory.createEntityManager();
         entitymanager.getTransaction().begin();
 
         try {
+            // Fill in those which doens't need to be validated
+            customer.setCustname(name);
+            customer.setEmail(email);
+            
+            // Parse date
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            customer.setDob(sdf.parse(dob));
+            
+            // Check both passwords
             if (!password.equals(passwordRe)) {
                 throw new IllegalArgumentException();
             }
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = sdf.parse(dob);
-
-            Customer customer = new Customer(
-                    name,
-                    email,
-                    date,
-                    password
-            );
-
+            customer.setPassword(password);
+            
+            // Insert & Commit
             entitymanager.persist(customer);
             entitymanager.getTransaction().commit();
 
+            // Destroy EM
             entitymanager.close();
             emfactory.close();
 
             message = "Succesfully Registered";
             url = "/account/Settings.jsp";
+            
         } catch (ParseException ex) {
-            message = "Invalid Date.";
+            
+            message = "Invalid Date. How in the world do you end up in this state?";
+            customer.setDob(new Date());
+            
         } catch (IllegalArgumentException ex) {
+            
             message = "Retyped password doesn't not match.";
+            customer.setPassword("");
+            
         } catch (RollbackException ex) {
+            
             message = "Account already exists.";
+            customer.setPassword("");
+            
         }
 
         request.setAttribute("message", message);
-
+        request.setAttribute("customer", customer);
+        
         RequestDispatcher dispatcher
                 = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);

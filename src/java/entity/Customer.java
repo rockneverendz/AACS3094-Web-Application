@@ -67,6 +67,10 @@ public class Customer implements Serializable {
     private List<Custorder> custorderList;
 
     public Customer() {
+        this.custname = "";
+        this.email = "";
+        this.dob = new Date();
+        this.password = "";
     }
 
     public Customer(Integer custid) {
