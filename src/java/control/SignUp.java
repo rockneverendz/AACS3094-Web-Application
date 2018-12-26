@@ -88,7 +88,6 @@ public class SignUp extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
-
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

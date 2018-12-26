@@ -270,3 +270,15 @@ div p {
 	text-decoration: none;
 	text-shadow: 0 0 3px #9ecaed;
 }
+
+.message-container {
+    background-color: rgba(63, 191, 63, 0.50);
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-width: 590pt;
+    max-width: 910pt;
+    width: 95%;
+    margin: auto;
+    justify-content: space-around;
+}

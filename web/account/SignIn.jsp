@@ -57,5 +57,4 @@
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
-
 </html>

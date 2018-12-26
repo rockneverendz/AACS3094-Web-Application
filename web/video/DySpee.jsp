@@ -18,8 +18,12 @@
             //Status code 0 = Successfully Signed Out
             //Status code 1 = Successfully Signed In
             //Status code 2 = Successfully Signed Up
+%>
 
-            String status = request.getParameter("status");
+        <header>
+            <%@ include file="../layout/header.jsp"%>
+        </header>
+        <%            String status = request.getParameter("status");
             String message;
             if (status == null) {
                 message = "";
@@ -34,13 +38,15 @@
                 } else {
                     message = "Error has occured";
                 }
-            }
         %>
 
-        <header>
-            <%@ include file="../layout/header.jsp"%>
-        </header>
-        <%=message%>
+        <div class="message-container">
+            <%=message%>
+        </div>
+
+        <%
+            }
+        %>
         <div class="article-container">
             <div class="article-item" id="News">
                 <header>News</header>
