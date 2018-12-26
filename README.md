@@ -10,13 +10,14 @@ New Session
 
 SignUp page
 	Create Customer object
+	<User input>
 	Validate
 	if (Successfull)
 		Bind Customer to session
 	else
-		return Entered Data
+		return Entered Data	
 
-Every page
+Every page (Header)
 	if (Customer is binded into session){
 		Print Username
 		if (Cart has items)
@@ -25,13 +26,13 @@ Every page
 	else
 		"Log In"
 
-
 Product page
-	if (Customer is logged in)
+	if (Customer is logged in){
 		if (Cart is not created)
 			create cart
 		
 		add item to cart
+	}
 	else
 		redirect to login page
 ```

@@ -24,10 +24,6 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Verniy
- */
 @Entity
 @Table(name = "CUSTOMER")
 @XmlRootElement
@@ -171,6 +167,5 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "entity.Customer[ custid=" + custid + " ]";
-    }
-    
+    } 
 }

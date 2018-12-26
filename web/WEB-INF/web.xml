@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <servlet>
-        <servlet-name>AddCustomer</servlet-name>
-        <servlet-class>control.AddCustomer</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddCustomer</servlet-name>
-        <url-pattern>/account/AddCustomer</url-pattern>
-    </servlet-mapping>
     <!-- https://stackoverflow.com/questions/2299469/how-should-i-connect-to-jdbc-database-datasource-in-a-servlet-based-applicatio -->
     <!-- https://stackoverflow.com/questions/11428964/connecting-to-derby-database-with-tomcat-as-the-server -->
     <resource-env-ref>
         <resource-env-ref-name>jdbc/DySpee</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
+    <servlet>
+        <servlet-name>SignUp</servlet-name>
+        <servlet-class>control.SignUp</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignIn</servlet-name>
+        <servlet-class>control.SignIn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignOut</servlet-name>
+        <servlet-class>control.SignOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignUp</servlet-name>
+        <url-pattern>/account/SignUp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/account/SignIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOut</servlet-name>
+        <url-pattern>/account/SignOut</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -30,12 +30,11 @@
         </header>
 
         <div class="article-container">
-            <form action="AddCustomer" method="post">
+            <form action="SignUp" method="post">
                 <fieldset id="settings">
                     <legend>Sign Up</legend>
 
                     <!--TODO Display error message better-->
-
                     <p><%=message%></p>
 
                     <div class="formRow">

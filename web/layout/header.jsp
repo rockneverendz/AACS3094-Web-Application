@@ -8,9 +8,22 @@
                 <input type="text" placeholder="Search..." name="search">
                 <button type="submit"><img width="22px" src="../layout/image/search.png" /></button>
             </form>
-        <!--Debug start-->
-        <%= session.getId()%>
-        <!--Debug end-->
+            <!--Debug start-->
+            <%@page import="entity.Customer"%>
+            <%= session.getId()%>
+            <br>
+            <%
+                Customer customerLogged = (Customer) session.getAttribute("customer");
+                if (customerLogged != null) {
+            %>
+            Cust ID = <%= customerLogged.getCustid()%>
+            <br>
+            Cust Name = <%= customerLogged.getCustname()%>
+            <%
+                }
+            %>
+
+            <!--Debug end-->
         </div>
         <div class="header-cart">
             <a href="../checkout/shoppingCart.jsp"><img src="../layout/image/shopping-cart.png" /></a>
@@ -40,15 +53,35 @@
                 </div>
             </div>
         </a>
-        <a href="../account/Settings.jsp">
+
+        <%
+            if (customerLogged == null) {
+        %>
+
+        <a href="../account/SignIn.jsp">
             <div class="nav-item" id="Account">Account
                 <div class="nav-item-dropdown">
-                    <a href="../account/SignUp.jsp">Sign Up</a><br /><br />
                     <a href="../account/SignIn.jsp">Sign In</a><br /><br />
+                    <a href="../account/SignUp.jsp">Sign Up</a><br />
+                </div>
+            </div>
+        </a>
+
+        <%
+        } else {
+        %>
+
+        <a href="../account/Settings.jsp">
+            <div class="nav-item" id="Account"><%= customerLogged.getCustname()%>
+                <div class="nav-item-dropdown">
+                    <a href="../account/SignOut">Sign Out</a><br /><br />
                     <a href="../account/Settings.jsp">Settings</a><br />
                 </div>
             </div>
-
         </a>
+
+        <%
+            }
+        %>
     </div>
 </div>
