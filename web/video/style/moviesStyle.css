@@ -1,173 +1,80 @@
 /*------Container Layout------*/
 
-.article-container {
-	/* width: 100%; */
-	/* padding: 0; */
-	display: grid;
-}
-
-.article-container h3 {
-	color: aliceblue;
-}
-
-/*---Gerne Nav---*/
-
-/*-----------Genre Layout--------------*/
-
-.gerneNav {
-	grid-column: 1;
-	grid-row: 1;
-	margin: 0;
-	padding: 15px;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.gerneNav ul {
-	float: left;
-	list-style-type: none;
-}
-
-.gerneNav ul li {
-	margin: 0;
-	padding: 0;
-	height: 30px;
-	width: 100px;
-}
-
-.sug ul li {
-	padding: 0 0 10px 0;
-}
-
-.gern ul li {
-	padding: 0 0 4px 0;
-}
-
-.tv-s ul li {
-	padding: 0 0 10px 0;
-}
-
-.gerneNav ul li a {
-	padding: 5px 0 5px 5px;
-	display: block;
-	text-decoration: none;
-	color: aliceblue;
-}
-
-.gerneNav ul li a:hover {
-	border-radius: 4px;
-	box-shadow: 0 0 10px #9ecaed;
-	text-shadow: 0 0 5px #9ecaed;
-}
-
 /*------------Main Layout-------------*/
 
-.main {
-	grid-column: 2/span 10;
-	display: grid;
-	grid-template-columns: 50% 50%;
-	grid-template-rows: 90px 300px 300px 300px 300px 150px;
-}
-
-#posterL,
-#posterP {
-	padding: 0px;
-	margin: 10px 10px;
-	border-radius: 10px;
-	position: relative;
-	/* <------------- KEY POINT  */
-}
-
-#posterL:hover,
-#posterP:hover {
-	box-shadow: 0 0 10px cyan;
-}
-
 .title {
-	grid-column: 1 / span 2;
-	grid-row: 1;
-	padding: 10px 20px;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: #fff;
+
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
 }
 
-.box1 {
-	grid-column: 1;
-	grid-row: 2/ span 2;
+.row {
+    padding: 0 15px 0 15px;
+    margin: 0 0 20px 0;
 }
 
-.box2 {
-	grid-column: 2;
-	grid-row: 2;
+/*.poster {
+        position: relative;
+        padding: 20px;
+        background-color: antiquewhite;
+}*/
+
+.poster img {
+    max-width: 100%;
+    height: auto;
 }
 
-.box3 {
-	grid-column: 2;
-	grid-row: 3;
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.box4 {
-	grid-column: 1;
-	grid-row: 4;
+.poster:hover .overlay {
+    opacity: 1;
 }
 
-.box5 {
-	grid-column: 1;
-	grid-row: 5;
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.box6 {
-	grid-column: 2;
-	grid-row: 4 / span 2;
-}
+
+
+
 
 /* Add to Cart button  */
 
+/*
 .btn {
-	height: 50px;
-	background-color: rgba(1, 1, 1, 0.5);
-	border: none;
-	border-radius: 0 0 0 20px;
-	color: #fff;
-	padding: 12px 16px;
-	font-size: 20px;
-	cursor: pointer;
-	position: absolute;
-	z-index: 3;
-	right: 0;
+        height: 50px;
+        background-color: rgba(1, 1, 1, 0.5);
+        border: none;
+        border-radius: 0 0 0 20px;
+        color: #fff;
+        padding: 12px 16px;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        z-index: 3;
+        right: 0;
 }
 
 .btn:hover {
-	background-color: dimgray;
-}
-
-/* Nav Page number & Next page */
-
-.nxtPage {
-	grid-column: 1 / span 2;
-	grid-row: 6;
-	margin: auto;
-	padding: 5px;
-}
-
-.nxtPage ul li {
-	display: inline-block;
-	margin: 5px;
-	padding: 5px 10px;
-	border-radius: 4px;
-	background-color: #fff;
-}
-
-.nxtPage ul li:hover {
-	background-color: #333;
-	box-shadow: 0 0 10px #9ecaed;
-	color: blueviolet;
-}
-
-.nxtPage ul li a {
-	text-decoration: none;
-	color: #111;
-}
-
-.nxtPage ul li a:hover {
-	color: aqua;
-}
+        background-color: dimgray;
+}*/
