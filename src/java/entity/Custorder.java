@@ -23,7 +23,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -51,10 +50,8 @@ public class Custorder implements Serializable {
     @Column(name = "ORDERDATE")
     @Temporal(TemporalType.DATE)
     private Date orderdate;
-    @Size(max = 30)
     @Column(name = "TRACKINGNUM")
     private String trackingnum;
-    @Size(max = 30)
     @Column(name = "STATUS")
     private String status;
     @JoinColumn(name = "CUSTID", referencedColumnName = "CUSTID")

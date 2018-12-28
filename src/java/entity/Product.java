@@ -22,8 +22,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -51,11 +49,8 @@ public class Product implements Serializable {
     @Column(name = "PRODUCTID")
     private Integer productid;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 80)
     @Column(name = "NAME")
     private String name;
-    @Size(max = 999)
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "RATING")
@@ -64,7 +59,6 @@ public class Product implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date daterelease;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "PRICE")
     private double price;
     @Lob

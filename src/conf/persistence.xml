@@ -8,7 +8,7 @@
     <class>entity.Orderlist</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/DySpee"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/DySpeedb"/>
       <property name="javax.persistence.jdbc.user" value="nbuser"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="nbuser"/>

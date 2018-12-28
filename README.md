@@ -26,7 +26,7 @@ Every page (Header)
 	else
 		"Log In"
 
-Product page
+Add to cart page
 	if (Customer is logged in){
 		if (Cart is not created)
 			create cart
@@ -35,4 +35,11 @@ Product page
 	}
 	else
 		redirect to login page
+
+Product page
+	NoR = number of records on Product table
+	Number of Page = NoR / 12 (Ceiling)
+
+	
+
 ```
