@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,12 +23,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Verniy
+ * @author User
  */
 @Entity
 @Table(name = "CUSTORDER")
@@ -41,18 +44,21 @@ public class Custorder implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ORDERID")
-    private String orderid;
+    private Integer orderid;
     @Column(name = "ORDERDATE")
     @Temporal(TemporalType.DATE)
     private Date orderdate;
+    @Size(max = 30)
     @Column(name = "TRACKINGNUM")
     private String trackingnum;
+    @Size(max = 30)
     @Column(name = "STATUS")
     private String status;
     @JoinColumn(name = "CUSTID", referencedColumnName = "CUSTID")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Customer custid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "custorder")
     private List<Orderlist> orderlistList;
@@ -60,15 +66,15 @@ public class Custorder implements Serializable {
     public Custorder() {
     }
 
-    public Custorder(String orderid) {
+    public Custorder(Integer orderid) {
         this.orderid = orderid;
     }
 
-    public String getOrderid() {
+    public Integer getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(String orderid) {
+    public void setOrderid(Integer orderid) {
         this.orderid = orderid;
     }
 

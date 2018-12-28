@@ -9,50 +9,53 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Verniy
+ * @author User
  */
 @Embeddable
 public class OrderlistPK implements Serializable {
 
     @Basic(optional = false)
+    @NotNull
     @Column(name = "PRODUCTID")
-    private String productid;
+    private int productid;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "ORDERID")
-    private String orderid;
+    private int orderid;
 
     public OrderlistPK() {
     }
 
-    public OrderlistPK(String productid, String orderid) {
+    public OrderlistPK(int productid, int orderid) {
         this.productid = productid;
         this.orderid = orderid;
     }
 
-    public String getProductid() {
+    public int getProductid() {
         return productid;
     }
 
-    public void setProductid(String productid) {
+    public void setProductid(int productid) {
         this.productid = productid;
     }
 
-    public String getOrderid() {
+    public int getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(String orderid) {
+    public void setOrderid(int orderid) {
         this.orderid = orderid;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (productid != null ? productid.hashCode() : 0);
-        hash += (orderid != null ? orderid.hashCode() : 0);
+        hash += (int) productid;
+        hash += (int) orderid;
         return hash;
     }
 
@@ -63,10 +66,10 @@ public class OrderlistPK implements Serializable {
             return false;
         }
         OrderlistPK other = (OrderlistPK) object;
-        if ((this.productid == null && other.productid != null) || (this.productid != null && !this.productid.equals(other.productid))) {
+        if (this.productid != other.productid) {
             return false;
         }
-        if ((this.orderid == null && other.orderid != null) || (this.orderid != null && !this.orderid.equals(other.orderid))) {
+        if (this.orderid != other.orderid) {
             return false;
         }
         return true;

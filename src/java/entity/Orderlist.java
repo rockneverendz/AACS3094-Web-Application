@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Verniy
+ * @author User
  */
 @Entity
 @Table(name = "ORDERLIST")
@@ -49,7 +49,7 @@ public class Orderlist implements Serializable {
         this.orderlistPK = orderlistPK;
     }
 
-    public Orderlist(String productid, String orderid) {
+    public Orderlist(int productid, int orderid) {
         this.orderlistPK = new OrderlistPK(productid, orderid);
     }
 

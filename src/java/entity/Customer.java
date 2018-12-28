@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +20,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author User
+ */
 @Entity
 @Table(name = "CUSTOMER")
 @XmlRootElement
@@ -45,28 +50,32 @@ public class Customer implements Serializable {
     @Column(name = "CUSTID")
     private Integer custid;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "CUSTNAME")
     private String custname;
+    @Size(max = 30)
     @Column(name = "PHONENO")
     private String phoneno;
+    @Size(max = 999)
     @Column(name = "ADDRESS")
     private String address;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "DOB")
     @Temporal(TemporalType.DATE)
     private Date dob;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
     @Column(name = "PASSWORD")
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "custid")
+    @OneToMany(mappedBy = "custid")
     private List<Custorder> custorderList;
 
     public Customer() {
-        this.custname = "";
-        this.email = "";
-        this.dob = new Date();
-        this.password = "";
     }
 
     public Customer(Integer custid) {
@@ -167,5 +176,6 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "entity.Customer[ custid=" + custid + " ]";
-    } 
+    }
+    
 }
