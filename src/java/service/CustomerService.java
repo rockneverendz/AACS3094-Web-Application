@@ -33,10 +33,11 @@ public class CustomerService {
         return customer;
     }
 
-    public boolean deleteItem(String email) {
+    public boolean deleteCustomer(String email) {
         Customer customer = findCustByEmail(email);
         if (customer != null) {
             em.remove(customer);
+            em.getTransaction().commit();
             return true;
         }
         return false;
@@ -47,15 +48,13 @@ public class CustomerService {
 //        return Custlist;
 //    }
 
-    public boolean updateItem(Customer customer) {
-        Customer tempCustomer = findCustByID(customer.getCustid());
-        if (tempCustomer != null) {
-            tempCustomer.setCustid(customer.getCustid());
-            tempCustomer.setCustname(customer.getCustname());
-            tempCustomer.setPhoneno(customer.getPhoneno());
-            tempCustomer.setAddress(customer.getAddress());
-            tempCustomer.setEmail(customer.getEmail());
-            tempCustomer.setPassword(customer.getPassword());
+    public boolean updateCustomer(Customer newCustomer) {
+        Customer thisCustomer = findCustByID(newCustomer.getCustid());
+        if (thisCustomer != null) {
+            thisCustomer.setCustname(newCustomer.getCustname());
+            thisCustomer.setDob(newCustomer.getDob());
+            thisCustomer.setPassword(newCustomer.getPassword());
+            em.getTransaction().commit();
             return true;
         }
         return false;

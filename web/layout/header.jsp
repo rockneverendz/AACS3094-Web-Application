@@ -9,6 +9,7 @@
                 <button type="submit"><img width="22px" src="../layout/image/search.png" /></button>
             </form>
             <!--Debug start-->
+            
             <%@page import="entity.Customer"%>
             <%= session.getId()%>
             <br>

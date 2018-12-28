@@ -1,5 +1,3 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <!doctype html>
 <html>
 
@@ -13,18 +11,25 @@
     </head>
 
     <body>
-        <%@ page import="entity.Customer"%>
+        <%@ page import = "entity.Customer" %>
+        <%@ page import = "java.util.Date" %>
+        <%@ page import = "java.text.SimpleDateFormat" %>
         <%
             //If no object are recieved, create a new object.
             String message = (String) request.getAttribute("message");
             Customer customer = (Customer) request.getAttribute("customer");
-            if (message == null) message = "";
-            if (customer == null) customer = new Customer();
-            
+            if (message == null) {
+                message = "";
+            }
+            if (customer == null) {
+                customer = new Customer();
+                customer.setDob(new Date());
+            }
+
             //For parsing date in Date of Birth field
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         %>
-        
+
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
@@ -36,7 +41,7 @@
 
                     <!--TODO Display error message better-->
                     <p><%=message%></p>
-
+                    
                     <div class="formRow">
                         <label>*Name :&ensp;</label>
                         <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required="true"/>
