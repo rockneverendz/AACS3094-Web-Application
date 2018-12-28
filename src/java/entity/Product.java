@@ -15,7 +15,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -39,7 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Product.findByDescription", query = "SELECT p FROM Product p WHERE p.description = :description")
     , @NamedQuery(name = "Product.findByRating", query = "SELECT p FROM Product p WHERE p.rating = :rating")
     , @NamedQuery(name = "Product.findByDaterelease", query = "SELECT p FROM Product p WHERE p.daterelease = :daterelease")
-    , @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")})
+    , @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")
+    , @NamedQuery(name = "Product.findByPoster", query = "SELECT p FROM Product p WHERE p.poster = :poster")})
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,9 +61,8 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "PRICE")
     private double price;
-    @Lob
     @Column(name = "POSTER")
-    private Serializable poster;
+    private String poster;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Orderlist> orderlistList;
 
@@ -128,11 +127,11 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public Serializable getPoster() {
+    public String getPoster() {
         return poster;
     }
 
-    public void setPoster(Serializable poster) {
+    public void setPoster(String poster) {
         this.poster = poster;
     }
 

@@ -23,6 +23,8 @@
             }
             if (customer == null) {
                 customer = new Customer();
+                customer.setCustname("");
+                customer.setEmail("");
                 customer.setDob(new Date());
             }
 
