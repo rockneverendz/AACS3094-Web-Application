@@ -27,8 +27,7 @@
 
         <%@ page import = "entity.Product" %>
         <%@ page import = "service.ProductService" %>
-        <%   
-            ProductService productService = new ProductService();
+        <%            ProductService productService = new ProductService();
             Product product = new Product();
             int i, j, indexNum;
         %>
@@ -52,7 +51,7 @@
                                 indexNum = (i * 4) + j;
                                 product = productService.findCustByID(indexNum);
                         %>
-                        <a href="#">
+                        <a href="../video/trailer.jsp?productid=<%= indexNum%>">
                             <div class="col-sm-3 poster">
                                 <img src= <%= product.getPoster()%> class="img-rounded" />
                                 <div class="overlay">
