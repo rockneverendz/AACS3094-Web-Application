@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<%@ page import = "entity.Product" %>
+<%@ page import = "service.ProductService" %>
+<%            ProductService productService = new ProductService();
+    Product product = new Product();
+    int i, j, indexNum;
+%>
+
 <html>
 
     <head>
@@ -20,24 +28,15 @@
     </head>
 
     <body>
-
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-
-        <%@ page import = "entity.Product" %>
-        <%@ page import = "service.ProductService" %>
-        <%            ProductService productService = new ProductService();
-            Product product = new Product();
-            int i, j, indexNum;
-        %>
-
         <!--Container Start-->
         <div class="article-container">
 
             <!--Main Start-->
             <div class="main">
-
+                
                 <div class="title">
                     <h1>Top Rating Movies</h1>
                 </div>
@@ -49,7 +48,7 @@
                     <div class="row">
                         <%  for (j = 0; j < 4; j++) {
                                 indexNum = (i * 4) + j;
-                                product = productService.findCustByID(indexNum);
+                                product = productService.findProdByID(indexNum);
                         %>
                         <a href="../video/trailer.jsp?productid=<%= indexNum%>">
                             <div class="col-sm-3 poster">

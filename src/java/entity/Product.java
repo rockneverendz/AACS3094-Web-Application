@@ -39,7 +39,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Product.findByRating", query = "SELECT p FROM Product p WHERE p.rating = :rating")
     , @NamedQuery(name = "Product.findByDaterelease", query = "SELECT p FROM Product p WHERE p.daterelease = :daterelease")
     , @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")
-    , @NamedQuery(name = "Product.findByPoster", query = "SELECT p FROM Product p WHERE p.poster = :poster")})
+    , @NamedQuery(name = "Product.findByPoster", query = "SELECT p FROM Product p WHERE p.poster = :poster")
+    , @NamedQuery(name = "Product.findByGenre", query = "SELECT p FROM Product p WHERE p.genre = :genre")
+    , @NamedQuery(name = "Product.findByTrailer", query = "SELECT p FROM Product p WHERE p.trailer = :trailer")})
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -63,6 +65,10 @@ public class Product implements Serializable {
     private double price;
     @Column(name = "POSTER")
     private String poster;
+    @Column(name = "GENRE")
+    private String genre;
+    @Column(name = "TRAILER")
+    private String trailer;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Orderlist> orderlistList;
 
@@ -133,6 +139,22 @@ public class Product implements Serializable {
 
     public void setPoster(String poster) {
         this.poster = poster;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
     }
 
     @XmlTransient

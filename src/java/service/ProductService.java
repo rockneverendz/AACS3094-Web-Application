@@ -20,20 +20,23 @@ public class ProductService {
         em.getTransaction().commit();
     }
 
-    public Product findCustByID(int id) {
-        Product customer = em.find(Product.class, id);
-        return customer;
+    public Product findProdByID(int id) {
+        return (Product) em.find(Product.class, id);
     }
-
-    public boolean deleteCustomer(int id) {
-        Product product = findCustByID(id);
-        if (product != null) {
-            em.remove(product);
-            em.getTransaction().commit();
-            return true;
-        }
-        return false;
-    }
+//
+//    public boolean deleteCustomer(int id) {
+//        Product product = findCustByID(id);
+//        if (product != null) {
+//            em.remove(product);
+//            em.getTransaction().commit();
+//            return true;
+//        }
+//        return false;
+//    }
+    
+    public int countProduct(){
+        return (int) em.createNativeQuery("SELECT COUNT(*) FROM NBUSER.PRODUCT").getSingleResult();
+    } 
 
 //    public List<Customer> findAll() {
 //        List Custlist = em.createNamedQuery("Customer.findAll").getResultList();

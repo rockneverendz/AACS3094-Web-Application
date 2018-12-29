@@ -1,52 +1,58 @@
 <!DOCTYPE html>
+
+<%@ page import = "entity.Product" %>
+<%@ page import = "service.ProductService" %>
+<%@ page import = "java.util.Date" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String productid = request.getParameter("productid");
+    ProductService productService = new ProductService();
+    Product product;
+    int noProduct = productService.countProduct();
+    int recomProd;
+
+    if (productid == null) {
+        response.sendRedirect("../video/DySpee.jsp");
+        return;
+    } else {
+        product = productService.findProdByID(Integer.parseInt(productid));
+    }
+%>
+
+<%!
+    public int randomMax(int max) {
+        return (int) (Math.random() * max);
+    }
+%>
+
 <html>
 
     <head>
         <meta charset="uft-8">
-        <title>Avengers: Infinity War (2018)</title>
+        <title><%= product.getName()%></title>
         <link href="../layout/image/DySpee.png" rel="icon" />
         <link href="style/trailer.css" rel="stylesheet" />
         <link href="../layout/base.css" rel="stylesheet" />
 
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-
     </head>
 
-
     <body>
-
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-        <%@ page import = "entity.Product" %>
-        <%@ page import = "service.ProductService" %>
-        <%@ page import = "java.util.Date" %>
-        <%@ page import = "java.text.SimpleDateFormat" %>
-        <%  ProductService productService = new ProductService();
-            Product product;
-            String productid = request.getParameter("productid");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-            if (productid == null) {
-                response.sendRedirect("../video/DySpee.jsp");
-                return;
-            } else {
-                product = productService.findCustByID(Integer.parseInt(productid));
-            }
-
-        %>
-
         <div class="article-container">
             <div class="video">
-                <iframe width="850" height="390" src="https://www.youtube.com/embed/QwievZ1Tx-8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="850" height="390" src=<%= product.getTrailer() %> frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
 
             <div class="detailBox">
+
                 <div class="poster">
                     <img src=<%= product.getPoster()%> alt="" />
-
                 </div>
 
                 <div class="title">
@@ -70,24 +76,14 @@
                 </div>
 
                 <div class="tags">
-                    <p>Genre: <a href="#">Action</a>, <a href="#">Adventure</a>, <a href="#">Science Fiction</a></p>
-
-                    <p>Based on: The Avengers; by: Stan Lee; Jack Kirby</p>
-
-                    <p>Director: Anthony Russo, Joe Russo</p>
-
-                    <p>Country: <a href="#">USA</a></p>
-
+                    <p>Genre: <a href="#"><%= product.getGenre() %></a></p>
                 </div>
 
                 <div class="tags2">
                     <p>Duration: 2h 40m</p>
-
                     <p>Disc format: CD, DVD, Blu-ray</p>
-
                     <p>Release: <%= sdf.format(product.getDaterelease())%></p>
-
-                    <p><em>Price: RM<%= String.format("%.2f", product.getPrice()) %> (Free shipping!) </em></p>
+                    <p><em>Price: RM<%= String.format("%.2f", product.getPrice())%> (Free shipping!) </em></p>
 
                     <button class="btn"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
                 </div>
@@ -97,20 +93,21 @@
 
             <div class="suggestionBox">
                 <div class="recom">Recommended</div>
-                <div class="box">
-                    <a href="#"><img src="image/poster2.jpg" alt="" /></a>
-                    <p>The Avengers</p>
-                </div>
+                <%
+                    for (int j = 0; j < 3; j++) {
+                        recomProd = randomMax(noProduct);
+                        product = productService.findProdByID(recomProd);
+                %>
 
                 <div class="box">
-                    <a href="#"><img src="image/poster3.jpg" alt="" /></a>
-                    <p>Avengers : Age Of Ultron</p>
+                    <a href="../video/trailer.jsp?productid=<%= recomProd %>">
+                        <img src=<%= product.getPoster() %> alt="" />
+                    </a>
+                    <p><%= product.getName() %></p>
                 </div>
 
-                <div class="box">
-                    <a href="#"><img src="image/poster4.jpg" alt="" /></a>
-                    <p>Black Panther</p>
-                </div>
+                <% }
+                %>
             </div>
         </div>
 
@@ -119,5 +116,4 @@
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
-
 </html>
