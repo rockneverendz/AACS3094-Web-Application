@@ -74,7 +74,10 @@
         <footer>
             <%@ include file="../layout/footer.jsp"%>
         </footer>
-
     </body>
-
 </html>
+
+<%
+    productService.close();
+%>
+

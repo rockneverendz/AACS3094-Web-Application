@@ -54,4 +54,8 @@ public class ProductService {
 //        }
 //        return false;
 //    }
+    
+    public void close() {
+        this.em.close();
+    }
 }

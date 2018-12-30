@@ -4,6 +4,12 @@
 - derbyclient.jar
 - EclipseLink (JPA 2.1)
 
+## Used for resetting
+```
+ALTER TABLE CUSTOMER ALTER COLUMN CUSTID RESTARD WITH 0;
+ALTER TABLE PRODUCT ALTER COLUMN PRODUCTID RESTART WITH 0;
+```
+
 ```
 New Session
 	Empty

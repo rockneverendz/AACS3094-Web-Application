@@ -23,8 +23,7 @@
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-        <%            
-            String status = request.getParameter("status");
+        <%  String status = request.getParameter("status");
             String message;
             if (status == null) {
                 message = "";

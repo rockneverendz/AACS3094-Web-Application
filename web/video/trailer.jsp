@@ -117,3 +117,7 @@
         </footer>
     </body>
 </html>
+
+<%
+    productService.close();
+%>
