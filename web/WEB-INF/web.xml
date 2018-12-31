@@ -26,6 +26,10 @@
         <servlet-name>Cart</servlet-name>
         <servlet-class>control.Cart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteItem</servlet-name>
+        <servlet-class>control.DeleteItem</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/account/SignUp</url-pattern>
@@ -45,6 +49,10 @@
     <servlet-mapping>
         <servlet-name>Cart</servlet-name>
         <url-pattern>/video/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteItem</servlet-name>
+        <url-pattern>/checkout/DeleteItem</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

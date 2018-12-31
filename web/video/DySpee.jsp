@@ -13,16 +13,17 @@
 
     <body>
 
-        <%
-            //Status code -1= An error has occured
-            //Status code 0 = Successfully Signed Out
-            //Status code 1 = Successfully Signed In
-            //Status code 2 = Successfully Signed Up
-%>
-
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
+
+        <%--
+            Status code -1= An error has occured
+            Status code 0 = Successfully Signed Out
+            Status code 1 = Successfully Signed In
+            Status code 2 = Successfully Signed Up
+        --%>
+
         <%  String status = request.getParameter("status");
             String message;
             if (status == null) {

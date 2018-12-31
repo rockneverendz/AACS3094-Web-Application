@@ -30,7 +30,8 @@
                 message = "";
             }
             if (customer == null) {
-                customer = new Customer();
+                response.sendRedirect("../video/DySpee.jsp?status=-1");
+                return;
             }
 
             //For parsing date in Date of Birth field
@@ -92,7 +93,6 @@
                         <label>&ensp;</label>
                         <button id="submitBtn" type="submit">Save Settings</button>
                     </div>
-
                 </fieldset>
             </form>
         </div>

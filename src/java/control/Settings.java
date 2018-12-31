@@ -7,13 +7,9 @@ import service.CustomerService;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.RequestDispatcher;
-
-// Entity Libraries
-import javax.persistence.RollbackException;
 
 public class Settings extends HttpServlet {
 
@@ -40,7 +36,7 @@ public class Settings extends HttpServlet {
             if (customer == null) {
                 throw new IllegalArgumentException("You have to be logged in to do that");
             }
-            
+
             // Match current password with old password
             if (!passwordCu.equals(customer.getPassword())) {
                 throw new IllegalArgumentException("Invalid Current Password.");
@@ -55,14 +51,14 @@ public class Settings extends HttpServlet {
                 throw new IllegalArgumentException();
             }
             customer.setPassword(password);
-            
+
             // Update & Commit (over at service.CustomerService)
             isUpdated = customerService.updateCustomer(customer);
-            
+
         } catch (ParseException ex) {
 
             message = "Invalid Date. How in the world do you end up in this state?";
-            
+
         } catch (IllegalArgumentException ex) {
 
             message = ex.getMessage();
@@ -73,7 +69,7 @@ public class Settings extends HttpServlet {
             // Update Session (Reset customer attribute)
             session.removeAttribute("customer");
             session.setAttribute("customer", customer);
-            
+
             response.sendRedirect("../account/Settings.jsp?status=1");
         } else {
             request.setAttribute("message", message);

@@ -44,9 +44,36 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
+        <%--
+            Status code -1= An error has occured
+            Status code 0 = Successfully Signed Out
+            Status code 1 = Successfully Signed In
+            Status code 2 = Successfully Signed Up
+        --%>
+
+        <%  String status = request.getParameter("status");
+            String message;
+            if (status == null) {
+                message = "";
+            } else {
+                char code = status.charAt(0);
+                if (code == '1') {
+                    message = "Successfully Added to cart!";
+                } else {
+                    message = "Error has occured";
+                }
+        %>
+        
+        <div class="message-container">
+            <%=message%>
+        </div>
+
+        <%
+            }
+        %>
         <div class="article-container">
             <div class="video">
-                <iframe width="850" height="390" src=<%= product.getTrailer() %> frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="850" height="390" src=<%= product.getTrailer()%> frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
 
             <div class="detailBox">
@@ -76,20 +103,21 @@
                 </div>
 
                 <div class="tags">
-                    <p>Genre: <a href="#"><%= product.getGenre() %></a></p>
+                    <p>Genre: <a href="#"><%= product.getGenre()%></a></p>
+                    <p>Duration: 2h 40m</p>
                 </div>
 
                 <div class="tags2">
-                    <p>Duration: 2h 40m</p>
-                    <p>Disc format: CD, DVD, Blu-ray</p>
+                    <p>Disc format: DVD, Blu-ray</p>
                     <p>Release: <%= sdf.format(product.getDaterelease())%></p>
                     <p><em>Price: RM<%= String.format("%.2f", product.getPrice())%> (Free shipping!) </em></p>
 
-                    <button class="btn"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
+                    <form action="Cart" method="GET">
+                        <input type="hidden" name="productid" value="<%= product.getProductid()%>" />
+                        <button class="btn"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
+                    </form>    
                 </div>
-
             </div>
-
 
             <div class="suggestionBox">
                 <div class="recom">Recommended</div>
@@ -100,10 +128,10 @@
                 %>
 
                 <div class="box">
-                    <a href="../video/trailer.jsp?productid=<%= recomProd %>">
-                        <img src=<%= product.getPoster() %> alt="" />
+                    <a href="../video/trailer.jsp?productid=<%= recomProd%>">
+                        <img src=<%= product.getPoster()%> />
                     </a>
-                    <p><%= product.getName() %></p>
+                    <p><%= product.getName()%></p>
                 </div>
 
                 <% }
