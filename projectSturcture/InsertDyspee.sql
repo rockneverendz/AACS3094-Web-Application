@@ -1,4 +1,6 @@
-﻿INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
+﻿ALTER TABLE PRODUCT ALTER COLUMN PRODUCTID RESTART WITH 0;
+
+INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
 	VALUES ('The Avengers: The Infinity War', 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality. The fate of the planet and existence itself has never been more uncertain as everything the Avengers have fought for has led up to this moment.', 5, '2018-04-23', 30.0, '../video/image/Movie_Img/Sci-fic/Avengers_Infinity_War_poster.jpg', 'Sci-Fic', 'https://www.youtube.com/embed/6ZfuNTqbHE8');
 INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
 	VALUES ('Ant-Man and the Wasp', 'Scott Lang is grappling with the consequences of his choices as both a superhero and a father. Approached by Hope van Dyne and Dr. Hank Pym, Lang must once again don the Ant-Man suit and fight alongside the Wasp. The urgent mission soon leads to secret revelations from the past as the dynamic duo finds itself in an epic battle against a powerful new enemy.', 4, '2018-07-04', 30.0, '../video/image/Movie_Img/Sci-fic/antman_and_the_wasp_ver2.jpg', 'Sci-Fic', 'https://www.youtube.com/embed/UUkn-enk2RU');
