@@ -15,12 +15,14 @@
         <%@ page import = "java.util.Date" %>
         <%@ page import = "java.text.SimpleDateFormat" %>
         <%
-            //If no object are recieved, create a new object.
-            String message = (String) request.getAttribute("message");
-            Customer customer = (Customer) request.getAttribute("customer");
-            if (message == null) {
-                message = "";
+            //If user already logged in
+            if (session.getAttribute("customer") != null) {
+                response.sendRedirect("../video/DySpee.jsp?status=A");
+                return;
             }
+            
+            //If no object are recieved, create a new object.
+           Customer customer = (Customer) request.getAttribute("customer");
             if (customer == null) {
                 customer = new Customer();
                 customer.setCustname("");
@@ -41,9 +43,15 @@
                 <fieldset id="settings">
                     <legend>Sign Up</legend>
 
-                    <!--TODO Display error message better-->
-                    <p><%=message%></p>
-                    
+                    <%  //If no message are recieved, set it empty.
+                        String message = (String) request.getAttribute("message");
+                        if (message != null) {
+                    %>
+                    <div class="error-container"><%= message%></div>
+                    <%
+                        }
+                    %>
+
                     <div class="formRow">
                         <label>*Name :&ensp;</label>
                         <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required="true"/>

@@ -23,14 +23,10 @@
         <%@ page import = "java.util.Date" %>
         <%@ page import = "java.text.SimpleDateFormat" %>
         <%
-            //If no object are recieved, create a new object.
-            String message = (String) request.getAttribute("message");
+            //If user is not logged in
             Customer customer = (Customer) session.getAttribute("customer");
-            if (message == null) {
-                message = "";
-            }
             if (customer == null) {
-                response.sendRedirect("../video/DySpee.jsp?status=-1");
+                response.sendRedirect("../video/DySpee.jsp?status=Y");
                 return;
             }
 
@@ -57,12 +53,18 @@
         %>
 
         <div class="article-container">
-            <form action="Settings" method="POST">
+            <form action="Settings" method="GET">
                 <fieldset id="settings">
                     <legend>Settings</legend>
 
-                    <!--TODO Display error message better-->
-                    <p><%=message%></p>
+                    <%  //If no message are recieved, set it empty.
+                        String message = (String) request.getAttribute("message");
+                        if (message != null) {
+                    %>
+                    <div class="error-container"><%= message%></div>
+                    <%
+                        }
+                    %>
 
                     <div class="formRow">
                         <label>Name :&ensp;</label>
@@ -78,16 +80,16 @@
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>
-                        <input name = "password" type = "password" placeholder = "Password" required/>
+                        <input name = "password" type = "password" placeholder = "Password" />
                     </div>
                     <div class="formRow">
                         <label>*Retype Password :&ensp;</label>
-                        <input name = "passwordRe" type = "password" placeholder = "Password" required/>
+                        <input name = "passwordRe" type = "password" placeholder = "Password" />
                     </div>
                     <br>
                     <div class="formRow">
                         <label>*Current Password :&ensp;</label>
-                        <input name = "passwordCu" type = "password" placeholder = "Password" required/>
+                        <input name = "passwordCu" type = "password" placeholder = "Password" />
                     </div>
                     <div class="formRow">
                         <label>&ensp;</label>

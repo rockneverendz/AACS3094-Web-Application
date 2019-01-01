@@ -13,12 +13,14 @@
     <body>
         <%@ page import="entity.Customer"%>
         <%
-            //If no object are recieved, create a new object.
-            String message = (String) request.getAttribute("message");
-            String email = (String) request.getAttribute("email");
-            if (message == null) {
-                message = "";
+            //If user already logged in
+            if (session.getAttribute("customer") != null){
+                response.sendRedirect("../video/DySpee.jsp?status=A");
+                return;
             }
+            
+            //If no object are recieved, create a new object.
+            String email = (String) request.getAttribute("email");
             if (email == null) {
                 email = "";
             }
@@ -26,15 +28,21 @@
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-        
+
         <div class="article-container">
             <form action="SignIn" method="post">
                 <fieldset id="settings">
                     <legend>Sign In</legend>
-                    
-                    <!--TODO Display error message better-->
-                    <p><%=message%></p>
-                    
+
+                    <%  //If no message are recieved, set it empty.
+                        String message = (String) request.getAttribute("message");
+                        if (message != null) {
+                    %>
+                    <div class="error-container"><%= message%></div>
+                    <%
+                        }
+                    %>
+
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
                         <input name = "email" type="text" placeholder="Email" value = "<%=email%>" required/>
