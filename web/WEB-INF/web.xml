@@ -23,8 +23,8 @@
         <servlet-class>control.Settings</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Cart</servlet-name>
-        <servlet-class>control.Cart</servlet-class>
+        <servlet-name>AddItem</servlet-name>
+        <servlet-class>control.AddItem</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteItem</servlet-name>
@@ -47,8 +47,8 @@
         <url-pattern>/account/Settings</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Cart</servlet-name>
-        <url-pattern>/video/Cart</url-pattern>
+        <servlet-name>AddItem</servlet-name>
+        <url-pattern>/video/AddItem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteItem</servlet-name>
