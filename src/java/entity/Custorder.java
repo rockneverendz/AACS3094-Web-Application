@@ -140,5 +140,5 @@ public class Custorder implements Serializable {
     public String toString() {
         return "entity.Custorder[ orderid=" + orderid + " ]";
     }
-    
+
 }

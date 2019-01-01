@@ -56,8 +56,6 @@ public class AddItem extends HttpServlet {
                 cart.get(indexOfProduct).setQty(quantity);
             }
             
-
-
         } catch (NumberFormatException ex) {
             response.sendRedirect("../video/DySpee.jsp?status=-1");
             return;

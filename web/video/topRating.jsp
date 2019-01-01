@@ -2,7 +2,7 @@
 
 <%@ page import = "entity.Product" %>
 <%@ page import = "service.ProductService" %>
-<%            ProductService productService = new ProductService();
+<%  ProductService productService = new ProductService();
     Product product = new Product();
     int i, j, indexNum;
 %>
@@ -36,7 +36,7 @@
 
             <!--Main Start-->
             <div class="main">
-                
+
                 <div class="title">
                     <h1>Top Rating Movies</h1>
                 </div>
