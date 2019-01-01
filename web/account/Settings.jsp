@@ -39,16 +39,19 @@
         </header>
 
         <%  String status = request.getParameter("status");
+            String message = (String) request.getAttribute("message");
+            //If no status are recieved, no need division
             if (status != null) {
                 char code = status.charAt(0);
                 if (code == '1') {
         %>
-
-        <div class="message-container">
-            Successfully Updated!
-        </div>
-
+        <div class="message-container">Successfully Updated!</div>
         <%      }
+            } //Else if no message are recieved, no need division
+            else if (message != null) {
+        %>
+        <div class="error-container"><%= message%></div>
+        <%
             }
         %>
 
@@ -56,16 +59,6 @@
             <form action="Settings" method="GET">
                 <fieldset id="settings">
                     <legend>Settings</legend>
-
-                    <%  //If no message are recieved, set it empty.
-                        String message = (String) request.getAttribute("message");
-                        if (message != null) {
-                    %>
-                    <div class="error-container"><%= message%></div>
-                    <%
-                        }
-                    %>
-
                     <div class="formRow">
                         <label>Name :&ensp;</label>
                         <input name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>

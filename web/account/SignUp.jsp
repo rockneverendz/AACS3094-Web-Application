@@ -20,9 +20,9 @@
                 response.sendRedirect("../video/DySpee.jsp?status=A");
                 return;
             }
-            
+
             //If no object are recieved, create a new object.
-           Customer customer = (Customer) request.getAttribute("customer");
+            Customer customer = (Customer) request.getAttribute("customer");
             if (customer == null) {
                 customer = new Customer();
                 customer.setCustname("");
@@ -38,27 +38,26 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
+        <%  //If no message are recieved, no need division
+            String message = (String) request.getAttribute("message");
+            if (message != null) {
+        %>
+        <div class="error-container"><%= message %></div>
+        <%
+            }
+        %>
+        
         <div class="article-container">
             <form action="SignUp" method="post">
                 <fieldset id="settings">
                     <legend>Sign Up</legend>
-
-                    <%  //If no message are recieved, set it empty.
-                        String message = (String) request.getAttribute("message");
-                        if (message != null) {
-                    %>
-                    <div class="error-container"><%= message%></div>
-                    <%
-                        }
-                    %>
-
                     <div class="formRow">
                         <label>*Name :&ensp;</label>
-                        <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required="true"/>
+                        <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email" required="true"/>
+                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email" required/>
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
@@ -66,11 +65,11 @@
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>
-                        <input name = "password" type="password" placeholder="Password" required="true"/>
+                        <input name = "password" type="password" placeholder="Password" required/>
                     </div>
                     <div class="formRow">
                         <label>*Retype Password :&ensp;</label>
-                        <input name = "passwordRe" type="password" placeholder="Password" required="true"/>
+                        <input name = "passwordRe" type="password" placeholder="Password" required/>
                     </div>
                     <div class="formRow">
                         <label>&ensp;</label>

@@ -10,6 +10,7 @@
             </form>
             <!--Debug start-->
             
+            <!--            
             <%@page import="entity.Customer"%>
             <%= session.getId()%>
             <br>
@@ -23,7 +24,8 @@
             <%
                 }
             %>
-
+            -->
+            
             <!--Debug end-->
         </div>
         <div class="header-cart">
@@ -84,6 +86,6 @@
         <%
             }
         %>
-        
+
     </div>
 </div>

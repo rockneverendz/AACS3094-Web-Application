@@ -34,9 +34,9 @@ public class Settings extends HttpServlet {
             if (!passwordCu.equals(customer.getPassword())) {
                 throw new IllegalArgumentException("Invalid Current Password.");
             }
-            
+
             customer.setCustname(name);
-            
+
             // Find by Customer Email which is Unique.
             if (customer == null) {
                 throw new IllegalArgumentException("You have to be logged in to do that");

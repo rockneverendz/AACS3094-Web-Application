@@ -271,8 +271,7 @@ div p {
 	text-shadow: 0 0 3px #9ecaed;
 }
 
-.message-container {
-    background-color: rgba(63, 191, 63, 0.50);
+.message-container, .error-container {
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -281,4 +280,12 @@ div p {
     width: 95%;
     margin: auto;
     justify-content: space-around;
+}
+
+.message-container {
+    background-color: rgba(63, 191, 63, 0.50);
+}
+
+.error-container {
+    background-color: rgba(191, 63, 63, 0.50);
 }

@@ -17,15 +17,18 @@ public class SignOut extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //Invalidate Session
+        // Invalidate Session
         HttpSession session = request.getSession();
         
+        // Check session contained customer
         if (session.getAttribute("customer") == null) {
+            // Redirect back to homepage with status 'Not Signed In'
             response.sendRedirect("../video/DySpee.jsp?status=Y");
             return;
         }
         
         session.invalidate();
+        // Redirect back to homepage with status 'Success'
         response.sendRedirect("../video/DySpee.jsp?status=0");
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
