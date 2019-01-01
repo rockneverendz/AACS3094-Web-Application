@@ -18,10 +18,11 @@
         </header>
 
         <%--
-            Status code -1= An error has occured
             Status code 0 = Successfully Signed Out
             Status code 1 = Successfully Signed In
             Status code 2 = Successfully Signed Up
+        
+            Status code A = Already Signed in
         --%>
 
         <%  String status = request.getParameter("status");
@@ -36,6 +37,10 @@
                     message = "Successfully Signed In!";
                 } else if (code == '2') {
                     message = "Successfully Signed Up!";
+                } else if (code == 'A') {
+                    message = "Already Signed in!";
+                } else if (code == 'Y') {
+                    message = "You have to be logged in to do that!";
                 } else {
                     message = "Error has occured";
                 }
