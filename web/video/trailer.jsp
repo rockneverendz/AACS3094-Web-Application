@@ -125,7 +125,7 @@
                     <p>Release: <%= sdf.format(product.getDaterelease())%></p>
                     <p><em>Price: RM<%= String.format("%.2f", product.getPrice())%> (Free shipping!) </em></p>
 
-                    <form action="Cart" method="GET">
+                    <form action="AddItem" method="GET">
                         <input type="hidden" name="productid" value="<%= product.getProductid()%>" />
                         <button class="btn"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
                     </form>    
