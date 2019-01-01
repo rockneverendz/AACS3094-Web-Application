@@ -1,3 +1,5 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 
 <%@ page import = "entity.Product" %>
@@ -9,15 +11,26 @@
     String productid = request.getParameter("productid");
     ProductService productService = new ProductService();
     Product product;
+    int[] recomProd = new int[3];
     int noProduct = productService.countProduct();
-    int recomProd;
-
+    int i;
+    
+    // Product ID is null, redirect back to homepage with an error.
     if (productid == null) {
-        response.sendRedirect("../video/DySpee.jsp");
+        response.sendRedirect("../video/DySpee.jsp?status=-1");
         return;
     } else {
         product = productService.findProdByID(Integer.parseInt(productid));
     }
+
+    // 3 Unique Random Numbers in Java
+    recomProd[0] = randomMax(noProduct);
+    do {
+        recomProd[1] = randomMax(noProduct);
+    } while (recomProd[0] == recomProd[1]);
+    do {
+        recomProd[2] = randomMax(noProduct);
+    } while (recomProd[0] == recomProd[2] || recomProd[1] == recomProd[2]);
 %>
 
 <%!
@@ -63,7 +76,7 @@
                     message = "Error has occured";
                 }
         %>
-        
+
         <div class="message-container">
             <%=message%>
         </div>
@@ -89,7 +102,7 @@
                 <div class="rating">
                     <span>Rating : </span>
                     <%
-                        for (int i = 0; i < product.getRating(); i++) {
+                        for (i = 0; i < product.getRating(); i++) {
                     %>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <%
@@ -122,9 +135,8 @@
             <div class="suggestionBox">
                 <div class="recom">Recommended</div>
                 <%
-                    for (int j = 0; j < 3; j++) {
-                        recomProd = randomMax(noProduct);
-                        product = productService.findProdByID(recomProd);
+                    for (i = 0; i < 3; i++) {
+                        product = productService.findProdByID(recomProd[i]);
                 %>
 
                 <div class="box">
