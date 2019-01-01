@@ -2,7 +2,6 @@ package control;
 
 import entity.Custorder;
 import entity.Orderlist;
-import entity.OrderlistPK;
 import entity.Product;
 import service.ProductService;
 
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Cart extends HttpServlet {
+public class AddItem extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -24,7 +23,8 @@ public class Cart extends HttpServlet {
         String productidS = request.getParameter("productid");
 
         // Initialize Variables
-        OrderlistPK orderlistPK = new OrderlistPK();
+        int indexOfProduct;
+        Orderlist orderlist;
         ProductService productService = new ProductService();
         Product product = productService.findProdByID(
                 Integer.parseInt(productidS)
@@ -32,17 +32,31 @@ public class Cart extends HttpServlet {
 
         // Get session cart. If null, new cart.
         HttpSession session = request.getSession();
-        ArrayList<OrderlistPK> cart = (ArrayList) session.getAttribute("cart");
+        ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
         if (cart == null) {
             cart = new ArrayList<>();
         }
 
         try {
-            int productid = Integer.parseInt(productidS);
+            indexOfProduct = cart.indexOf(product);
+            
+            // If product is not in the cart yet.
+            if (indexOfProduct == -1) {
+                orderlist = new Orderlist();
+                orderlist.setProduct(product);
+                orderlist.setQty(1);
+                cart.add(orderlist);
+            }
+            
+            // If product is already in the cart.
+            else {
+                int quantity;
+                quantity = cart.get(indexOfProduct).getQty();
+                quantity += 1;
+                cart.get(indexOfProduct).setQty(quantity);
+            }
+            
 
-            // We don't know Order ID, but we know Product ID
-            orderlistPK.setProductid(productid);
-            cart.add(orderlistPK);
 
         } catch (NumberFormatException ex) {
             response.sendRedirect("../video/DySpee.jsp?status=-1");
