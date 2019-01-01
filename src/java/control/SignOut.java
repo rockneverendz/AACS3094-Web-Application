@@ -6,8 +6,6 @@
 package control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +19,13 @@ public class SignOut extends HttpServlet {
         
         //Invalidate Session
         HttpSession session = request.getSession();
-        session.invalidate();
         
+        if (session.getAttribute("customer") == null) {
+            response.sendRedirect("../video/DySpee.jsp?status=Y");
+            return;
+        }
+        
+        session.invalidate();
         response.sendRedirect("../video/DySpee.jsp?status=0");
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">

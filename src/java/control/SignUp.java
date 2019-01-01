@@ -27,7 +27,6 @@ public class SignUp extends HttpServlet {
         String passwordRe = request.getParameter("passwordRe");
 
         // Initialize variables
-        Boolean signedIn = false;
         String message;
         String url = "/account/SignUp.jsp";
         Customer customer = new Customer();
@@ -56,9 +55,9 @@ public class SignUp extends HttpServlet {
             session.setAttribute("customer", customer);
             session.setMaxInactiveInterval(-1);
 
-            signedIn = true;
-            message = "Succesfully Registered";
-            url = "/video/DySpee.jsp";
+            // Redirect back to homepage with status 'Success'
+            response.sendRedirect("../video/DySpee.jsp?status=2");
+            return;
 
         } catch (ParseException ex) {
 
@@ -77,18 +76,16 @@ public class SignUp extends HttpServlet {
 
         }
 
-        if (signedIn) {
-            response.sendRedirect("../video/DySpee.jsp?status=2");
-        } else {
-            request.setAttribute("message", message);
-            request.setAttribute("customer", customer);
+        request.setAttribute("message", message);
+        request.setAttribute("customer", customer);
 
-            RequestDispatcher dispatcher
-                    = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
-        }
+        RequestDispatcher dispatcher
+                = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

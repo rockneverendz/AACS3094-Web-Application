@@ -19,7 +19,6 @@ public class SignIn extends HttpServlet {
         String password = request.getParameter("password");
 
         // Initialize variables
-        Boolean signedIn = false;
         String message;
         String url = "/account/SignIn.jsp";
         CustomerService customerService = new CustomerService();
@@ -38,10 +37,10 @@ public class SignIn extends HttpServlet {
             session.setAttribute("customer", customer);
             session.setMaxInactiveInterval(-1);
 
-            signedIn = true;
-            message = "Succesfully Logged In";
-            url = "/video/DySpee.jsp";
-
+            // Redirect back to homepage with status 'Success'
+            response.sendRedirect("../video/DySpee.jsp?status=1");
+            return;
+            
         } catch (NoResultException ex) {
 
             message = "No user with that email is found.";
@@ -51,16 +50,12 @@ public class SignIn extends HttpServlet {
             message = "Password incorrect.";
         }
 
-        if (signedIn) {
-            response.sendRedirect("../video/DySpee.jsp?status=1");
-        } else {
             request.setAttribute("message", message);
             request.setAttribute("email", email);
 
             RequestDispatcher dispatcher
                     = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
-        }
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
 
