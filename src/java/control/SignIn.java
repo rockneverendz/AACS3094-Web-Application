@@ -40,7 +40,7 @@ public class SignIn extends HttpServlet {
             // Redirect back to homepage with status 'Success'
             response.sendRedirect("../video/DySpee.jsp?status=1");
             return;
-            
+
         } catch (NoResultException ex) {
 
             message = "No user with that email is found.";
@@ -50,12 +50,12 @@ public class SignIn extends HttpServlet {
             message = "Password incorrect.";
         }
 
-            request.setAttribute("message", message);
-            request.setAttribute("email", email);
+        request.setAttribute("message", message);
+        request.setAttribute("email", email);
 
-            RequestDispatcher dispatcher
-                    = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+        RequestDispatcher dispatcher
+                = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
 

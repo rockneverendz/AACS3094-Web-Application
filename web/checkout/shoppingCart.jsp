@@ -6,8 +6,9 @@
 <%@page import="entity.Orderlist"%>
 <%
     ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
-    Product product;
     ProductService productService = new ProductService();
+    Product product;
+    int i;
 %>
 
 <html>
@@ -26,11 +27,39 @@
         <%@ include file="../layout/header.jsp"%>
     </header>
 
-    <!--Container Start-->
+    <%--
+    Status code 0 = Successfully Signed Out
+    Status code 1 = Successfully Signed In
+    --%>
 
+    <%  String status = request.getParameter("status");
+        String message;
+        if (status == null) {
+            message = "";
+        } else {
+            char code = status.charAt(0);
+            if (code == '1') {
+                message = "Item removed successfully.";
+            } else if (code == '0') {
+                message = "Item does not exist in cart.";
+            } else {
+                message = "Error has occured";
+            }
+    %>
+
+    <div class="message-container"><%= message%></div>
+
+    <%
+        }
+    %>
+
+    <!--Container Start-->
     <div class="article-container">
-        <%  if (cart != null) {
+        
+        <%  // If cart object exists and not empty
+            if (cart != null && !cart.isEmpty()) {
         %>
+        
         <!--Cart-->
         <div id="col1" class="row1">
 
@@ -43,13 +72,14 @@
                     <th>Price</th>
                 </tr>
 
-                <%  for (Orderlist cartmember : cart) {
+                <%  for (i = 0; i < cart.size(); i++) {
+                        Orderlist cartmember = cart.get(i);
                         product = cartmember.getProduct();
                 %>
 
                 <tr id="list">
                     <td class="item">
-                        <a class="trash" href="../checkout/DeleteItem?productid=<%= product.getProductid()%>" ><i class="fas fa-trash-alt"></i></a>
+                        <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" ><i class="fas fa-trash-alt"></i></a>
                         <img src=<%= product.getPoster()%> />
                         <p><%= product.getName()%></p>
                     </td>
@@ -117,8 +147,9 @@
             </a>
 
         </div>
-        
-        <%  } else {
+
+        <%  // If cart object does not exist or empty
+        } else {
         %>
 
         <div> Your cart is empty! :( </div>

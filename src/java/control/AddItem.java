@@ -23,48 +23,52 @@ public class AddItem extends HttpServlet {
         String productidS = request.getParameter("productid");
 
         // Initialize Variables
-        int indexOfProduct;
-        Orderlist orderlist;
         ProductService productService = new ProductService();
-        Product product = productService.findProdByID(
-                Integer.parseInt(productidS)
-        );
+        Product product;
+        Orderlist orderlist;
+        int indexOfProduct = -1;
 
         // Get session cart. If null, new cart.
         HttpSession session = request.getSession();
         ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
         if (cart == null) {
             cart = new ArrayList<>();
+            session.setAttribute("cart", cart);
         }
 
         try {
-            indexOfProduct = cart.indexOf(product);
-            
+            // Find the product by ID
+            product = productService.findProdByID(
+                    Integer.parseInt(productidS)
+            );
+
+            // Find the index of product on the cart, return -1 if not found
+            for (int i = 0; i < cart.size(); i++) {
+                if (cart.get(i).getProduct().equals(product)) {
+                    indexOfProduct = i;
+                }
+            }
+
             // If product is not in the cart yet.
             if (indexOfProduct == -1) {
                 orderlist = new Orderlist();
                 orderlist.setProduct(product);
                 orderlist.setQty(1);
                 cart.add(orderlist);
-            }
-            
-            // If product is already in the cart.
+            } // If product is already in the cart.
             else {
                 int quantity;
                 quantity = cart.get(indexOfProduct).getQty();
                 quantity += 1;
                 cart.get(indexOfProduct).setQty(quantity);
             }
-            
+
+            // Redirect back to homepage with status 'Success'
+            response.sendRedirect("../video/trailer.jsp?productid=" + productidS + "&status=1");
+
         } catch (NumberFormatException ex) {
             response.sendRedirect("../video/DySpee.jsp?status=-1");
-            return;
         }
-
-        // Update Session
-        session.setAttribute("cart", cart);
-        response.sendRedirect("../video/trailer.jsp?productid=" + productidS + "&status=1");
-
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
 

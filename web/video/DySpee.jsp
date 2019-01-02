@@ -23,6 +23,7 @@
             Status code 2 = Successfully Signed Up
         
             Status code A = Already Signed in
+            Status code Y = Not Signed in
         --%>
 
         <%  String status = request.getParameter("status");
@@ -47,7 +48,7 @@
         %>
 
         <div class="message-container">
-            <%=message%>
+            <%= message %>
         </div>
 
         <%
