@@ -1,16 +1,41 @@
-<div class="header-bar">
-    <div class="header-container">
-        <div class="header-header"><a href="../video/DySpee.jsp"><img src="../layout/image/DySpee.png" /></a></div>
-        <div class="header-title"><img src="../layout/image/DySpeeOnline.png" />
-        </div>
-        <div class="header-searchbar">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search..." name="search">
-                <button type="submit"><img width="22px" src="../layout/image/search.png" /></button>
-            </form>
+<!-- HEADER IS HERE-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="../video/DySpee.jsp">
+        <img src="../layout/image/DySpee.png" width="80" height="80" />
+        <img src="../layout/image/DySpeeOnline.png" width="180" />
+    </a>
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="../video/DySpee.jsp"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../promo/promotion.jsp"><i class="fas fa-gift"></i> Promotions</a>
+        </li>
+        <!-- Drop Down -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fas fa-film"></i> Movies</a>
+            <ul class="dropdown-menu">
+                <a class="dropdown-item" href="../video/topRating.jsp">Top Rating</a>
+                <a class="dropdown-item" href="#">New Release</a>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Animation</a>
+                <a class="dropdown-item" href="../video/TVSeries.jsp">Anime</a>
+                <a class="dropdown-item" href="#">Horror</a>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fas fa-info-circle"></i> About</a>
+            <ul class="dropdown-menu">
+                <a class="dropdown-item" href="../about/AboutUs.jsp">About Us</a>
+                <a class="dropdown-item" href="../about/ContactUs.jsp">Contact Us</a>
+                <a class="dropdown-item" href="../about/faq.jsp">FAQ</a>
+            </ul>
+        </li>
+        <li style="color: white; font-size: 9px;">
             <!--Debug start-->
-            
-            <!--            
+
             <%@page import="entity.Customer"%>
             <%= session.getId()%>
             <br>
@@ -24,68 +49,43 @@
             <%
                 }
             %>
-            -->
-            
+
             <!--Debug end-->
-        </div>
-        <div class="header-cart">
-            <a href="../checkout/shoppingCart.jsp"><img src="../layout/image/shopping-cart.png" /></a>
+        </li>
+    </ul>
+
+    <div class="input-group ml-auto col-3">
+        <input type="text" class="form-control" placeholder="Search..." name="search">
+        <div class="input-group-append">
+            <button class="btn btn-secondary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
         </div>
     </div>
-</div>
-<div class="nav-bar">
-    <div class="nav-container">
-        <a href="../video/TVSeries.jsp">
-            <div class="nav-item" id="TVSeries">TV Series
-            </div>
-        </a>
-        <a href="../video/topRating.jsp">
-            <div class="nav-item" id="Movies">Movies
-            </div>
-        </a>
-        <a href="../promo/promotion.jsp">
-            <div class="nav-item" id="Promotions">Promotions
-            </div>
-        </a>
-        <a href="../about/AboutUs.jsp">
-            <div class="nav-item" id="About">About
-                <div class="nav-item-dropdown">
-                    <a href="../about/AboutUs.jsp">About Us</a><br /><br />
-                    <a href="../about/ContactUs.jsp">Contact Us</a><br /><br />
-                    <a href="../about/faq.jsp">FAQ</a><br />
-                </div>
-            </div>
-        </a>
 
+    <!--From Right-->
+    <ul class="navbar-nav ml-auto">
+        <a class="nav-link" href="../checkout/shoppingCart.jsp"><i class="fas fa-shopping-cart"></i> &nbsp;Cart</a>
+        
         <%
             if (customerLogged == null) {
         %>
-
-        <a href="../account/SignIn.jsp">
-            <div class="nav-item" id="Account">Account
-                <div class="nav-item-dropdown">
-                    <a href="../account/SignIn.jsp">Sign In</a><br /><br />
-                    <a href="../account/SignUp.jsp">Sign Up</a><br />
-                </div>
-            </div>
-        </a>
-
+        <a class="nav-link" href="../account/SignUp.jsp"><i class="fas fa-user"></i> &nbsp;Sign Up</a>
+        <a class="nav-link" href="../account/SignIn.jsp"><i class="fas fa-sign-in-alt"></i> &nbsp;Login</a>
         <%
         } else {
         %>
-
-        <a href="../account/Settings.jsp">
-            <div class="nav-item" id="Account"><%= customerLogged.getCustname()%>
-                <div class="nav-item-dropdown">
-                    <a href="../account/SignOut">Sign Out</a><br /><br />
-                    <a href="../account/Settings.jsp">Settings</a><br />
-                </div>
-            </div>
-        </a>
-
+        <a class="nav-link" href="../account/SignOut"><i class="fas fa-sign-out-alt"></i> &nbsp; Sign Out</a>
+        <a class="nav-link" href="../account/Settings.jsp"><i class="fas fa-cog"></i> &nbsp; Settings</a>
+        <a class="nav-link" href="#"><i class="fas fa-user"></i> &nbsp; <%= customerLogged.getCustname()%></a>
         <%
             }
         %>
+        
+        
+        
+    </ul>
 
-    </div>
-</div>
+</nav>
+        
+<div style="height: 110px;"></div>

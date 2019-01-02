@@ -1,6 +1,6 @@
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -8,7 +8,48 @@
         <link href="../layout/reset.css" rel="stylesheet" />
         <link href="../layout/base.css" rel="stylesheet" />
         <link href="../layout/image/DySpee.png" rel="icon" />
-        <link href="style/home.css" rel="stylesheet" />
+
+        <!-- Importing Bootstrap 4-->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+        <!-- Font Awesome Allows Input external Icon -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <!-- A Little CSS Spices -->
+        <style>
+            .jumbotron{
+                height: 650px;
+                padding: 100px 0 100px 0; 
+                background-color: rgba(0,0,0,0.70); 
+                color: white;
+                text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;
+            }
+
+            /* Make the image fully responsive */
+            .carousel-inner img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .Categories, .News-review{
+                margin: auto;
+                width: 80%;
+                color: aliceblue;
+                background-color: rgba(0,0,0,0.80);
+                padding: 3em;
+            }
+
+            .cateBox > a > img:hover{
+                box-shadow: 0 0 3px 6px rgb(4, 145, 180);
+            }
+
+        </style>
+
     </head>
 
     <body>
@@ -54,95 +95,102 @@
         <%
             }
         %>
-        <div class="article-container">
-            <div class="article-item" id="News">
-                <header>News</header>
-                <article>
-                    <img src="image/News1.jpg" />
-                    <h1><a href="#">'Kekkai Sensen' Gets Second Season for 2017</a></h1>
-                    <br>
-                    <p>
-                        The January 2017 issue of Jump SQ magazine, which goes on sale on December 2, has revealed that Kekkai Sensen (Blood Blockade Battlefront) will be getting a second season. Titled Kekkai Sensen &#38; BEYOND, it is slated for 2017.
-                        <br> The director of the second season will be Shigehito Takayanagi (Dagashi Kashi) while Yasuko Kamo (Tokyo ESP) will be in charge of the script. The cast members and the rest of the staff will reprise their roles.
-                        <br> The first season aired for a total of 12 episodes between April and October 2015. The series adapts the manga drawn by Yasuhiro Nightow. There have been ten volumes published between January 2009 and February 2015. A sequel series began publishing in July 2015 titled Kekkai Sensen: Back 2 Back.
-                    </p>
-                    <hr />
-                    <img src="image/News2.jpg" />
-                    <h1><a href="#">'Boku no Hero Academia The Movie: Futari no Hero' Announces Guest Cast Members</a></h1>
-                    <br>
-                    <p>
-                        The official Twitter account for the upcoming Boku no Hero Academia The Movie: Futari no Hero has announced two guest cast members, who are father and daughter. Melissa is a quirkless girl on I Island, while David, her father, was a friend of All Might in his adolescence. <br /><br />The movie will premiere in Japanese theaters on August 3.
-                    </p>
-                    <hr>
-                    <img src="image/News3.jpg" />
-                    <h1><a href="#">Winter 2018 Preview</a></h1>
-                    <br>
-                    <p>
-                        In this thread, you'll find a comprehensive list of Winter 2018 titles with an accompanying promotional video (PV), commercial (CM), or trailer. This post will be updated to include a PV, CM, or trailer for titles that are missing one, leading up to the start of the season. Titles that already have a video embedded will instead have their newly released videos added to the video tab in their respective entries. For convenience, the video tab can be accessed via the additional videos link next to the embedded video. If a title is missing a video, feel free to post it in this thread.
 
-                    </p>
-                </article>
+
+        <!-- Jumbotron -->
+        <div class="jumbotron jumbotron-fluid text-center" style="margin: 105px 0 0 0">
+            <img src="image/Home-img/Welcome.png" alt="welcome" />
+            <h5>The home of amazing original programming that you can?t find anywhere else. <br>
+                Movies, TV shows, specials and more, it?s all tailored specifically to you. </h5>
+        </div>
+
+        <!-- Carousel -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: auto; width: 80%;">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url(image/Home-img/KimiNoNaWa.png); background-size: cover; height: 500px;">
+                </div>
+
+                <div class="carousel-item" style="background-image: url(image/Home-img/Infinity%20War.jpg); background-size: cover; height: 500px">
+                </div>
+                <div class="carousel-item" style="background-image: url(image/Home-img/incredibles-2-background-42.jpg); background-size: cover; height: 500px;">
+                </div>
             </div>
-            <div class="article-item" id="Popular">
-                <header>Popular</header>
-                <ul>
-                    <li>
-                        <img src="image/Pop1.jpg" />
-                        <br /> <a href="#">Darling in the FranXX</a>
-                    </li>
-                    <hr />
-                    <li>
-                        <img src="image/Pop2.jpg" />
-                        <br /> <a href="#">Sword Art Online Alternative: Gun Gale Online</a>
-                    </li>
-                    <hr />
-                    <li>
-                        <img src="image/Pop3.jpg" />
-                        <br /> <a href="#">Saenai Heroine no Sodatekata ♭</a>
-                    </li>
-                    <hr />
-                    <li>
-                        <img src="image/Pop4.jpg" />
-                        <br /> <a href="#">Kobayashi-san Chi no Maid Dragon</a>
-                    </li>
-                    <hr />
-                    <li>
-                        <img src="image/Pop5.jpg" />
-                        <br /> <a href="#">Shigatsu wa Kimi no Uso</a>
-                    </li>
-                </ul>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!-- Categories-->
+        <div class="Categories">
+            <h2>Categories</h2>
+            <div class="row" style="margin: 15px;">
+                <div class="col-sm-3 cateBox">
+                    <h4 class="text-center">Action</h4>
+                    <a href="#">
+                        <img src="image/Home-img/ff.jpg" class="rounded-circle" alt="superhero-team" width="230" height="230" />
+                    </a>
+                </div>
+                <div class="col-sm-3 cateBox">
+                    <h4 class="text-center">Animation</h4>
+                    <a href="#">
+                        <img src="image/Home-img/Pixarlogo.jpg" class="rounded-circle" alt="pixarlogo" width="230" height="230" />
+                    </a>
+                </div>
+                <div class="col-sm-3 cateBox">
+                    <h4 class="text-center">Anime</h4>
+                    <a href="#">
+                        <img src="image/Home-img/full-metal-alchemist-brotherhood.jpg" class="rounded-circle" alt="horror" width="230" height="230" />
+                    </a>
+                </div>
+                <div class="col-sm-3 cateBox">
+                    <h4 class="text-center">Horror</h4>
+                    <a href="#">
+                        <img src="image/Home-img/Horror.jpg" class="rounded-circle" alt="horror" width="230" height="230" />
+                    </a>
+                </div>
+
             </div>
-            <div class="article-item" id="Reviews">
-                <header>Latest Reviews</header>
-                <article>
-                    <img src="image/review1.jpg" />
-                    <h1><a href="#">Clannad: After Story</a></h1>
-                    <cite>&mdash; written by <a href="#">LemonLyme</a> &frasl; Rating: 10</cite>
-                    <br>
-                    <p>
-                        I laughed...<br /> I cried...<br /> I experienced something that changed my life... <br />
-                        <br /> In a nutshell, Clannad ~After Story~ influenced the way I will live for the rest of my life and not just in some half-assed way like any other show would. It legitimately moved me to make certain decisions, for better or for worse. In that sense, no other anime can compare, as no other anime has provided an equivalent reaction on my part.
-                    </p>
-                    <hr />
-                    <img src="image/review2.jpg" />
-                    <h1><a href="#">Re:Zero kara Hajimeru Isekai Seikatsu</a></h1>
-                    <cite>&mdash; written by <a href="#">XHellLyterX</a> &frasl; Rating: 9</cite>
-                    <br>
-                    <p>
-                        From my perspective, we are living in a time where well crafted anime with a myriad of originality and detail are unfortunately being released at a frequently declining rate. Because of this, many in the anime community are constantly on the lookout for something new and creative. So naturally, when an anime like Re:Zero kara Hajimeru Isekai Seikatsu airs, a show that boasts morbidly unique twists on the popular but overused fantasy/game world genre, it gains a lot of popularity and is generally well received in the anime community.
-                    </p>
-                    <hr>
-                    <img src="image/review3.jpg" />
-                    <h1><a href="#">Sword Art Online</a></h1>
-                    <cite>&mdash; written by <a href="#">LLYNCES</a> &frasl; Rating: 7</cite>
-                    <br>
-                    <p>
-                        I don't really want to go into too much depth, but I'd like to give an overview of the series and give my opinions it. If you haven't noticed yet there are many negative reviews out there for this anime, and while many of them bring up some pretty fair points, I think some people are being a bit too harsh on it.
-                        <br /><br /> Yes it's a popular anime, yes it has flaws, no it's not perfect, but at the very least in my opinion it is enjoyable.
-                    </p>
-                </article>
+
+        </div>
+
+        <!-- News And Comments -->
+        <div class="News-review">
+            <h2>News And Promotions</h2>
+            <div class="container-fluid" style="padding: 10px 100px;">
+                <div class="row">
+                    <div class="col-sm-4" width="350" style="padding: 0">
+                        <div>
+                            <img src="image/Home-img/chinese-new-year.jpg" width="100%" />
+                        </div>
+                        <div>
+                            <img src="image/Home-img/classic-sale.jpg" width="100%" />
+                        </div>
+                    </div>
+                    <div class="col" style="padding: 0">
+                        <img src="image/Home-img/new-year-2019.jpg" width="100%" />
+                    </div>
+                </div>
             </div>
         </div>
+
+
+
+
+
+
         <footer>
             <%@ include file="../layout/footer.jsp"%>
         </footer>

@@ -20,7 +20,7 @@
         background-color: antiquewhite;
 }*/
 
-.poster img {
+.poster > img {
     max-width: 100%;
     height: auto;
 }
