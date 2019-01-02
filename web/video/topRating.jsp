@@ -14,17 +14,29 @@
         <title>Top Rating|Dyspee Video</title>
         <link href="../layout/image/DySpee.png" rel="icon" />
         <link href="../layout/base.css" rel="stylesheet" />
-        <link href="style/moviesStyle.css" rel="stylesheet" />
         <script src="style/add.js"></script>
 
-        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
+
+        <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="style/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <!-- Latest compiled JavaScript -->
-        <script src="style/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+        <!-- Font Awesome Allows Input external Icon -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <style>
+            .row > .col-sm-3 > a > img{
+                width: 100%;
+                margin: 10px;
+            }
+
+
+        </style>
+
     </head>
 
     <body>
@@ -33,42 +45,39 @@
         </header>
         <!--Container Start-->
         <div class="article-container">
+            <div class="title" style="color: aliceblue;">
+                <h1>Top Rating Movies</h1>
+            </div>
 
-            <!--Main Start-->
-            <div class="main">
-
-                <div class="title">
-                    <h1>Top Rating Movies</h1>
-                </div>
-
-                <div class="productlist">
-                    <%  for (i = 0; i < 3; i++) {
+            <div class="container-fluid">
+                <%  for (i = 0; i < 3; i++) {
+                %>
+                <!-- Row 1 -->
+                <div class="row">
+                    <%  for (j = 0; j < 4; j++) {
+                            indexNum = (i * 4) + j;
+                            product = productService.findProdByID(indexNum);
                     %>
-                    <!-- Row 1 -->
-                    <div class="row">
-                        <%  for (j = 0; j < 4; j++) {
-                                indexNum = (i * 4) + j;
-                                product = productService.findProdByID(indexNum);
-                        %>
+
+                    <div class="col-sm-3">
                         <a href="../video/trailer.jsp?productid=<%= indexNum%>">
-                            <div class="col-sm-3 poster">
-                                <img src= <%= product.getPoster()%> class="img-rounded" />
-                                <div class="overlay">
-                                    <div class="text"><%= product.getName()%></div>
-                                </div>
-                            </div>
+                            <img src= "<%= product.getPoster()%>" class="rounded" />
                         </a>
-                        <%
-                            }
-                        %>
+                        <div class="overlay">
+                            <div class="text"><%= product.getName()%></div>
+                        </div>
                     </div>
+
                     <%
                         }
                     %>
                 </div>
+                <%
+                    }
+                %>
             </div>
-
         </div>
+
 
         <!-- Footer  -->
         <footer>
