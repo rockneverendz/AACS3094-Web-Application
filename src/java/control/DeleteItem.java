@@ -38,13 +38,13 @@ public class DeleteItem extends HttpServlet {
         try {
             // Parse the given parameter
             indexNumber = Integer.parseInt(indexNumberS);
-            
+
             // Delete the specified index of product on the cart
             cart.remove(indexNumber);
 
             // Update cart and redirect back to cart with status 'Removal Success'
             response.sendRedirect("../checkout/shoppingCart.jsp?&status=1");
-            
+
         } catch (NumberFormatException ex) {
             response.sendRedirect("../video/DySpee.jsp?status=-1");
         }

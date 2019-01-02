@@ -67,7 +67,6 @@
                 <caption>Your Shopping Cart</caption>
                 <tr>
                     <th>Items</th>
-                    <th>Select Dics Type</th>
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
@@ -82,13 +81,6 @@
                         <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" ><i class="fas fa-trash-alt"></i></a>
                         <img src=<%= product.getPoster()%> />
                         <p><%= product.getName()%></p>
-                    </td>
-                    <td>
-                        <input type="radio" name="radio<%= product.getProductid()%>" value="bluray" checked />
-                        <label><img src="image/blu-ray-logo.png"/></label>
-                        <br/>
-                        <input type="radio" name="radio<%= product.getProductid()%>" value="dvd"/>
-                        <label><img src="image/dvd-logo.png"/></label>
                     </td>
                     <td>
                         <input type="number" value="<%= cartmember.getQty()%>" min="1" />
@@ -109,7 +101,6 @@
                 <caption>Order Summary</caption>
                 <tr>
                     <th>Items</th>
-                    <th>Dics Type</th>
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
@@ -118,9 +109,6 @@
                 %>      
                 <tr>
                     <td><%= product.getName()%></td>
-                    <td>
-                        <div id="dicsImg1"></div>
-                    </td>
                     <td>
                         <div id="qitem1"></div>
                     </td>
