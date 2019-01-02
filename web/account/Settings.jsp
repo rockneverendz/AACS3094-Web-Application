@@ -82,7 +82,7 @@
                     <br>
                     <div class="formRow">
                         <label>*Current Password :&ensp;</label>
-                        <input name = "passwordCu" type = "password" placeholder = "Password" />
+                        <input name = "passwordCu" type = "password" placeholder = "Password" required/>
                     </div>
                     <div class="formRow">
                         <label>&ensp;</label>
