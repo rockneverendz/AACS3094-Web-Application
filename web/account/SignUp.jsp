@@ -1,4 +1,28 @@
 <!doctype html>
+
+<%@ page import = "entity.Customer" %>
+<%@ page import = "java.util.Date" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%
+    //If user already logged in
+    if (session.getAttribute("customer") != null) {
+        response.sendRedirect("../video/DySpee.jsp?status=A");
+        return;
+    }
+
+    //If no object are recieved, create a new object.
+    Customer customer = (Customer) request.getAttribute("customer");
+    if (customer == null) {
+        customer = new Customer();
+        customer.setCustname("");
+        customer.setEmail("");
+        customer.setDob(new Date());
+    }
+
+    //For parsing date in Date of Birth field
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+%>
+
 <html>
 
     <head>
@@ -23,29 +47,6 @@
     </head>
 
     <body>
-        <%@ page import = "entity.Customer" %>
-        <%@ page import = "java.util.Date" %>
-        <%@ page import = "java.text.SimpleDateFormat" %>
-        <%
-            //If user already logged in
-            if (session.getAttribute("customer") != null) {
-                response.sendRedirect("../video/DySpee.jsp?status=A");
-                return;
-            }
-
-            //If no object are recieved, create a new object.
-            Customer customer = (Customer) request.getAttribute("customer");
-            if (customer == null) {
-                customer = new Customer();
-                customer.setCustname("");
-                customer.setEmail("");
-                customer.setDob(new Date());
-            }
-
-            //For parsing date in Date of Birth field
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        %>
-
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
@@ -69,7 +70,7 @@
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="Email" required/>
+                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>

@@ -122,12 +122,8 @@
                     %>      
                     <tr>
                         <td><%= product.getName() %></td>
-                        <td>
-                            <div id="qitem1"></div>
-                        </td>
-                        <td>
-                            <em><div class="totalPrice1"></div></em>
-                        </td>
+                        <td><%= cartmember.getQty() %></td>
+                        <td><em><%= product.getName() %></em></td>
                     </tr>
                     <%    }
                     %>   

@@ -1,6 +1,21 @@
 <!doctype html>
-<html>
 
+<%@ page import = "entity.Customer" %>
+<%@ page import = "java.util.Date" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%
+    //If user is not logged in
+    Customer customer = (Customer) session.getAttribute("customer");
+    if (customer == null) {
+        response.sendRedirect("../video/DySpee.jsp?status=Y");
+        return;
+    }
+
+    //For parsing date in Date of Birth field
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+%>
+
+<html>
     <head>
         <meta charset="utf-8" />
         <title>DySpee</title>
@@ -22,6 +37,9 @@
     </head>
 
     <body>
+        <header>
+            <%@ include file="../layout/header.jsp"%>
+        </header>
 
         <!--
             //Status code -1= An error has occured
@@ -29,26 +47,7 @@
             //Status code 1 = Successfully Signed In
             //Status code 2 = Successfully Signed Up
         -->
-
-        <%@ page import = "entity.Customer" %>
-        <%@ page import = "java.util.Date" %>
-        <%@ page import = "java.text.SimpleDateFormat" %>
-        <%
-            //If user is not logged in
-            Customer customer = (Customer) session.getAttribute("customer");
-            if (customer == null) {
-                response.sendRedirect("../video/DySpee.jsp?status=Y");
-                return;
-            }
-
-            //For parsing date in Date of Birth field
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        %>
-
-        <header>
-            <%@ include file="../layout/header.jsp"%>
-        </header>
-
+        
         <%  String status = request.getParameter("status");
             String message = (String) request.getAttribute("message");
             //If no status are recieved, no need division
@@ -76,7 +75,7 @@
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "Email" disabled = "true"/>
+                        <input name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "email@example.com" disabled = "true"/>
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
@@ -84,11 +83,11 @@
                     </div>
                     <div class="formRow">
                         <label>Phone No. :&ensp;</label>
-                        <input name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="Phone Number" />
+                        <input name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="(nnn)nnn-nnnn" />
                     </div>
                     <div class="formRow">
                         <label>Address :&ensp;</label>
-                        <input name = "address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" />
+                        <textarea name="address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" rows="4" cols="50"></textarea>
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>

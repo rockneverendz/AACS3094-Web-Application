@@ -4,8 +4,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.Product"%>
 <%@page import="entity.Orderlist"%>
+<%@page import="entity.Customer"%>
 <%
     ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
+    Customer customer = (Customer) session.getAttribute("customer");
     ProductService productService = new ProductService();
     Product product;
     int i;
@@ -54,50 +56,15 @@
                         </div>
 
                         <div class="formRow">
-                            <label for="email">*Email Address :</label>
-                            <input name="email" id="email" type="email" placeholder="e.g. email@example.com" required/>
-                        </div>
-
-                        <div class="formRow">
                             <label for="phone">*Phone Number :</label>
-                            <input name="phone" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
+                            <input name="phone" value = "<%= customer.getPhoneno() %>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
                         </div>
 
                         <div class="formRow">
                             <label for="address">*Address :</label>
-                            <textarea name="address" id="address" type="text" placeholder="Please fill up the actual address of your house" rows="4" cols="50" required></textarea>
+                            <textarea name="address" value = "<%= customer.getAddress() %>" id="address" type="text" placeholder="Please fill up the actual address of your house" rows="4" cols="50" required></textarea>
                         </div>
-
-                        <div class="formRow">
-                            <label for="state">*State :</label>
-                            <select name="state" id="state">
-                                <optgroup label="West Malaysia">
-                                    <option value="kl">Wp Kuala Lumpur</option>
-                                    <option value="jh">Johor</option>
-                                    <option value="kd">Kedah</option>
-                                    <option value="kln">Kelantan</option>
-                                    <option value="mlk">Melaka</option>
-                                    <option value="ns">Negeri Sembilan</option>
-                                    <option value="ph">Pahang</option>
-                                    <option value="pn">Penang</option>
-                                    <option value="prk">Perak</option>
-                                    <option value="pls">Perlis</option>
-                                    <option value="selg">Selangor</option>
-                                    <option value="trng">Terengganu</option>
-                                </optgroup>
-
-                                <optgroup label="East Malaysia">
-                                    <option value="saba">Sabah</option>
-                                    <option value="sara">Sarawak</option>
-                                </optgroup>
-                            </select>
-                        </div>
-
-                        <div class="formRow">
-                            <label for="postCode">*Postcode :</label>
-                            <input name="postCode" id="postCode" type="text" placeholder="e.g. 53300" pattern="\d{5}" required/>
-                        </div>
-
+                        
                         <button id="submitBtn" type="submit">Continue</button>
                     </fieldset>
                 </form>
@@ -118,12 +85,8 @@
                     %>      
                     <tr>
                         <td><%= product.getName()%></td>
-                        <td>
-                            <div id="qitem1"></div>
-                        </td>
-                        <td>
-                            <em><div class="totalPrice1"></div></em>
-                        </td>
+                        <td><%= cartmember.getQty() %></td>
+                        <td><em><%= cartmember.getQty()*product.getPrice() %></em></td>
                     </tr>
                     <%    }
                     %>   
