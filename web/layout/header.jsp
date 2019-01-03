@@ -88,4 +88,5 @@
 
 </nav>
         
-<div style="height: 110px;"></div>
+
+<div style="height: 110px; background-color: rgba(0,0,0,0.70); "></div>
