@@ -23,7 +23,8 @@
         <!-- A Little CSS Spices -->
         <style>
             .jumbotron{
-                height: 650px;
+                height: 45em;
+                margin: 0;
                 padding: 100px 0 100px 0; 
                 background-color: rgba(0,0,0,0.70); 
                 color: white;
@@ -33,7 +34,7 @@
             /* Make the image fully responsive */
             .carousel-inner img {
                 width: 100%;
-                height: 100%;
+                height: 40em;
             }
 
             .Categories, .News-review{
@@ -89,7 +90,7 @@
         %>
 
         <div class="message-container">
-            <%= message %>
+            <%= message%>
         </div>
 
         <%
@@ -98,14 +99,14 @@
 
 
         <!-- Jumbotron -->
-        <div class="jumbotron jumbotron-fluid text-center" style="margin: 105px 0 0 0">
+        <div class="jumbotron jumbotron-fluid text-center">
             <img src="image/Home-img/Welcome.png" alt="welcome" />
-            <h5>The home of amazing original programming that you can?t find anywhere else. <br>
-                Movies, TV shows, specials and more, it?s all tailored specifically to you. </h5>
+            <h5>The home of amazing original programming that you can't find anywhere else. <br>
+                Movies, TV shows, specials and more, it's all tailored specifically to you. </h5>
         </div>
 
         <!-- Carousel -->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: auto; width: 80%;">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ul class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -115,12 +116,15 @@
 
             <!-- The slideshow -->
             <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url(image/Home-img/KimiNoNaWa.png); background-size: cover; height: 500px;">
+                <div class="carousel-item active">
+                    <img src="image/Home-img/KimiNoNaWa.png" />
                 </div>
 
-                <div class="carousel-item" style="background-image: url(image/Home-img/Infinity%20War.jpg); background-size: cover; height: 500px">
+                <div class="carousel-item">
+                    <img src="image/Home-img/Infinity%20War.jpg" />
                 </div>
-                <div class="carousel-item" style="background-image: url(image/Home-img/incredibles-2-background-42.jpg); background-size: cover; height: 500px;">
+                <div class="carousel-item">
+                    <img src="image/Home-img/incredibles-2-background-42.jpg" />
                 </div>
             </div>
 
@@ -158,7 +162,7 @@
                 <div class="col-sm-3 cateBox">
                     <h4 class="text-center">Horror</h4>
                     <a href="#">
-                        <img src="image/Home-img/Horror.jpg" class="rounded-circle" alt="horror" width="230" height="230" />
+                        <img src="image/Home-img/Anabelle.png" class="rounded-circle" alt="horror" width="230" height="230" />
                     </a>
                 </div>
 

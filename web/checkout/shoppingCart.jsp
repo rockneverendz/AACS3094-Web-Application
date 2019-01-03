@@ -91,7 +91,7 @@
                 <tr id="list">
                     <td class="item">
                         <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" ><i class="fas fa-trash-alt"></i></a>
-                        <img src=<%= product.getPoster()%> />
+                        <img src="<%=product.getPoster()%>" />
                         <p><%= product.getName()%></p>
                     </td>
                     <td>
@@ -152,7 +152,11 @@
         } else {
         %>
 
-        <div> Your cart is empty! :( </div>
+        <div class="container-fluid" style="height: 30em;">
+            <h1 style="margin: 25%"> Your cart is empty! :( </h1>
+        </div>
+        
+        
 
         <%  }
         %>
