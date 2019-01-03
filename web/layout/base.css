@@ -155,12 +155,13 @@ div p {
     width: 95%;
     margin: auto;
     justify-content: space-around;
+    color: white;
 }
 
 .message-container {
-    background-color: rgba(63, 191, 63, 0.50);
+    background-color: rgba(63, 191, 63, 0.75);
 }
 
 .error-container {
-    background-color: rgba(191, 63, 63, 0.50);
+    background-color: rgba(191, 63, 63, 0.75);
 }

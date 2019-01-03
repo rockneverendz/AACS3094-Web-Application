@@ -135,7 +135,7 @@
 
 /*-Add to cart button--*/
 
-.btn {
+.add {
 	margin-top: 5px;
 	float: right;
 	width: 200px;
@@ -148,7 +148,7 @@
 	cursor: pointer;
 }
 
-.btn:hover {
+.add:hover {
 	background-color: dimgray;
 }
 

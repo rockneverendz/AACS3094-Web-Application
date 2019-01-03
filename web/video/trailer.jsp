@@ -139,7 +139,7 @@
 
                     <form action="AddItem" method="GET">
                         <input type="hidden" name="productid" value="<%= product.getProductid()%>" />
-                        <button class="btn"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
+                        <button class="add"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
                     </form>    
                 </div>
             </div>
@@ -152,7 +152,7 @@
                 %>
 
                 <div class="box">
-                    <a href="../video/trailer.jsp?productid=<%= recomProd%>">
+                    <a href="../video/trailer.jsp?productid=<%= recomProd[i] %>">
                         <img src=<%= product.getPoster()%> />
                     </a>
                     <p><%= product.getName()%></p>
