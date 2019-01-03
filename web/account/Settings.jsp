@@ -8,7 +8,7 @@
         <link href="../layout/base.css" rel="stylesheet" />
         <link href="../layout/image/DySpee.png" rel="icon" />
         <link href="style/settings.css" rel="stylesheet" />
-        
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -19,17 +19,16 @@
         <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
     </head>
 
     <body>
 
-        <%
+        <!--
             //Status code -1= An error has occured
             //Status code 0 = Successfully Signed Out
             //Status code 1 = Successfully Signed In
             //Status code 2 = Successfully Signed Up
-        %>
+        -->
 
         <%@ page import = "entity.Customer" %>
         <%@ page import = "java.util.Date" %>
@@ -59,8 +58,8 @@
         %>
         <div class="message-container">Successfully Updated!</div>
         <%      }
-            } //Else if no message are recieved, no need division
-            else if (message != null) {
+        } //Else if no message are recieved, no need division
+        else if (message != null) {
         %>
         <div class="error-container"><%= message%></div>
         <%
@@ -82,6 +81,14 @@
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
                         <input name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                    </div>
+                    <div class="formRow">
+                        <label>Phone No. :&ensp;</label>
+                        <input name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="Phone Number" />
+                    </div>
+                    <div class="formRow">
+                        <label>Address :&ensp;</label>
+                        <input name = "address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" />
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>
