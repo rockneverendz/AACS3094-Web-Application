@@ -34,18 +34,19 @@
         <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        
+
         <style>
             h1{
                 padding: 5px 15px;
                 font-size: 100px;
                 font-weight: bold;
+                text-decoration: underline;
             }
-            
+
             h1, label{
                 color: white;
             }
-            
+
         </style>
     </head>
 
@@ -60,7 +61,7 @@
             //Status code 1 = Successfully Signed In
             //Status code 2 = Successfully Signed Up
         -->
-        
+
         <%  String status = request.getParameter("status");
             String message = (String) request.getAttribute("message");
             //If no status are recieved, no need division
@@ -100,7 +101,7 @@
                     </div>
                     <div class="formRow">
                         <label>Address :&ensp;</label>
-                        <textarea name="address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" rows="4" cols="50"></textarea>
+                        <textarea name = "address" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>
@@ -126,5 +127,4 @@
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
-
 </html>

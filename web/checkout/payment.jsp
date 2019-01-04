@@ -47,13 +47,13 @@
 
         <div class="article-container">
             <div class="box" id="deliInfo">
-                <form id="delivery">
+                <form action="NewOrder" method="GET" id="delivery">
 
                     <fieldset class="delField">
                         <legend>Delivery Information</legend>
                         <div class="formRow">
                             <label for="name">*Name :</label>
-                            <input name="custName" id="custName" type="text" placeholder="e.g. First name & last name" required>
+                            <input name="custName" value = "<%= customer.getCustname()%>" id="custName" type="text" placeholder="e.g. First name & last name" required>
                         </div>
 
                         <div class="formRow">
@@ -63,7 +63,7 @@
 
                         <div class="formRow">
                             <label for="address">*Address :</label>
-                            <textarea name="address" value = "<%= customer.getAddress()%>" id="address" type="text" placeholder="Please fill up the actual address of your house" rows="4" cols="50" required></textarea>
+                            <textarea name = "address" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
                         </div>
 
                         <button id="submitBtn" type="submit">Continue</button>
@@ -204,5 +204,4 @@
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
-
 </html>
