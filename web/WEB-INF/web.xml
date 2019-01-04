@@ -30,6 +30,10 @@
         <servlet-name>DeleteItem</servlet-name>
         <servlet-class>control.DeleteItem</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewOrder</servlet-name>
+        <servlet-class>entity.NewOrder</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/account/SignUp</url-pattern>
@@ -53,6 +57,10 @@
     <servlet-mapping>
         <servlet-name>DeleteItem</servlet-name>
         <url-pattern>/checkout/DeleteItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewOrder</servlet-name>
+        <url-pattern>/checkout/NewOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
