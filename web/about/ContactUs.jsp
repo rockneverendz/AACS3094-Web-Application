@@ -31,68 +31,105 @@
 		<%@ include file="../layout/header.jsp"%>
 	</header>
 
-	<div class="article-container">
-		<div class="main">
-			<div class="title">
-				<h1>CONTACT US</h1>
+	<div class="main container-fluid article-container">
+
+            <div class="row title" >
+                <img src="image/banner_contact.png" class="contact">
+                <h1 class="text" style="top: 35%;">CONTACT US </h1>
+                <h5 class="text" style="top: 45%;">Let's make something awesome together.<br>
+            We'd love to hear from you!</h5>  
+            </div>
+            <div class="row word">
+                <div class="col-lg-8">
+				
+                    <div class="">
+			<h3>Message<img src="icon/chat.png"></h3>
+                        <hr>
+				</div>
+				<form>  
+                                    
+                    <div class="form-group">
+                        <label  for="usr" class=" ">Name:</label>
+                        <input type="text" class="form-control" id="usr" placeholder="Name">
+                    </div>
+                                            
+                                    
+                    <div class="form-group">
+                        <label for="usr" >Email:</label>
+                        <input type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
+                             
+                    </div>
+                                        
+                    <br>
+                                                
+                    <div class="form-group">
+			<label for="message" class="message ">Message*</label>              
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Enter text here..."></textarea>
+                                    
+                    </div>
+					
+                                      
+                    <button type="button submit" class="btn btn-light">submit</button>
+                    </form> 	
+		</div>
+
+			
+                <div class="col-lg-4">         
+                           
+                <div class=" " style="align-content: center">
+			
+                    <h3 >Map<img src="icon/placeholder.png"></h3>
+                </div>
+                <br>
+                
+                
+                <div class ="bordered" id="googleMap" style="width:100%;height:250px;" >
+                    
+                </div>
+
+		
+                <div class="mapaddress">
+
+		
+                    <address class="word">
+                        <p><strong>Our Address :</strong><br>
+                            Jalan Malinja, Taman Bunga Raya, <br> 53000 Kuala Lumpur, <br> Wilayah Persekutuan Kuala Lumpur</p>
+                </address>
+		</div>
+				
+					
+				
 			</div>
+                </div>
 
-			<div class="left">
-				<fieldset>
-					<legend class="text">
-						<h3>Message<img src="icon/chat.png"></h3>
-					</legend>
-					<form>
-						<label for="name" class="name text">Name*<br>
-                            <input id="name" type="text">
-                        </label>
-						<br>
-						<br>
-						<label for="email" class="email text">Email*<br>
-                            <input id="email" type="email">
-                        </label>
-						<br>
-						<br>
-						<label for="message" class="message text">Message*<br>
-                            <textarea class="message" id="message" rows="10" cols="75" name="comment" >Enter text here...</textarea>
-                        </label>
-						<input type="submit" class="submit">
-					</form>
-				</fieldset>
-			</div>
-
-			<div class="right">
-				<fieldset>
-					<legend class="text">
-						<h3>Social Media<img src="icons/message.png"></h3>
-					</legend>
-					<div class="content">
-						<a href="#" class="image"><img src="icon/facebook.png" alt="facebook" title="facebook"></a>
-						<a href="#" class="image"><img src="icon/youtube.png" alt="youtube" title="youtube"></a>
-						<a href="#" class="image"><img src="icon/google-plus.png" alt="google-plus" title="google+"></a>
-						<a href="#" class="image"><img src="icon/twitter.png" alt="twitter" title="twitter"></a>
-						<a href="#" class="image"><img src="icon/email.png" alt="email" title="email"></a>
-						<a href="#" class="image"><img src="icon/telephone.png" alt="telephone" title="telephone"></a>
-					</div>
-				</fieldset>
-			</div>
-
-			<div class="map">
-				<fieldset class="mapdetail">
-					<legend class="text">
-						<h3>Map<img src="icon/placeholder.png"></h3>
-					</legend>
-					<div id="googleMap" style="width:50%;height:200px;"></div>
-
-					<div class="mapaddress">
-
-						<address class="text">
-                            <p><strong>Address :</strong> Jalan Malinja, Taman Bunga Raya, 53000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
-                        </address>
-					</div>
-				</fieldset>
-			</div>
-
+           
+            <div class="row word" style="margin: 10px">
+                <div class="col-lg-12">
+		
+                    <div class="">
+			
+                        <h3>Social <img src="icon/message.png"></h3>
+                        <br>
+		
+                    </div>
+		
+                    <div class="content row">
+            
+                    <a href="https://www.facebook.com/Dyspee-1169485076532225" class="image col-lg-2 word"><img src="icon/facebook.png" alt="facebook" title="facebook">
+                        <label > Facebook</label></a>
+                    <a href="#" class="image col-lg-2 word"><img src="icon/youtube.png" alt="youtube" title="youtube">
+                        <label > Youtube</label></a>
+                    <a href="#" class="image col-lg-2 word"><img src="icon/google-plus.png" alt="google-plus" title="google+">
+                        <label class=""> Google+</label></a>
+                    <a href="#" class="image col-lg-2 word"><img src="icon/twitter.png" alt="twitter" title="twitter">
+                        <label > Twitter</label></a>
+                    <a href="#" class="image col-lg-2 word"><img src="icon/email.png" alt="email" title="email">
+                        <label > Email</label></a>
+                    <a href="#" class="col-lg-2 image word"><img src="icon/telephone.png" alt="telephone" title="telephone">
+                        <label > Telephone</label></a>
+		</div>
+                </div>
+				
 		</div>
 
 	</div>
