@@ -85,22 +85,24 @@
                     <%  for (Orderlist cartmember : cart) {
                             product = cartmember.getProduct();
                             total = cartmember.getQty() * product.getPrice();
+                            subtotal += total;
                     %>      
                     <tr>
                         <td><%= product.getName() %></td>
                         <td><%= cartmember.getQty() %></td>
                         <td><em><%= product.getPrice() %></em></td>
-                        <td><em><%= total %></em></td>
+                        <td><em><%= String.format("RM %.2f", total) %></em></td>
                     </tr>
                     <%    }
                     %>   
                     <tr>
-                        <td colspan="3">Shipping fee:</td>
-                        <td><em>RM 0.00 (FREE!)</em></td>
+                        <td colspan="2">Shipping fee:</td>
+                        <td>FREE!</td>
+                        <td><em>RM 0.00</em></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><em>Subtotal:</em></td>
-                        <td><em><%= subtotal %></em></td>
+                        <td colspan="3"><strong>Subtotal:</strong></td>
+                        <td><strong><%= String.format("RM %.2f", subtotal) %></strong></td>
                     </tr>
                 </table>
 
@@ -109,10 +111,7 @@
             <!--Select Payment Method-->
 
             <div class="box" id="payMetd">
-
-
                 <div id="payHeader">Select Payment Method</div>
-
                 <div class="pay" id="pay">
 
                     <button class="tablink" onclick="openPage('CDCard', this, 'rgba(255, 0, 0, 0.5)')" id="defaultOpen">Credit/Debit Card <br/><i class="far fa-credit-card"></i></button>
@@ -142,8 +141,6 @@
                             </div>
 
                             <button id="submitBtn" type="submit">Place Order Now</button>
-
-
                         </fieldset>
 
                         <fieldset id="onBank" class="tabcontent">

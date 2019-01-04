@@ -9,6 +9,7 @@
     ProductService productService = new ProductService();
     Product product;
     int i;
+    double total, subtotal = 0;
 %>
 
 <html>
@@ -129,6 +130,8 @@
                 <%  for (i = 0; i < cart.size(); i++) {
                         Orderlist cartmember = cart.get(i);
                         product = cartmember.getProduct();
+                        total = cartmember.getQty() * product.getPrice();
+                        subtotal += total;
                 %>
 
                 <tr scope="row" id="list">
@@ -142,18 +145,19 @@
                     <td>
                         <input style="width: 50px;" type="number" value="<%= cartmember.getQty()%>" min="1" />
                     </td>
-                    <td>
-                        <em>RM<%= String.format("%.2f", product.getPrice())%></em>
-                    </td>
-                    <td>
-                        This is subtotal
-                    </td>
-
+                    <td>RM <%= String.format("%.2f", product.getPrice()) %></td>
+                    <td><strong>RM <%= String.format("%.2f", total ) %></strong></td>
 
                 </tr>
 
                 <%    }
                 %>
+
+                <tr scope="row">
+                    <td colspan="3"><strong>Subtotal:</strong></td>
+                    <td><strong><%= String.format("RM %.2f", subtotal)%></strong></td>
+                </tr>
+
             </tbody>
         </table>
 
