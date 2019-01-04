@@ -66,7 +66,7 @@
     <!--From Right-->
     <ul class="navbar-nav ml-auto">
         <a class="nav-link" href="../checkout/shoppingCart.jsp"><i class="fas fa-shopping-cart"></i> &nbsp;Cart</a>
-        
+
         <%
             if (customerLogged == null) {
         %>
@@ -76,17 +76,17 @@
         } else {
         %>
         <a class="nav-link" href="../account/SignOut"><i class="fas fa-sign-out-alt"></i> &nbsp; Sign Out</a>
-        <a class="nav-link" href="../account/Settings.jsp"><i class="fas fa-cog"></i> &nbsp; Settings</a>
-        <a class="nav-link" href="#"><i class="fas fa-user"></i> &nbsp; <%= customerLogged.getCustname()%></a>
+        <!-- <a class="nav-link" href="../account/Settings.jsp"><i class="fas fa-cog"></i> &nbsp; Settings</a> -->
+        <a class="nav-link" href="../account/Settings.jsp"><i class="fas fa-user"></i> &nbsp; <%= customerLogged.getCustname()%></a>
         <%
             }
         %>
-        
-        
-        
+
+
+
     </ul>
 
 </nav>
-        
+
 
 <div style="height: 110px; background-color: rgba(0,0,0,0.70); "></div>

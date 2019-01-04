@@ -1,6 +1,21 @@
 <!doctype html>
-<html>
 
+<%@ page import = "entity.Customer" %>
+<%@ page import = "java.util.Date" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%
+    //If user is not logged in
+    Customer customer = (Customer) session.getAttribute("customer");
+    if (customer == null) {
+        response.sendRedirect("../video/DySpee.jsp?status=Y");
+        return;
+    }
+
+    //For parsing date in Date of Birth field
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+%>
+
+<html>
     <head>
         <meta charset="utf-8" />
         <title>DySpee</title>
@@ -8,7 +23,7 @@
         <link href="../layout/base.css" rel="stylesheet" />
         <link href="../layout/image/DySpee.png" rel="icon" />
         <link href="style/settings.css" rel="stylesheet" />
-        
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -19,37 +34,33 @@
         <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+        
+        <style>
+            h1{
+                padding: 5px 15px;
+                font-size: 100px;
+                font-weight: bold;
+            }
+            
+            h1, label{
+                color: white;
+            }
+            
+        </style>
     </head>
 
     <body>
-
-        <%
-            //Status code -1= An error has occured
-            //Status code 0 = Successfully Signed Out
-            //Status code 1 = Successfully Signed In
-            //Status code 2 = Successfully Signed Up
-        %>
-
-        <%@ page import = "entity.Customer" %>
-        <%@ page import = "java.util.Date" %>
-        <%@ page import = "java.text.SimpleDateFormat" %>
-        <%
-            //If user is not logged in
-            Customer customer = (Customer) session.getAttribute("customer");
-            if (customer == null) {
-                response.sendRedirect("../video/DySpee.jsp?status=Y");
-                return;
-            }
-
-            //For parsing date in Date of Birth field
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        %>
-
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
 
+        <!--
+            //Status code -1= An error has occured
+            //Status code 0 = Successfully Signed Out
+            //Status code 1 = Successfully Signed In
+            //Status code 2 = Successfully Signed Up
+        -->
+        
         <%  String status = request.getParameter("status");
             String message = (String) request.getAttribute("message");
             //If no status are recieved, no need division
@@ -59,8 +70,8 @@
         %>
         <div class="message-container">Successfully Updated!</div>
         <%      }
-            } //Else if no message are recieved, no need division
-            else if (message != null) {
+        } //Else if no message are recieved, no need division
+        else if (message != null) {
         %>
         <div class="error-container"><%= message%></div>
         <%
@@ -70,18 +81,26 @@
         <div class="article-container">
             <form action="Settings" method="GET">
                 <fieldset id="settings">
-                    <legend>Settings</legend>
+                    <h1>Settings</h1>
                     <div class="formRow">
                         <label>Name :&ensp;</label>
                         <input name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>
                     </div>
                     <div class="formRow">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "Email" disabled = "true"/>
+                        <input name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "email@example.com" disabled = "true"/>
                     </div>
                     <div class="formRow">
                         <label>Date Of Birth :&ensp;</label>
                         <input name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                    </div>
+                    <div class="formRow">
+                        <label>Phone No. :&ensp;</label>
+                        <input name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="(nnn)nnn-nnnn" />
+                    </div>
+                    <div class="formRow">
+                        <label>Address :&ensp;</label>
+                        <textarea name="address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" rows="4" cols="50"></textarea>
                     </div>
                     <div class="formRow">
                         <label>*Password :&ensp;</label>

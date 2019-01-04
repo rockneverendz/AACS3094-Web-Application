@@ -18,6 +18,8 @@ public class Settings extends HttpServlet {
         // Get parameter from the form
         String name = request.getParameter("name");
         String dob = request.getParameter("dob");
+        String phoneno = request.getParameter("phoneno");
+        String address = request.getParameter("address");
         String password = request.getParameter("password");
         String passwordRe = request.getParameter("passwordRe");
         String passwordCu = request.getParameter("passwordCu");
@@ -35,16 +37,11 @@ public class Settings extends HttpServlet {
                 throw new IllegalArgumentException("Invalid Current Password.");
             }
 
-            customer.setCustname(name);
-
             // Find by Customer Email which is Unique.
             if (customer == null) {
                 throw new IllegalArgumentException("You have to be logged in to do that");
             }
 
-            // Parse date
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            customer.setDob(sdf.parse(dob));
 
             // Do the user want to change password?
             if (!password.equals("")) {
@@ -54,6 +51,14 @@ public class Settings extends HttpServlet {
                 }
                 customer.setPassword(password);
             }
+            
+            // Parse date
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            customer.setDob(sdf.parse(dob));
+            
+            customer.setCustname(name);
+            customer.setPhoneno(phoneno);
+            customer.setAddress(address);
 
             // Update & Commit (over at service.CustomerService)
             // Then if success, reset user attribute.

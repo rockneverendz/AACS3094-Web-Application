@@ -36,6 +36,8 @@ public class SignUp extends HttpServlet {
             // Fill in those which doens't need to be validated
             customer.setCustname(name);
             customer.setEmail(email);
+            customer.setAddress("");
+            customer.setPhoneno("");
 
             // Parse date
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
