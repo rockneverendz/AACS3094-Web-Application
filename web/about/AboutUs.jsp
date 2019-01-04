@@ -31,79 +31,45 @@
 		<%@ include file="../layout/header.jsp"%>
 	</header>
 
-	<div class="article-container">
-		<div class="main">
-			<div class="title">
-				<h1 class="dyspee">DYSPEE</h1>
-				<h3>--About Us--</h3>
-				<p>A leading home entertainment expert with over 1 years of experience bringing movies and music alive in state-of-the-art technology all in the comfort of home, housing more than 80,000 titles of DVD, VCD and CDs. </p>
-				<p>We are highly synonymous with offering wide array of licensed movie &amp; music product with affordable price.</p>
+	<div class="container-fluid article-container">
+		<div class="main ">
+                    <div class="title row" style="text-align: center">
+                            <div class="col-lg-12">
+                                <h1>DYSPEE</h1>
+				<h3 >About Us</h3>
+                        </div>
+                            <div class="row" >
+				
+				<p class="col-lg-12" style="text-align: center">We are highly synonymous with offering wide array of licensed movie with affordable price.</p>
+                            </div>
 			</div>
+                    <div class="row">
+                        <div class="col-lg-6" style="text-align: center">
+                                <h3>Why Movies<img src="icon/video-player.png"></h3>
+                                <p>Movie also known as films, are a type of visual communication <br>
+                                    which uses moving pictures and sound to tell <br>
+                                    stories or inform (help people to learn). <br>
+                                    People in every part of the world watch movies <br>
+                                    as a type of entertainment, a way to have fun. </p>
+                                <p>For some people, fun movies can mean movies that make them laugh,<br> 
+                                    while for others it can mean movies that <br> 
+                                    make them cry, or feel afraid.</p>
+                                <p>Movie are very interesting and enjoyable.<br> 
+                                    So we want everyone can watch movies easily.</p>
 
-			<div class="image1">
-				<div class="slideshow">
-					<div class="mySlides">
-						<div class="numbertext"><strong><em>
-                            We hope that all our customers enjoy with movie </em></strong></div>
-						<img src="image/1.jpg" class="image">
+                        </div>
+			
+			<div id="demo" class=" col-lg-6">
 
-					</div>
+                            <img src="image/discussion-forum.jpg" alt="" class="rounded" height="auto" width="100%">
+                               
+                        </div>
+                    </div>
 
-					<div class="mySlides">
-						<div class="numbertext"><strong><em>with friends</em></strong></div>
-						<img src="image/2.jpg" class="image">
-
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext"><strong><em>with family</em></strong></div>
-						<img src="image/3.jpg" class="image">
-
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext"><strong><em>old man</em></strong></div>
-						<img src="image/4.jpg" class="image">
-
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext"><strong><em>even children</em></strong></div>
-						<img src="image/5.jpg" class="image">
-
-					</div>
-
-
-					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-					<a class="next" onclick="plusSlides(1)">&#10095;
-                </a>
-
-				</div>
-			</div>
-
-			<div class="movie text">
-				<h3>Why Movies<img src="icon/video-player.png"></h3>
-				<p>Movie also known as films, are a type of visual communication which uses moving pictures and sound to tell stories or inform (help people to learn). People in every part of the world watch movies as a type of entertainment, a way to have fun. </p>
-				<p>For some people, fun movies can mean movies that make them laugh, while for others it can mean movies that make them cry, or feel afraid.</p>
-				<p>Movie are very interesting and enjoyable. So we want everyone can watch movies easily.</p>
-			</div>
-
-			<div class="aim text">
-				<h3>Our goal<img src="icon/goal.png"></h3>
-				<p>Dyspee Video is highly synonymous with quality home entertainment service offering a wide array of titles for customers looking for original products at affordable price. </p>
-
-				<p>Besides, Dyspee Video Distributors also procure and distribute theatrical and TV broadcasting license to various theatrical studios, cinema operators, broadcasting channels and free or pay TV.</p>
-				<p>Rest time? Enjoy with movie.Everytime and everyday.</p>
-
-			</div>
-
-			<div class="image2 image"><img src="image/6.jpg">
-			</div>
+                    
 		</div>
 
 	</div>
-
-
 
 
 
@@ -112,34 +78,6 @@
 		<%@ include file="../layout/footer.jsp"%>
 	</footer>
 
-	<script>
-		var slideIndex = 1;
-		showSlides(slideIndex);
-
-		function plusSlides(n) {
-			showSlides(slideIndex += n);
-		}
-
-		function currentSlide(n) {
-			showSlides(slideIndex = n);
-		}
-
-		function showSlides(n) {
-			var i;
-			var slides = document.getElementsByClassName("mySlides");
-			if (n > slides.length) {
-				slideIndex = 1
-			}
-			if (n < 1) {
-				slideIndex = slides.length
-			}
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-			slides[slideIndex - 1].style.display = "block";
-		}
-
-	</script>
 </body>
 
 </html>

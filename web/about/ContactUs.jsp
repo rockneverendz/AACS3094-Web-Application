@@ -56,28 +56,25 @@
                                     
                     <div class="form-group">
                         <label for="usr" >Email:</label>
-                                        <input type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
+                        <input type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
                              
                     </div>
                                         
                     <br>
                                                 
                     <div class="form-group">
-					   <label for="message" class="message ">Message*</label>
-                                              
+			<label for="message" class="message ">Message*</label>              
                         <textarea class="form-control" rows="5" id="comment" placeholder="Enter text here..."></textarea>
                                     
                     </div>
 					
                                       
                     <button type="button submit" class="btn btn-light">submit</button>
-                                                
-				</form> 	
+                    </form> 	
 		</div>
 
-			<div class="col-lg-4">
-                            
-                            
+			
+                <div class="col-lg-4">         
                            
                 <div class=" " style="align-content: center">
 			
@@ -118,8 +115,8 @@
 		
                     <div class="content row">
             
-                    <a href="#" class="image col-lg-2 word"><img src="icon/facebook.png" alt="facebook" title="facebook">
-                            <label > Facebook</label></a>
+                    <a href="https://www.facebook.com/Dyspee-1169485076532225" class="image col-lg-2 word"><img src="icon/facebook.png" alt="facebook" title="facebook">
+                        <label > Facebook</label></a>
                     <a href="#" class="image col-lg-2 word"><img src="icon/youtube.png" alt="youtube" title="youtube">
                         <label > Youtube</label></a>
                     <a href="#" class="image col-lg-2 word"><img src="icon/google-plus.png" alt="google-plus" title="google+">
