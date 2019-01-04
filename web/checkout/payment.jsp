@@ -11,6 +11,7 @@
     ProductService productService = new ProductService();
     Product product;
     int i;
+    double total, subtotal = 0;
 %>
 
 <html>
@@ -79,14 +80,17 @@
                         <th>Items</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Total</th>
                     </tr>
                     <%  for (Orderlist cartmember : cart) {
                             product = cartmember.getProduct();
+                            total = cartmember.getQty() * product.getPrice();
                     %>      
                     <tr>
-                        <td><%= product.getName()%></td>
+                        <td><%= product.getName() %></td>
                         <td><%= cartmember.getQty() %></td>
-                        <td><em><%= cartmember.getQty()*product.getPrice() %></em></td>
+                        <td><em><%= product.getPrice() %></em></td>
+                        <td><em><%= total %></em></td>
                     </tr>
                     <%    }
                     %>   
@@ -96,9 +100,7 @@
                     </tr>
                     <tr>
                         <td colspan="3"><em>Subtotal:</em></td>
-                        <td>
-                            <em><div id="subTotal"></div></em>
-                        </td>
+                        <td><em><%= subtotal %></em></td>
                     </tr>
                 </table>
 
