@@ -1,45 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
-/* HEADER BAR */
-
-.header-bar {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 1.0), rgba(0, 0, 64, 0.8));
-	width: 100%;
-}
-
-.header-container {
-	padding: 10px;
-	min-width: 600pt;
-	max-width: 920pt;
-	width: 95%;
-	margin: auto;
-	display: grid;
-	grid-row-gap: 10px;
-	grid-template-columns: 20% 40% 30% 10%;
-	grid-template-rows: 120px auto;
-}
-
-.header-header {
-	margin: 0 auto;
-}
-
-.header-header img {
-	height: 100%;
-}
-
-.header-title {
-	margin: 0 auto;
-	color: white;
-	font-size: 2em;
-}
-
-.header-title img {
-	height: 100%;
-}
-
-
 /* BODY */
-
 body {
 	font-family: 'Roboto', sans-serif;
 	margin: 0pt auto auto auto;
@@ -50,13 +10,13 @@ body {
 	color: white;
 }
 
+h1{
+    color: white;
+}
+
 a {
 	color: rgb(153, 204, 255);
 	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
 }
 
 .article-container {
@@ -91,7 +51,6 @@ div article {
 	padding: 10px;
 }
 
-div h1 {}
 
 div p {
 	font-size: 15px;

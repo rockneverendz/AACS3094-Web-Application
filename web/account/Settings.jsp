@@ -19,7 +19,19 @@
         <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+        
+        <style>
+            h1{
+                padding: 5px 15px;
+                font-size: 100px;
+                font-weight: bold;
+            }
+            
+            h1, label{
+                color: white;
+            }
+            
+        </style>
     </head>
 
     <body>
@@ -70,7 +82,7 @@
         <div class="article-container">
             <form action="Settings" method="GET">
                 <fieldset id="settings">
-                    <legend>Settings</legend>
+                    <h1>Settings</h1>
                     <div class="formRow">
                         <label>Name :&ensp;</label>
                         <input name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>

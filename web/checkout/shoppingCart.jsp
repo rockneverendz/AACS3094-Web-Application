@@ -12,13 +12,13 @@
 %>
 
 <html>
+    <body>
     <head>
         <meta charset="uft-8">
         <title>Shopping Cart|Dyspee Video</title>
         <link href="../layout/image/DySpee.png" rel="icon" />
         <link href="../layout/base.css" rel="stylesheet" />
-        <link href="style/cartStyle.css" rel="stylesheet" />
-        
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -30,9 +30,49 @@
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+        <style>
+            /*-Shopping Cart Table-*/
+            /*Submit button style*/
+            td > img {
+                float:left;
+                margin-left: 10px;
+            }
 
-        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
+            #cekOut {
+                color: #fff;
+                display: block;
+                float: right;
+                padding: 10px;
+                margin: 15px 20px;
+                background-color: rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 3px 3px rgb(255, 255, 255);
+                border-radius: 10px;
+                font-size: 20px;
+            }
+
+            #cekOut:hover {
+                color: aqua;
+                box-shadow: 0 0 3px 3px aqua;
+            }
+
+            /* delete button*/
+            #bin {
+                margin: 40px 15px 0 0;
+                padding: 10px;
+                float: right;
+                background-color: rgba(1, 1, 1, 0.5);
+                border: none;
+                border-radius: 10px;
+                color: #fff;
+                font-size: 13px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            #bin:hover {
+                background-color: dimgray;
+            }
+        </style>
     </head>
 
     <header>
@@ -67,96 +107,69 @@
 
     <!--Container Start-->
     <div class="article-container">
-        
+
         <%  // If cart object exists and not empty
             if (cart != null && !cart.isEmpty()) {
         %>
-        
+
         <!--Cart-->
-        <div id="col1" class="row1">
 
-            <table id="cartTable">
-                <caption>Your Shopping Cart</caption>
-                <tr>
-                    <th>Items</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+        <h1 style="color: white">Your Shopping Cart</h1><br>
+        <table class="table table-dark table-bordered table-hover">
+            <thead>
+                <tr scope="row">
+                    <th scope="col">Items</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
                 </tr>
-
+            </thead>
+            <tbody>
                 <%  for (i = 0; i < cart.size(); i++) {
                         Orderlist cartmember = cart.get(i);
                         product = cartmember.getProduct();
                 %>
 
-                <tr id="list">
-                    <td class="item">
-                        <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" ><i class="fas fa-trash-alt"></i></a>
-                        <img src="<%=product.getPoster()%>" />
-                        <p><%= product.getName()%></p>
+                <tr scope="row" id="list">
+                    <td>
+                        <img src="<%= product.getPoster()%>" width="100px"/>
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= product.getName()%></h4>
+                        <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" >
+                            <button type="submit" id="bin"><i class="fas fa-trash-alt"></i> Remove</button>
+                        </a>
                     </td>
                     <td>
-                        <input type="number" value="<%= cartmember.getQty()%>" min="1" />
+                        <input style="width: 50px;" type="number" value="<%= cartmember.getQty()%>" min="1" />
                     </td>
                     <td>
                         <em>RM<%= String.format("%.2f", product.getPrice())%></em>
                     </td>
+                    <td>
+                        This is subtotal
+                    </td>
+
+
                 </tr>
 
                 <%    }
                 %>
-            </table>
-        </div>
+            </tbody>
+        </table>
 
-        <!--Order Summary-->
-        <div id="col2" class="row1">
-            <table class="ordTable">
-                <caption>Order Summary</caption>
-                <tr>
-                    <th>Items</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                <%  for (Orderlist cartmember : cart) {
-                        product = cartmember.getProduct();
-                %>      
-                <tr>
-                    <td><%= product.getName()%></td>
-                    <td>
-                        <div id="qitem1"></div>
-                    </td>
-                    <td>
-                        <em><div class="totalPrice1"></div></em>
-                    </td>
-                </tr>
-                <%    }
-                %>   
-                <tr>
-                    <td colspan="3">Shipping fee:</td>
-                    <td><em>RM 0.00 (FREE!)</em></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><em>Subtotal:</em></td>
-                    <td>
-                        <em><div id="subTotal"></div></em>
-                    </td>
-                </tr>
-            </table>
 
-            <a href="payment.jsp">
-                <button type="submit" id="cekOut">Proceed to Checkout</button>
-            </a>
-
-        </div>
+        <a href="payment.jsp">
+            <button type="submit" id="cekOut">Proceed to Checkout</button>
+        </a>
 
         <%  // If cart object does not exist or empty
         } else {
         %>
 
         <div class="container-fluid" style="height: 30em;">
-            <h1 style="margin: 25%"> Your cart is empty! :( </h1>
+            <h1 style="margin: 25%; color: white;"> Your cart is empty! :( </h1>
         </div>
-        
-        
+
+
 
         <%  }
         %>
