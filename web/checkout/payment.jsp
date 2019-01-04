@@ -58,14 +58,14 @@
 
                         <div class="formRow">
                             <label for="phone">*Phone Number :</label>
-                            <input name="phone" value = "<%= customer.getPhoneno() %>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
+                            <input name="phone" value = "<%= customer.getPhoneno()%>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
                         </div>
 
                         <div class="formRow">
                             <label for="address">*Address :</label>
-                            <textarea name="address" value = "<%= customer.getAddress() %>" id="address" type="text" placeholder="Please fill up the actual address of your house" rows="4" cols="50" required></textarea>
+                            <textarea name="address" value = "<%= customer.getAddress()%>" id="address" type="text" placeholder="Please fill up the actual address of your house" rows="4" cols="50" required></textarea>
                         </div>
-                        
+
                         <button id="submitBtn" type="submit">Continue</button>
                     </fieldset>
                 </form>
@@ -80,32 +80,35 @@
                         <th>Items</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>Total</th>
+                        <th>Total(RM)</th>
                     </tr>
+
                     <%  for (Orderlist cartmember : cart) {
                             product = cartmember.getProduct();
                             total = cartmember.getQty() * product.getPrice();
                             subtotal += total;
                     %>      
+
                     <tr>
-                        <td><%= product.getName() %></td>
-                        <td><%= cartmember.getQty() %></td>
-                        <td><em><%= product.getPrice() %></em></td>
-                        <td><em><%= String.format("RM %.2f", total) %></em></td>
+                        <td><%= product.getName()%></td>
+                        <td><%= cartmember.getQty()%></td>
+                        <td><em><%= product.getPrice()%></em></td>
+                        <td><em><%= String.format("%.2f", total)%></em></td>
                     </tr>
+
                     <%    }
                     %>   
+
                     <tr>
                         <td colspan="2">Shipping fee:</td>
                         <td>FREE!</td>
-                        <td><em>RM 0.00</em></td>
+                        <td><em>0.00</em></td>
                     </tr>
                     <tr>
                         <td colspan="3"><strong>Subtotal:</strong></td>
-                        <td><strong><%= String.format("RM %.2f", subtotal) %></strong></td>
+                        <td><strong><%= String.format("%.2f", subtotal)%></strong></td>
                     </tr>
                 </table>
-
             </div>
 
             <!--Select Payment Method-->

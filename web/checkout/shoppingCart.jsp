@@ -75,7 +75,7 @@
             }
         </style>
     </head>
-    
+
     <body>
         <header>
             <%@ include file="../layout/header.jsp"%>
@@ -107,65 +107,65 @@
         }
         %>
 
-    <!--Container Start-->
-    <div class="article-container">
+        <!--Container Start-->
+        <div class="article-container">
 
-        <%  // If cart object exists and not empty
-            if (cart != null && !cart.isEmpty()) {
-        %>
+            <%  // If cart object exists and not empty
+                if (cart != null && !cart.isEmpty()) {
+            %>
 
-        <!--Cart-->
+            <!--Cart-->
 
-        <h1 style="color: white">Your Shopping Cart</h1><br>
-        <table class="table table-dark table-bordered table-hover">
-            <thead>
-                <tr scope="row">
-                    <th scope="col">Items</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%  for (i = 0; i < cart.size(); i++) {
-                        Orderlist cartmember = cart.get(i);
-                        product = cartmember.getProduct();
-                        total = cartmember.getQty() * product.getPrice();
-                        subtotal += total;
-                %>
+            <h1 style="color: white">Your Shopping Cart</h1><br>
+            <table class="table table-dark table-bordered table-hover">
+                <thead>
+                    <tr scope="row">
+                        <th scope="col">Items</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <%  for (i = 0; i < cart.size(); i++) {
+                            Orderlist cartmember = cart.get(i);
+                            product = cartmember.getProduct();
+                            total = cartmember.getQty() * product.getPrice();
+                            subtotal += total;
+                    %>
 
-                <tr scope="row" id="list">
-                    <td>
-                        <img src="<%= product.getPoster()%>" width="100px"/>
-                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= product.getName()%></h4>
-                        <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" >
-                            <button type="submit" id="bin"><i class="fas fa-trash-alt"></i> Remove</button>
-                        </a>
-                    </td>
-                    <td>
-                        <input style="width: 50px;" type="number" value="<%= cartmember.getQty()%>" min="1" />
-                    </td>
-                    <td>RM <%= String.format("%.2f", product.getPrice()) %></td>
-                    <td><strong>RM <%= String.format("%.2f", total ) %></strong></td>
+                    <tr scope="row" id="list">
+                        <td>
+                            <img src="<%= product.getPoster()%>" width="100px"/>
+                            <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= product.getName()%></h4>
+                            <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" >
+                                <button type="submit" id="bin"><i class="fas fa-trash-alt"></i> Remove</button>
+                            </a>
+                        </td>
+                        <td>
+                            <input style="width: 50px;" type="number" value="<%= cartmember.getQty()%>" min="1" />
+                        </td>
+                        <td>RM <%= String.format("%.2f", product.getPrice()) %></td>
+                        <td><strong>RM <%= String.format("%.2f", total ) %></strong></td>
 
-                </tr>
+                    </tr>
 
-                <%    }
-                %>
+                    <%    }
+                    %>
 
-                <tr scope="row">
-                    <td colspan="3"><strong>Subtotal:</strong></td>
-                    <td><strong><%= String.format("RM %.2f", subtotal)%></strong></td>
-                </tr>
+                    <tr scope="row">
+                        <td colspan="3"><strong>Subtotal:</strong></td>
+                        <td><strong><%= String.format("RM %.2f", subtotal)%></strong></td>
+                    </tr>
+                </tbody>
+            </table>
 
-            </tbody>
-        </table>
 
-
-        <a href="payment.jsp">
-            <button type="submit" id="cekOut">Proceed to Checkout</button>
-        </a>
-</div>
+            <a href="payment.jsp">
+                <button type="submit" id="cekOut">Proceed to Checkout</button>
+            </a>
+        </div>
         <%  // If cart object does not exist or empty
         } else {
         %>
@@ -178,11 +178,11 @@
         %>
     </div>
 
-        <!-- Footer  -->
-        <footer>
-            <%@ include file="../layout/footer.jsp"%>
-        </footer>
-    </body>
+    <!-- Footer  -->
+    <footer>
+        <%@ include file="../layout/footer.jsp"%>
+    </footer>
+</body>
 </html>
 
 <%
