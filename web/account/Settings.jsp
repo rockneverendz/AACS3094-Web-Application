@@ -22,7 +22,6 @@
         <link href="../layout/reset.css" rel="stylesheet" />
         <link href="../layout/base.css" rel="stylesheet" />
         <link href="../layout/image/DySpee.png" rel="icon" />
-        <link href="style/settings.css" rel="stylesheet" />
 
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
@@ -34,18 +33,41 @@
         <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        
+
         <style>
+            .settings-box{
+                margin: auto;
+                width: 60%;
+            }
+
             h1{
                 padding: 5px 15px;
                 font-size: 100px;
                 font-weight: bold;
             }
-            
+
             h1, label{
                 color: white;
             }
-            
+
+            #submitBtn {
+                display: block;
+                margin-left: 12px;
+                padding: 5px;
+                float: right;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+                font-size: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px 5px white;
+                cursor: pointer;
+            }
+
+            #submitBtn:hover {
+                color: rgb(12, 147, 218);
+                box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+            }
+
         </style>
     </head>
 
@@ -60,7 +82,7 @@
             //Status code 1 = Successfully Signed In
             //Status code 2 = Successfully Signed Up
         -->
-        
+
         <%  String status = request.getParameter("status");
             String message = (String) request.getAttribute("message");
             //If no status are recieved, no need division
@@ -80,46 +102,50 @@
 
         <div class="article-container">
             <form action="Settings" method="GET">
-                <fieldset id="settings">
+                <div class="container-fluid settings-box">
                     <h1>Settings</h1>
-                    <div class="formRow">
-                        <label>Name :&ensp;</label>
-                        <input name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Name :&ensp;</label>
+                            <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>*Email :&ensp;</label>
+                            <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "email@example.com" disabled = "true"/>
+                        </div>
                     </div>
-                    <div class="formRow">
-                        <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "email@example.com" disabled = "true"/>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Date Of Birth :&ensp;</label>
+                            <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Phone No. :&ensp;</label>
+                            <input class="form-control" name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="(nnn)nnn-nnnn" />
+                        </div>
                     </div>
-                    <div class="formRow">
-                        <label>Date Of Birth :&ensp;</label>
-                        <input name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
-                    </div>
-                    <div class="formRow">
-                        <label>Phone No. :&ensp;</label>
-                        <input name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="(nnn)nnn-nnnn" />
-                    </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-8">
                         <label>Address :&ensp;</label>
-                        <textarea name="address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" rows="4" cols="50"></textarea>
+                        <textarea class="form-control" name="address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" rows="4" cols="50"></textarea>
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>*Password :&ensp;</label>
-                        <input name = "password" type = "password" placeholder = "Password" />
+                        <input class="form-control" name = "password" type = "password" placeholder = "Password" />
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>*Retype Password :&ensp;</label>
-                        <input name = "passwordRe" type = "password" placeholder = "Password" />
+                        <input class="form-control" name = "passwordRe" type = "password" placeholder = "Password" />
                     </div>
                     <br>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>*Current Password :&ensp;</label>
-                        <input name = "passwordCu" type = "password" placeholder = "Password" required/>
+                        <input class="form-control" name = "passwordCu" type = "password" placeholder = "Password" required/>
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>&ensp;</label>
                         <button id="submitBtn" type="submit">Save Settings</button>
                     </div>
-                </fieldset>
+                </div>
             </form>
         </div>
         <footer>
