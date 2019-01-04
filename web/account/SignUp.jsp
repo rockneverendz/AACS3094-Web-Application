@@ -30,7 +30,6 @@
         <link href="../layout/reset.css" rel="stylesheet" />
         <link href="../layout/base.css" rel="stylesheet" />
         <link href="../layout/image/DySpee.png" rel="icon" />
-        <link href="style/signup.css" rel="stylesheet" />
         
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
@@ -44,6 +43,11 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         <style>
+            .signup-box{
+                margin: auto;
+                width: 50%;
+            }
+            
             h1{
                 padding: 5px 15px;
                 font-size: 100px;
@@ -53,6 +57,24 @@
             
             h1, label{
                 color: white;
+            }
+            
+            #submitBtn {
+                display: block;
+                margin-left: 12px;
+                padding: 5px;
+                float: right;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+                font-size: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px 5px white;
+                cursor: pointer;
+            }
+
+            #submitBtn:hover {
+                color: rgb(12, 147, 218);
+                box-shadow: 0 0 20px 5px rgb(12, 147, 218);
             }
             
         </style>
@@ -74,33 +96,34 @@
         
         <div class="article-container">
             <form action="SignUp" method="post">
-                <fieldset id="settings">
+                <div class="container-fluid signup-box">
                     <h1>Sign Up</h1>
-                    <div class="formRow">
+                    
+                    <div class="form-group row col-md-6">
                         <label>*Name :&ensp;</label>
-                        <input name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
+                        <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>*Email :&ensp;</label>
-                        <input name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
+                        <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>Date Of Birth :&ensp;</label>
-                        <input name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                        <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>*Password :&ensp;</label>
-                        <input name = "password" type="password" placeholder="Password" required/>
+                        <input class="form-control" name = "password" type="password" placeholder="Password" required/>
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>*Retype Password :&ensp;</label>
-                        <input name = "passwordRe" type="password" placeholder="Password" required/>
+                        <input class="form-control" name = "passwordRe" type="password" placeholder="Password" required/>
                     </div>
-                    <div class="formRow">
+                    <div class="form-group row col-md-6">
                         <label>&ensp;</label>
                         <button id="submitBtn" type="submit">Sign Up</button>
                     </div>
-                </fieldset>
+                </div>
             </form>
         </div>
         <footer>
