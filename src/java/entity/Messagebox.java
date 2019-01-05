@@ -20,7 +20,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -43,7 +42,6 @@ public class Messagebox implements Serializable {
     @Basic(optional = false)
     @Column(name = "MESSAGEID")
     private Integer messageid;
-    @Size(max = 500)
     @Column(name = "MCOMMENT")
     private String mcomment;
     @Column(name = "MDATE")

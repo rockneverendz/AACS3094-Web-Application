@@ -6,6 +6,7 @@
     <class>entity.Product</class>
     <class>entity.Custorder</class>
     <class>entity.Orderlist</class>
+    <class>entity.Messagebox</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/DySpeedb"/>
