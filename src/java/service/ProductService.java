@@ -2,8 +2,7 @@ package service;
 
 import entity.Product;
 import javax.persistence.*;
-
-//import java.util.List;
+import java.util.List;
 
 public class ProductService {
 
@@ -18,6 +17,15 @@ public class ProductService {
     public void addProduct(Product product) throws RollbackException{
         em.persist(product);
         em.getTransaction().commit();
+    }
+    
+    public boolean deleteProduct(Product product) throws RollbackException{
+       if(product !=null){
+        em.remove(product);
+        em.getTransaction().commit();
+        return true;
+       }
+       return false;
     }
 
     public Product findProdByID(int id) {
@@ -37,6 +45,11 @@ public class ProductService {
     public int countProduct(){
         return (int) em.createNativeQuery("SELECT COUNT(*) FROM NBUSER.PRODUCT").getSingleResult();
     } 
+     
+    public List<Product> findAll(){
+        List ProductList = em.createNamedQuery("Product.findAll").getResultList();
+        return ProductList;
+   }
 
 //    public List<Customer> findAll() {
 //        List Custlist = em.createNamedQuery("Customer.findAll").getResultList();
