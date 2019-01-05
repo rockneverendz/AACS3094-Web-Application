@@ -6,6 +6,8 @@
         <resource-env-ref-name>jdbc/DySpee</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
+    
+    <!-- Customer Account -->
     <servlet>
         <servlet-name>SignUp</servlet-name>
         <servlet-class>control.SignUp</servlet-class>
@@ -22,6 +24,24 @@
         <servlet-name>Settings</servlet-name>
         <servlet-class>control.Settings</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>SignUp</servlet-name>
+        <url-pattern>/account/SignUp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/account/SignIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOut</servlet-name>
+        <url-pattern>/account/SignOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Settings</servlet-name>
+        <url-pattern>/account/Settings</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Cart Management -->
     <servlet>
         <servlet-name>AddItem</servlet-name>
         <servlet-class>control.AddItem</servlet-class>
@@ -30,6 +50,16 @@
         <servlet-name>DeleteItem</servlet-name>
         <servlet-class>control.DeleteItem</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>AddItem</servlet-name>
+        <url-pattern>/video/AddItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteItem</servlet-name>
+        <url-pattern>/checkout/DeleteItem</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Staff Operation -->
     <servlet>
         <servlet-name>StaffView</servlet-name>
         <servlet-class>control.StaffView</servlet-class>
@@ -55,30 +85,6 @@
         <servlet-class>control.StaffUpdateProduct</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SignUp</servlet-name>
-        <url-pattern>/account/SignUp</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SignIn</servlet-name>
-        <url-pattern>/account/SignIn</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SignOut</servlet-name>
-        <url-pattern>/account/SignOut</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Settings</servlet-name>
-        <url-pattern>/account/Settings</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddItem</servlet-name>
-        <url-pattern>/video/AddItem</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeleteItem</servlet-name>
-        <url-pattern>/checkout/DeleteItem</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>StaffView</servlet-name>
         <url-pattern>/staff/StaffView</url-pattern>
     </servlet-mapping>
@@ -102,6 +108,7 @@
         <servlet-name>StaffUpdateProduct</servlet-name>
         <url-pattern>/staff/StaffUpdateProduct</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
