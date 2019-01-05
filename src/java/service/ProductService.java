@@ -7,66 +7,59 @@ import java.util.List;
 public class ProductService {
 
     EntityManager em;
-    
+
     public ProductService() {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AACS3094-Web-ApplicationPU");
         this.em = emfactory.createEntityManager();
         this.em.getTransaction().begin();
     }
 
-    public void addProduct(Product product) throws RollbackException{
+    public void addProduct(Product product) throws RollbackException {
         em.persist(product);
         em.getTransaction().commit();
     }
-    
-    public boolean deleteProduct(Product product) throws RollbackException{
-       if(product !=null){
-        em.remove(product);
-        em.getTransaction().commit();
-        return true;
-       }
-       return false;
+
+    public boolean deleteProduct(int id) throws RollbackException {
+        Product product = findProdByID(id);
+        if (product != null) {
+            em.remove(product);
+            em.getTransaction().commit();
+            return true;
+        }
+        return false;
     }
 
     public Product findProdByID(int id) {
         return (Product) em.find(Product.class, id);
     }
-//
-//    public boolean deleteCustomer(int id) {
-//        Product product = findCustByID(id);
-//        if (product != null) {
-//            em.remove(product);
-//            em.getTransaction().commit();
-//            return true;
-//        }
-//        return false;
-//    }
+
+    public boolean updateProduct(Product newProduct) {
+        Product thisProduct = findProdByID(newProduct.getProductid());
+        if (thisProduct != null) {
+            
+            thisProduct.setName(newProduct.getName());
+            thisProduct.setDescription(newProduct.getDescription());
+            thisProduct.setRating(newProduct.getRating());
+            thisProduct.setDaterelease(newProduct.getDaterelease());
+            thisProduct.setPrice(newProduct.getPrice());
+            thisProduct.setPoster(newProduct.getPoster());
+            thisProduct.setGenre(newProduct.getGenre());
+            thisProduct.setTrailer(newProduct.getTrailer());
+
+            em.getTransaction().commit();
+            return true;
+        }
+        return false;
+    }
     
-    public int countProduct(){
+    public int countProduct() {
         return (int) em.createNativeQuery("SELECT COUNT(*) FROM NBUSER.PRODUCT").getSingleResult();
-    } 
-     
-    public List<Product> findAll(){
+    }
+
+    public List<Product> findAll() {
         List ProductList = em.createNamedQuery("Product.findAll").getResultList();
         return ProductList;
-   }
-
-//    public List<Customer> findAll() {
-//        List Custlist = em.createNamedQuery("Customer.findAll").getResultList();
-//        return Custlist;
-//    }
-
-//    public boolean updateCustomer(Customer newCustomer) {
-//        Customer thisCustomer = findCustByID(newCustomer.getCustid());
-//        if (thisCustomer != null) {
-//            thisCustomer.setCustname(newCustomer.getCustname());
-//            thisCustomer.setDob(newCustomer.getDob());
-//            thisCustomer.setPassword(newCustomer.getPassword());
-//            em.getTransaction().commit();
-//            return true;
-//        }
-//        return false;
-//    }
+    }
     
     public void close() {
         this.em.close();
