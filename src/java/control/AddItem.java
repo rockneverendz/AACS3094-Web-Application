@@ -52,16 +52,18 @@ public class AddItem extends HttpServlet {
                 orderlist.setProduct(product);
                 orderlist.setQty(1);
                 cart.add(orderlist);
+            
+                // Redirect back to trailer page with status 'Success'
+                response.sendRedirect("../video/trailer.jsp?productid=" + productidS + "&status=1");
+
             } // If product is already in the cart.
             else {
-                int quantity;
-                quantity = cart.get(indexOfProduct).getQty();
-                quantity += 1;
-                cart.get(indexOfProduct).setQty(quantity);
+                
+                // Redirect back to trailer page with status 'Failed'
+                response.sendRedirect("../video/trailer.jsp?productid=" + productidS + "&status=2");
+                
             }
 
-            // Redirect back to homepage with status 'Success'
-            response.sendRedirect("../video/trailer.jsp?productid=" + productidS + "&status=1");
 
         } catch (NumberFormatException ex) {
             response.sendRedirect("../video/DySpee.jsp?status=-1");
