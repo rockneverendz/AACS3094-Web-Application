@@ -44,6 +44,7 @@
                 padding: 5px 15px;
                 font-size: 100px;
                 font-weight: bold;
+                text-decoration: underline;
             }
 
             h1, label{
@@ -126,7 +127,7 @@
                     </div>
                     <div class="form-group row col-md-8">
                         <label>Address :&ensp;</label>
-                        <textarea class="form-control" name="address" value = "<%= customer.getAddress()%>" type="text" placeholder="Address" rows="4" cols="50"></textarea>
+                        <textarea class="form-control" name = "address" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
                     </div>
                     <div class="form-group row col-md-6">
                         <label>*Password :&ensp;</label>
@@ -136,7 +137,7 @@
                         <label>*Retype Password :&ensp;</label>
                         <input class="form-control" name = "passwordRe" type = "password" placeholder = "Password" />
                     </div>
-                    <br>
+                    <hr style="border-style: inset; border-width: 1px; " >
                     <div class="form-group row col-md-6">
                         <label>*Current Password :&ensp;</label>
                         <input class="form-control" name = "passwordCu" type = "password" placeholder = "Password" required/>
@@ -152,5 +153,4 @@
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
-
 </html>

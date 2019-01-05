@@ -54,6 +54,8 @@ public class CustomerService {
             thisCustomer.setCustname(newCustomer.getCustname());
             thisCustomer.setDob(newCustomer.getDob());
             thisCustomer.setPassword(newCustomer.getPassword());
+            thisCustomer.setPhoneno(newCustomer.getPhoneno());
+            thisCustomer.setAddress(newCustomer.getAddress());
             em.getTransaction().commit();
             return true;
         }

@@ -24,7 +24,6 @@
 %>
 
 <html>
-
     <head>
         <meta charset="utf-8" />
         <title>DySpee</title>
@@ -53,6 +52,7 @@
                 padding: 5px 15px;
                 font-size: 100px;
                 font-weight: bold;
+                text-decoration: underline;
             }
             
             h1, label{
@@ -130,5 +130,4 @@
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
-
 </html>

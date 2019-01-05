@@ -1,13 +1,10 @@
 package control;
 
-import entity.Custorder;
 import entity.Orderlist;
 import entity.Product;
 import service.ProductService;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.ParseException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

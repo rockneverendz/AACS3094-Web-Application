@@ -29,6 +29,7 @@
                 padding: 5px 15px;
                 font-size: 100px;
                 font-weight: bold;
+                text-decoration: underline;
             }
 
             h1, label{
