@@ -21,6 +21,7 @@ public class SignUp extends HttpServlet {
 
         // Get parameter from the form
         String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String dob = request.getParameter("dob");
         String password = request.getParameter("password");
@@ -35,6 +36,7 @@ public class SignUp extends HttpServlet {
         try {
             // Fill in those which doens't need to be validated
             customer.setCustname(name);
+            customer.setPhoneno(phone);
             customer.setEmail(email);
             customer.setAddress("");
             customer.setPhoneno("");
