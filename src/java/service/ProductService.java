@@ -19,6 +19,16 @@ public class ProductService {
         em.getTransaction().commit();
     }
 
+    /**
+     * @param id
+     *        ID of the product which needs to be deleted
+     *
+     * @return true if successfully committed 
+     *         false if product not found
+     *
+     * @throws RollbackException 
+     *         If commit fails
+     */
     public boolean deleteProduct(int id) throws RollbackException {
         Product product = findProdByID(id);
         if (product != null) {
@@ -33,7 +43,17 @@ public class ProductService {
         return (Product) em.find(Product.class, id);
     }
 
-    public boolean updateProduct(Product newProduct) {
+    /**
+     * @param newProduct 
+     *        The modified product
+     * 
+     * @return true if successfully committed
+     *         false if product not found
+     * 
+     * @throws RollbackException
+     *         If commit fails
+     */
+    public boolean updateProduct(Product newProduct) throws RollbackException{
         Product thisProduct = findProdByID(newProduct.getProductid());
         if (thisProduct != null) {
             
