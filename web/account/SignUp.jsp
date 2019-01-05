@@ -15,6 +15,7 @@
     if (customer == null) {
         customer = new Customer();
         customer.setCustname("");
+        customer.setPhoneno("");
         customer.setEmail("");
         customer.setDob(new Date());
     }

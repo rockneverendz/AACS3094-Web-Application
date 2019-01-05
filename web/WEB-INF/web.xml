@@ -6,7 +6,6 @@
         <resource-env-ref-name>jdbc/DySpee</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
-    
     <!-- Customer Account -->
     <servlet>
         <servlet-name>SignUp</servlet-name>
@@ -40,7 +39,6 @@
         <servlet-name>Settings</servlet-name>
         <url-pattern>/account/Settings</url-pattern>
     </servlet-mapping>
-    
     <!-- Cart Management -->
     <servlet>
         <servlet-name>AddItem</servlet-name>
@@ -50,6 +48,10 @@
         <servlet-name>DeleteItem</servlet-name>
         <servlet-class>control.DeleteItem</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateItem</servlet-name>
+        <servlet-class>control.UpdateItem</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddItem</servlet-name>
         <url-pattern>/video/AddItem</url-pattern>
@@ -58,7 +60,19 @@
         <servlet-name>DeleteItem</servlet-name>
         <url-pattern>/checkout/DeleteItem</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>UpdateItem</servlet-name>
+        <url-pattern>/checkout/UpdateItem</url-pattern>
+    </servlet-mapping>
+    <!-- Order List -->
+    <servlet>
+        <servlet-name>NewOrder</servlet-name>
+        <servlet-class>control.NewOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewOrder</servlet-name>
+        <url-pattern>/checkout/NewOrder</url-pattern>
+    </servlet-mapping>
     <!-- Staff Operation -->
     <servlet>
         <servlet-name>StaffView</servlet-name>
@@ -108,7 +122,6 @@
         <servlet-name>StaffUpdateProduct</servlet-name>
         <url-pattern>/staff/StaffUpdateProduct</url-pattern>
     </servlet-mapping>
-    
     <session-config>
         <session-timeout>
             30

@@ -53,9 +53,7 @@
                 color: rgb(12, 147, 218);
                 box-shadow: 0 0 20px 5px rgb(12, 147, 218);
             }
-
         </style>
-
     </head>
 
     <body>
@@ -73,6 +71,7 @@
                 email = "";
             }
         %>
+
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>

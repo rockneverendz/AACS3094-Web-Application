@@ -14,7 +14,7 @@
     int[] recomProd = new int[3];
     int noProduct = productService.countProduct();
     int i;
-    
+
     // Product ID is null, redirect back to homepage with an error.
     if (productid == null) {
         response.sendRedirect("../video/DySpee.jsp?status=-1");
@@ -50,7 +50,7 @@
 
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-        
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -82,8 +82,10 @@
                 message = "";
             } else {
                 char code = status.charAt(0);
-                if (code == '1') {
-                    message = "Successfully Added to cart!";
+                if (code == '2') {
+                    message = "Item already in cart!";
+                } else if (code == '1') {
+                    message = "Successfully added to cart!";
                 } else {
                     message = "Error has occured";
                 }
@@ -152,7 +154,7 @@
                 %>
 
                 <div class="box">
-                    <a href="../video/trailer.jsp?productid=<%= recomProd[i] %>">
+                    <a href="../video/trailer.jsp?productid=<%= recomProd[i]%>">
                         <img src=<%= product.getPoster()%> />
                     </a>
                     <p><%= product.getName()%></p>

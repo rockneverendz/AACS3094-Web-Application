@@ -12,6 +12,13 @@
     Product product;
     int i;
     double total, subtotal = 0;
+
+    //If user is not logged in
+    if (customer == null) {
+        response.sendRedirect("../account/SignIn.jsp?status=Y");
+        return;
+    }
+
 %>
 
 <html>

@@ -57,8 +57,7 @@
             }
 
             /* delete button*/
-            #bin {
-                margin: 40px 15px 0 0;
+            #bin , #qty{
                 padding: 10px;
                 float: right;
                 background-color: rgba(1, 1, 1, 0.5);
@@ -73,20 +72,16 @@
             #qtyBtn:hover, #bin:hover {
                 background-color: dimgray;
             }
-            
-            /* update qty button*/
-            #qtyBtn{
-                margin: 0 0 0 -60px;
-                padding: 10px;
-                float: right;
-                background-color: rgba(1, 1, 1, 0.5);
-                border: none;
-                border-radius: 10px;
-                color: #fff;
-                font-size: 11px;
-                font-weight: bold;
-                cursor: pointer;
+
+            #bin{
+                margin: 40px 15px 0 0;
             }
+
+            /* update qty button*/
+            #qty{
+                margin: 0 0 0 -60px;
+            }
+
         </style>
     </head>
 
@@ -106,7 +101,9 @@
                 message = "";
             } else {
                 char code = status.charAt(0);
-                if (code == '1') {
+                if (code == '2') {
+                    message = "Quantity updated successfully.";
+                } else if (code == '1') {
                     message = "Item removed successfully.";
                 } else if (code == '0') {
                     message = "Item does not exist in cart.";
@@ -118,7 +115,7 @@
         <div class="message-container"><%= message%></div>
 
         <%
-        }
+            }
         %>
 
         <!--Container Start-->
@@ -141,7 +138,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <%  for (i = 0; i < cart.size(); i++) {
                             Orderlist cartmember = cart.get(i);
                             product = cartmember.getProduct();
@@ -153,16 +150,19 @@
                         <td>
                             <img src="<%= product.getPoster()%>" width="100px"/>
                             <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= product.getName()%></h4>
-                            <a class="trash" href="../checkout/DeleteItem?indexNumber=<%= i%>" >
+                            <a href="../checkout/DeleteItem?indexNumber=<%= i%>" >
                                 <button type="submit" id="bin"><i class="fas fa-trash-alt"></i> Remove</button>
                             </a>
                         </td>
                         <td>
-                            <input style="width: 50px;" type="number" value="<%= cartmember.getQty()%>" min="1" />
-                            <button type="submit" id="qtyBtn">Update Qty</button>
+                            <form action="UpdateItem" method="POST">
+                                <input type="hidden" name="indexNumber" value="<%= i%>" />
+                                <input type="number" name="quantity" style="width: 50px;"  value="<%= cartmember.getQty()%>" min="1" />
+                                <button type="submit" id="qty">Update Qty</button>
+                            </form>
                         </td>
-                        <td>RM <%= String.format("%.2f", product.getPrice()) %></td>
-                        <td><strong>RM <%= String.format("%.2f", total ) %></strong></td>
+                        <td>RM <%= String.format("%.2f", product.getPrice())%></td>
+                        <td><strong>RM <%= String.format("%.2f", total)%></strong></td>
 
                     </tr>
 
