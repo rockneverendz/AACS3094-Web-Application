@@ -70,8 +70,22 @@
                 cursor: pointer;
             }
 
-            #bin:hover {
+            #qtyBtn:hover, #bin:hover {
                 background-color: dimgray;
+            }
+            
+            /* update qty button*/
+            #qtyBtn{
+                margin: 0 0 0 -60px;
+                padding: 10px;
+                float: right;
+                background-color: rgba(1, 1, 1, 0.5);
+                border: none;
+                border-radius: 10px;
+                color: #fff;
+                font-size: 11px;
+                font-weight: bold;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -145,6 +159,7 @@
                         </td>
                         <td>
                             <input style="width: 50px;" type="number" value="<%= cartmember.getQty()%>" min="1" />
+                            <button type="submit" id="qtyBtn">Update Qty</button>
                         </td>
                         <td>RM <%= String.format("%.2f", product.getPrice()) %></td>
                         <td><strong>RM <%= String.format("%.2f", total ) %></strong></td>
