@@ -1,4 +1,8 @@
-﻿ALTER TABLE PRODUCT ALTER COLUMN PRODUCTID RESTART WITH 0;
+--  WARNING !!! RUN THIS FILE WILL ERASE ALL THE RECORDS YOU HAVE MADE 
+DELETE FROM PRODUCT;
+DELETE FROM CUSTOMER;
+
+ALTER TABLE PRODUCT ALTER COLUMN PRODUCTID RESTART WITH 0;
 ALTER TABLE CUSTOMER ALTER COLUMN CUSTID RESTART WITH 0;
 
 /* INSERT PRODUCT DETAILS */
@@ -27,16 +31,14 @@ INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POS
 INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
 	VALUES ('The Nun', 'When a young nun at a cloistered abbey in Romania takes her own life, a priest with a haunted past and a novitiate on the threshold of her final vows are sent by the Vatican to investigate. Together, they uncover the order''s unholy secret. Risking not only their lives but their faith and their very souls, they confront a malevolent force in the form of a demonic nun.', 4, '2018-09-06', 30.0, '../video/image/Movie_Img/Horror/nun.jpg', 'Horror', 'https://www.youtube.com/embed/pzD9zGcUNrw');
 
-
-	
 	
 /* INSERT CUSTOMER DATA*/
 	INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
 	VALUES ('Bird', '012-3456789', 'No.10, Jalan ABC, KL', 'bird@gmail.com', '2019-01-05', 'Bird');
 INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
-	VALUES ('Tiger', '617-1324624', '4 Petterle Avenue', 'tiger@gmail.com', '2018-10-07', 'Lion');
+	VALUES ('Tiger', '617-1324624', '4 Petterle Avenue', 'tiger@gmail.com', '2018-10-07', 'Tiger');
 INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
-	VALUES ('Lion', '713-9187676', '565 Dayton Pass', 'lion@gmail.com', '2018-08-19', 'Tiger');
+	VALUES ('Lion', '713-9187676', '565 Dayton Pass', 'lion@gmail.com', '2018-08-19', 'Lion');
 INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
 	VALUES ('Dog', '620-6128807', '82 Oneill Drive', 'dog@gmail.com', '2018-07-03', 'Dog');
 INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
