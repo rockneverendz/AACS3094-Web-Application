@@ -1,5 +1,11 @@
-﻿ALTER TABLE PRODUCT ALTER COLUMN PRODUCTID RESTART WITH 0;
+--  WARNING !!! RUN THIS FILE WILL ERASE ALL THE RECORDS YOU HAVE MADE 
+DELETE FROM PRODUCT;
+DELETE FROM CUSTOMER;
 
+ALTER TABLE PRODUCT ALTER COLUMN PRODUCTID RESTART WITH 0;
+ALTER TABLE CUSTOMER ALTER COLUMN CUSTID RESTART WITH 0;
+
+/* INSERT PRODUCT DETAILS */
 INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
 	VALUES ('The Avengers: The Infinity War', 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality. The fate of the planet and existence itself has never been more uncertain as everything the Avengers have fought for has led up to this moment.', 5, '2018-04-23', 30.0, '../video/image/Movie_Img/Sci-fic/Avengers_Infinity_War_poster.jpg', 'Sci-Fic', 'https://www.youtube.com/embed/6ZfuNTqbHE8');
 INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
@@ -24,3 +30,28 @@ INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POS
 	VALUES ('It', 'Seven young outcasts in Derry, Maine, are about to face their worst nightmare -- an ancient, shape-shifting evil that emerges from the sewer every 27 years to prey on the town''s children. Banding together over the course of one horrifying summer, the friends must overcome their own personal fears to battle the murderous, bloodthirsty clown known as Pennywise.', 5, '2018-09-05', 30.0, '../video/image/Movie_Img/Horror/IT.jpg', 'Horror', 'https://www.youtube.com/embed/yLM-UsuGBuQ');
 INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
 	VALUES ('The Nun', 'When a young nun at a cloistered abbey in Romania takes her own life, a priest with a haunted past and a novitiate on the threshold of her final vows are sent by the Vatican to investigate. Together, they uncover the order''s unholy secret. Risking not only their lives but their faith and their very souls, they confront a malevolent force in the form of a demonic nun.', 4, '2018-09-06', 30.0, '../video/image/Movie_Img/Horror/nun.jpg', 'Horror', 'https://www.youtube.com/embed/pzD9zGcUNrw');
+
+	
+/* INSERT CUSTOMER DATA*/
+	INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Bird', '012-3456789', 'No.10, Jalan ABC, KL', 'bird@gmail.com', '2019-01-05', 'Bird');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Tiger', '617-1324624', '4 Petterle Avenue', 'tiger@gmail.com', '2018-10-07', 'Tiger');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Lion', '713-9187676', '565 Dayton Pass', 'lion@gmail.com', '2018-08-19', 'Lion');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Dog', '620-6128807', '82 Oneill Drive', 'dog@gmail.com', '2018-07-03', 'Dog');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Cat', '222-7511829', '0 Vernon Road', 'cat@gmail.com', '2018-12-25', 'Cat');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Ali', '495-7501777', '2378 Surrey Alley', 'ali@gmail.com', '2018-04-08', 'Ali99');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Abu', '932-6132567', '0833 Manufacturers Point', 'abu@gmail.com', '2018-02-24', 'Abu99');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Tai Tai', '916-1706723', '69111 Green Ridge Place', 'taitai@gmail.com', '2018-10-27', 'tai99');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Brendan Chew', '983-4992758', '94839 Village Green Crossing', 'brendan@gmail.com', '2018-01-19', 'brendan99');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Wei Xiang Chia', '315-7817207', '318 Kim Alley', 'wxchia@gmail.com', '2018-07-28', 'wx99');
+INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
+	VALUES ('Soo Cia Yang', '428-2772422', '396 6th Terrace', 'soocy@gmail.com', '2018-04-29', 'scy99');

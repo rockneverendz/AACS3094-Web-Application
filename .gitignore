@@ -3,3 +3,4 @@ build/*
 DySpeedb/*
 /dist/
 derby.log
+web/WEB-INF/glassfish-resources.xml

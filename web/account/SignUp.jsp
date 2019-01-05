@@ -104,6 +104,10 @@
                         <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
                     </div>
                     <div class="form-group row col-md-6">
+                        <label>*Phone Number :&ensp;</label>
+                        <input class="form-control" name = "phone" value = "<%= customer.getPhoneno()%>" type="text" placeholder="012-3456789" required/>
+                    </div>
+                    <div class="form-group row col-md-6">
                         <label>*Email :&ensp;</label>
                         <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
                     </div>

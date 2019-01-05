@@ -23,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -37,7 +38,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Custorder.findAll", query = "SELECT c FROM Custorder c")
     , @NamedQuery(name = "Custorder.findByOrderid", query = "SELECT c FROM Custorder c WHERE c.orderid = :orderid")
     , @NamedQuery(name = "Custorder.findByOrderdate", query = "SELECT c FROM Custorder c WHERE c.orderdate = :orderdate")
-    , @NamedQuery(name = "Custorder.findByTrackingnum", query = "SELECT c FROM Custorder c WHERE c.trackingnum = :trackingnum")
+    , @NamedQuery(name = "Custorder.findByReceivername", query = "SELECT c FROM Custorder c WHERE c.receivername = :receivername")
+    , @NamedQuery(name = "Custorder.findByReceiveraddress", query = "SELECT c FROM Custorder c WHERE c.receiveraddress = :receiveraddress")
+    , @NamedQuery(name = "Custorder.findByTrackingno", query = "SELECT c FROM Custorder c WHERE c.trackingno = :trackingno")
     , @NamedQuery(name = "Custorder.findByStatus", query = "SELECT c FROM Custorder c WHERE c.status = :status")})
 public class Custorder implements Serializable {
 
@@ -50,8 +53,16 @@ public class Custorder implements Serializable {
     @Column(name = "ORDERDATE")
     @Temporal(TemporalType.DATE)
     private Date orderdate;
-    @Column(name = "TRACKINGNUM")
-    private String trackingnum;
+    @Size(max = 255)
+    @Column(name = "RECEIVERNAME")
+    private String receivername;
+    @Size(max = 999)
+    @Column(name = "RECEIVERADDRESS")
+    private String receiveraddress;
+    @Size(max = 10)
+    @Column(name = "TRACKINGNO")
+    private String trackingno;
+    @Size(max = 30)
     @Column(name = "STATUS")
     private String status;
     @JoinColumn(name = "CUSTID", referencedColumnName = "CUSTID")
@@ -83,12 +94,28 @@ public class Custorder implements Serializable {
         this.orderdate = orderdate;
     }
 
-    public String getTrackingnum() {
-        return trackingnum;
+    public String getReceivername() {
+        return receivername;
     }
 
-    public void setTrackingnum(String trackingnum) {
-        this.trackingnum = trackingnum;
+    public void setReceivername(String receivername) {
+        this.receivername = receivername;
+    }
+
+    public String getReceiveraddress() {
+        return receiveraddress;
+    }
+
+    public void setReceiveraddress(String receiveraddress) {
+        this.receiveraddress = receiveraddress;
+    }
+
+    public String getTrackingno() {
+        return trackingno;
+    }
+
+    public void setTrackingno(String trackingno) {
+        this.trackingno = trackingno;
     }
 
     public String getStatus() {
@@ -140,5 +167,5 @@ public class Custorder implements Serializable {
     public String toString() {
         return "entity.Custorder[ orderid=" + orderid + " ]";
     }
-
+    
 }

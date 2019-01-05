@@ -21,6 +21,7 @@ public class SignUp extends HttpServlet {
 
         // Get parameter from the form
         String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String dob = request.getParameter("dob");
         String password = request.getParameter("password");
@@ -37,7 +38,7 @@ public class SignUp extends HttpServlet {
             customer.setCustname(name);
             customer.setEmail(email);
             customer.setAddress("");
-            customer.setPhoneno("");
+            customer.setPhoneno(phone);
 
             // Parse date
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
