@@ -31,8 +31,28 @@
         <servlet-class>control.DeleteItem</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewOrder</servlet-name>
-        <servlet-class>control.NewOrder</servlet-class>
+        <servlet-name>StaffView</servlet-name>
+        <servlet-class>control.StaffView</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffAddItem</servlet-name>
+        <servlet-class>control.StaffAddItem</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffDeleteItem</servlet-name>
+        <servlet-class>control.StaffDeleteItem</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadProductList</servlet-name>
+        <servlet-class>control.LoadProductList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchProduct</servlet-name>
+        <servlet-class>control.SearchProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffUpdateProduct</servlet-name>
+        <servlet-class>control.StaffUpdateProduct</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
@@ -59,8 +79,28 @@
         <url-pattern>/checkout/DeleteItem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NewOrder</servlet-name>
-        <url-pattern>/checkout/NewOrder</url-pattern>
+        <servlet-name>StaffView</servlet-name>
+        <url-pattern>/staff/StaffView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAddItem</servlet-name>
+        <url-pattern>/staff/StaffAddItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffDeleteItem</servlet-name>
+        <url-pattern>/staff/StaffDeleteItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadProductList</servlet-name>
+        <url-pattern>/staff/LoadProductList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchProduct</servlet-name>
+        <url-pattern>/staff/SearchProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffUpdateProduct</servlet-name>
+        <url-pattern>/staff/StaffUpdateProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
