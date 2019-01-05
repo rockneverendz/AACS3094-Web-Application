@@ -32,7 +32,7 @@
     </servlet>
     <servlet>
         <servlet-name>NewOrder</servlet-name>
-        <servlet-class>entity.NewOrder</servlet-class>
+        <servlet-class>control.NewOrder</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
