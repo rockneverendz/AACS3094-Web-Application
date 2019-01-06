@@ -49,11 +49,11 @@
                 box-shadow: 0 0 3px 3px rgb(255, 255, 255);
                 border-radius: 10px;
                 font-size: 20px;
+                font-weight: bold;
             }
 
             #cekOut:hover {
-                color: aqua;
-                box-shadow: 0 0 3px 3px aqua;
+                box-shadow: 0 0 20px 5px rgb(12, 147, 218);
             }
 
             /* delete button*/
