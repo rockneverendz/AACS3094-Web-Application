@@ -60,17 +60,17 @@
                         <legend>Delivery Information</legend>
                         <div class="formRow">
                             <label for="name">*Name :</label>
-                            <input name="custName" value = "<%= customer.getCustname()%>" id="custName" type="text" placeholder="e.g. First name & last name" required>
+                            <input name="rcvName" value = "<%= customer.getCustname()%>" id="custName" type="text" placeholder="e.g. First name & last name" required />
                         </div>
 
                         <div class="formRow">
                             <label for="phone">*Phone Number :</label>
-                            <input name="phone" value = "<%= customer.getPhoneno()%>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
+                            <input name="rcvPhone" value = "<%= customer.getPhoneno()%>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
                         </div>
 
                         <div class="formRow">
                             <label for="address">*Address :</label>
-                            <textarea name = "address" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
+                            <textarea name = "rcvAddress" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
                         </div>
 
                         <button id="submitBtn" type="submit">Continue</button>
