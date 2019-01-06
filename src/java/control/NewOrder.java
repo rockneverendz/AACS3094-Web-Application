@@ -1,21 +1,19 @@
 package control;
 
+import entity.Orderlist;
+import entity.Custorder;
 import entity.Customer;
+
+import service.CustOrderService;
+
 import java.io.IOException;
+import java.util.Date;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import service.CustOrderService;
-import service.ProductService;
-import entity.Orderlist;
-import entity.OrderlistPK;
-import entity.Product;
-import entity.Custorder;
-import java.util.Date;
 
 public class NewOrder extends HttpServlet {
 
@@ -31,19 +29,20 @@ public class NewOrder extends HttpServlet {
         ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
         Customer customer = (Customer) session.getAttribute("customer");
         CustOrderService custOrderService = new CustOrderService();
+        Custorder custOrder = new Custorder();
         
-        Custorder co = new Custorder();
+        // Insert values into CustOrder
+        custOrder.setOrderdate(new Date());
+        custOrder.setReceivername(rcvName);
+        custOrder.setReceiveraddress(rcvAddress);
+        custOrder.setTrackingno("");
+        custOrder.setStatus("Processing");
         
-        co.setOrderdate(new Date());
-        co.setReceivername(rcvName);
-        co.setReceiveraddress(rcvAddress);
-        co.setTrackingno("");
-        co.setStatus("Processing");
-        
-        custOrderService.addCustorder(co, cart, customer);
-        
+        // Insert and commit
+        custOrderService.addCustorder(custOrder, cart, customer);
         custOrderService.close();
         
+        // Redirect to order page..?
         response.sendRedirect("../video/DySpee.jsp?status=success");
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
