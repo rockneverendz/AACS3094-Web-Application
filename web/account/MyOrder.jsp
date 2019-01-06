@@ -1,23 +1,18 @@
+<!DOCTYPE html>
 
 <%@page import="service.CustOrderService" %>
 <%@page import="entity.Customer" %>
 <%@page import="entity.Custorder" %>
 <%@page import="entity.Orderlist" %>
-<%@page import="java.util.ArrayList" %>
-<%@page import="java.util.Collections" %>
-<%@page import="java.util.Date" %>
-<%@page import="java.text.SimpleDateFormat" %>
+<%@page import="java.util.List"%>
 <%
     Customer customer = (Customer) session.getAttribute("customer");
-    CustOrderService orderService = new CustOrderService();
+    CustOrderService custOrderService = new CustOrderService();
     int custID = customer.getCustid();
+    List<Custorder> custorder = custOrderService.findByCustID(custID);
 
 %>
 
-
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="uft-8">

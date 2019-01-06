@@ -51,35 +51,34 @@ public class CustOrderService {
         return false;
     }
 
-    public Custorder findCustorderByID(int id) {
+    public Custorder findByOrderID(int id) {
         return (Custorder) em.find(Custorder.class, id);
     }
 
-    public List<Orderlist> findOrderlistByID(int id) {
-        List Orderlist
-                = em.createNamedQuery("Orderlist.findByOrderid")
-                        .setParameter("orderid", id)
-                        .getResultList();
-        return Orderlist;
+    public List<Custorder> findByCustID(int id) {
+        return (List<Custorder>) 
+                em.createNamedQuery("Custorder.findByCustid")
+                .setParameter("custid", id)
+                .getResultList();
     }
-    
+
     public boolean updateCustorder(Custorder newCustorder) throws RollbackException {
-        Custorder thisCustorder = findCustorderByID(newCustorder.getOrderid());
+        Custorder thisCustorder = findByOrderID(newCustorder.getOrderid());
         if (thisCustorder != null) {
 
             em.getTransaction().begin();
             thisCustorder.setStatus(newCustorder.getStatus());
             thisCustorder.setTrackingno(newCustorder.getTrackingno());
             em.getTransaction().commit();
-            
+
             return true;
         }
         return false;
     }
 
     public List<Custorder> findAll() {
-        List ProductList = em.createNamedQuery("Product.findAll").getResultList();
-        return ProductList;
+        List custorder = em.createNamedQuery("Custorder.findAll").getResultList();
+        return custorder;
     }
 
     public void close() {

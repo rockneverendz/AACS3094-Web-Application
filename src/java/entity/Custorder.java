@@ -26,10 +26,6 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author User
- */
 @Entity
 @Table(name = "CUSTORDER")
 @XmlRootElement
@@ -40,7 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Custorder.findByReceivername", query = "SELECT c FROM Custorder c WHERE c.receivername = :receivername")
     , @NamedQuery(name = "Custorder.findByReceiveraddress", query = "SELECT c FROM Custorder c WHERE c.receiveraddress = :receiveraddress")
     , @NamedQuery(name = "Custorder.findByTrackingno", query = "SELECT c FROM Custorder c WHERE c.trackingno = :trackingno")
-    , @NamedQuery(name = "Custorder.findByStatus", query = "SELECT c FROM Custorder c WHERE c.status = :status")})
+    , @NamedQuery(name = "Custorder.findByStatus", query = "SELECT c FROM Custorder c WHERE c.status = :status")
+    , @NamedQuery(name = "Custorder.findByCustid", query = "SELECT c FROM Custorder c WHERE c.custid.custid = :custid")})
 public class Custorder implements Serializable {
 
     private static final long serialVersionUID = 1L;
