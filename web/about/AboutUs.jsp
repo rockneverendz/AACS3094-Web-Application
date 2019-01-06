@@ -32,30 +32,24 @@
 	</header>
 
 	<div class="container-fluid article-container">
-		<div class="main ">
+		<div class="main" style="margin-bottom: 20px">
                     <div class="title row" style="text-align: center">
                             <div class="col-lg-12">
-                                <h1>DYSPEE</h1>
+                                <h1 class="tag">DYSPEE</h1>
 				<h3 >About Us</h3>
                         </div>
-                            <div class="row" >
-				
-				<p class="col-lg-12" style="text-align: center">We are highly synonymous with offering wide array of licensed movie with affordable price.</p>
-                            </div>
+                            
 			</div>
-                    <div class="row">
-                        <div class="col-lg-6" style="text-align: center">
-                                <h3>Why Movies<img src="icon/video-player.png"></h3>
-                                <p>Movie also known as films, are a type of visual communication <br>
-                                    which uses moving pictures and sound to tell <br>
-                                    stories or inform (help people to learn). <br>
-                                    People in every part of the world watch movies <br>
-                                    as a type of entertainment, a way to have fun. </p>
-                                <p>For some people, fun movies can mean movies that make them laugh,<br> 
-                                    while for others it can mean movies that <br> 
-                                    make them cry, or feel afraid.</p>
-                                <p>Movie are very interesting and enjoyable.<br> 
-                                    So we want everyone can watch movies easily.</p>
+                    <div class="row" style="margin: 20px">
+                        <div class="col-lg-6 " style="text-align: center">
+                                <h3>About Dyspee</h3> 
+                            <p >
+                                Dyspee is a leading internet entertainment service <br>with 130 million paid memberships in over <br>190 countries enjoying TV series, documentaries <br>and feature films across a <br>wide variety of genres and languages. </p>
+                            <p>
+                                Members can watch as much as they want, <br>anytime, anywhere, on any internet-connected screen.</p>
+                            <p>
+                                Members can play, pause and resume watching,<br>all without commercials or commitments.
+                            </p>
 
                         </div>
 			
