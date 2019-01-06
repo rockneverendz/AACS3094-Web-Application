@@ -22,15 +22,17 @@ public class CustOrderService {
         em.persist(custorder);
         em.getTransaction().commit();
 
-        for (Orderlist orderlist : cart) {
+        cart.stream().map((orderlist) -> {
             orderlist.setCustorder(custorder);
+            return orderlist;
+        }).forEachOrdered((orderlist) -> {
             orderlist.setOrderlistPK(
                     new OrderlistPK(
                             orderlist.getProduct().getProductid(),
                             custorder.getOrderid()
                     )
             );
-        }
+        });
 
         em.getTransaction().begin();
         custorder.setOrderlistList(cart);
