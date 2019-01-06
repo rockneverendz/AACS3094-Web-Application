@@ -23,6 +23,7 @@
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+        
 
 </head>
 
@@ -34,111 +35,116 @@
 
 
 	<!---------------body-------------->
-	<div class="article-container">
+	<div class="article-container container-fluid">
 		<div class="main">
-			<div class="title">
+			<div class="title" >
 				<h1>AVENGERS: INFINITY WAR EXCLUSIVE PROMOTIONS!!!</h1>
 			</div>
 
-			<div class="poster">
-				<img src="image/Screenshot%20(24).png" class="image">
+                    <div class="row">
+                        <div class="poster col-lg-8" >
+				<img src="image/Screenshot%20(24).png" class="image" width="105%" height="100%">
 			</div>
+                                <div id="demo" class="carousel slide col-lg-4" data-ride="carousel" style="margin: 0px">
 
+                                <!-- Indicators -->
+                                <ul class="carousel-indicators ">
+                                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                  <li data-target="#demo" data-slide-to="1"></li>
+                                  <li data-target="#demo" data-slide-to="2"></li>
+                                  <li data-target="#demo" data-slide-to="3"></li>
+                                </ul>
 
-			<div class="slideshow">
-				<div class="mySlides fade">
-					<div class="numbertext">1 / 4</div>
-					<img src="image/1.jpg" style="width:100%" class="image zoom">
-
-					<div class="text"><a href="#first"><em>Keychain</em></a>
-					</div>
-				</div>
-
-				<div class="mySlides fade">
-					<div class="numbertext">2 / 4</div>
-					<img src="image/2.jpg" style="width:100%" class="image zoom">
-					<div class="text"><a href="#second"><em>Movie Poster</em></a></div>
-				</div>
-
-				<div class="mySlides fade">
-					<div class="numbertext">3 / 4</div>
-					<img src="image/3.jpg" style="width:100%" class="image zoom">
-					<div class="text"><a href="#third"><em>Keychain &amp; Movie Poster</em></a></div>
-				</div>
-
-				<div class="mySlides fade">
-					<div class="numbertext">4 / 4</div>
-					<img src="image/4.jpg" style="width:100%" class="image zoom">
-					<div class="text"><a href="#fourth"><em>Coin</em></a></div>
-				</div>
-
-				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-				<a class="next" onclick="plusSlides(1)">&#10095;
-                </a>
+                                <!-- The slideshow -->
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                      <a href="#demo1" data-toggle="collapse" ><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <a href="#demo2" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <a href="#demo3" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                    <div class="carousel-item">
+                                    <a href="#demo4" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                </div>
+                                
+                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                  <span class="carousel-control-prev-icon"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#demo" data-slide="next">
+                                  <span class="carousel-control-next-icon"></span>
+                                </a>
+                              </div>
+                               
 			</div>
+                    
 
-			<div class="description">
+            <div class="row">
+                <div class="col-lg-12" style="color: white">
 				<h1>AVENGERS: INFINITY WAR EXCLUSIVE PROMOTIONS</h1>
 
 				<p>Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Infinity Gauntlet Keychain</p>
 				<p>Redemption starts from 25 April 2018 onwards</p>
-
-				<h3 id="first">Infinity Gauntlet Keychain</h3>
-				<ul>
-					<li>Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Infinity Gauntlet Keychain</li>
-					<li>Redemption starts from 25 April 2018 onwards</li>
-					<li>If you purchase TWO (2) movie tickets, you can only redeem either ONE (1) Infinity Gauntlet Keychain or ONE (1) Poster.</li>
-				</ul>
-
-				<h3 id="second">Exclusive Movie Poster</h3>
-				<ul>
-					<li>Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Exclusive A1 Movie Poster</li>
-					<li>Redemption starts from 25 April 2018 onwards</li>
-					<li>If you purchase TWO (2) movie tickets, you can only redeem either ONE (1) Infinity Gauntlet Keychain or ONE (1) Poster.</li>
-				</ul>
-
-				<h3 id="third"> Avengers Logo Keychain &amp; Exclusive Movie Poster</h3>
-				<ul>
-					<li>Buy TWO (2) Gold Class or FOUR (4) Premiere Class Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Avengers Logo Keychain and ONE (1) Exclusive A1 Movie Poster</li>
-					<li>Redemption starts from 25 April 2018 onwards</li>
-				</ul>
-
-				<h3 id="fourth">Avengers: Infinity War Coin - Coming Soon</h3>
-				<ul>
-					<li>Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Exclusive Marvel Studios' Avengers: Infinity War Coin</li>
-					<li>Promotion date COMING SOON</li>
-					<li>Terms and Conditions COMING SOON</li>
-				</ul>
-
-			</div>
-
-
-		</div>
-		<div class="other-event">
-			<div class="title">
+                </div>
+                                
+            </div>
+                                <div class="container col-lg-12" > 
+                                    <div class="row" style="color: white; text-align: center">
+                                    
+                                        <div class="d-flex flex-column col-lg-12" style="text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;">
+                                        <div class="p-2 collapse"  id="demo1" ><h4 >Exclusive Movie Poster</h4>Flex item 1Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Infinity Gauntlet Keychain<br>
+                                            Redemption starts from 25 April 2018 onw<br>
+                                            If you purchase TWO (2) movie tickets, you can only redeem either ONE (1) Infinity Gauntlet Keychain or ONE (1) Poster.<br></p>
+                                       </div>
+                                        <div class="p-2 collapse" id="demo2" > <h4>Exclusive Movie Poster</h4>Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Exclusive A1 Movie Poster<br>
+                                            Redemption starts from 25 April 2018 onwards<br>
+                                            If you purchase TWO (2) movie tickets, you can only redeem either ONE (1) Infinity Gauntlet Keychain or ONE (1) Poster.<br></p>
+                                        </div>
+                                        <div class="p-2 collapse" id="demo3" d> <h4 >Exclusive Movie Poster</h4>Buy TWO (2) Gold Class or FOUR (4) Premiere Class Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Avengers Logo Keychain and ONE (1) Exclusive A1 Movie Poster<br>
+                                            Redemption starts from 25 April 2018 onwards</div>
+                                        <div class="p-2 collapse" id="demo4" > <h4 >Exclusive Movie Poster</h4>Buy TWO (2) Marvel Studios’ Avengers: Infinity War Tickets to get ONE (1) Exclusive Marvel Studios' Avengers: Infinity War Coin<br>
+                                            Promotion date COMING SOON<br>
+                                            Terms and Conditions COMING SOON</div>
+                                   
+                                      </div>
+                                    </div>
+                                    
+                                    
+                                    </div>
+                                </div>
+                            
+                <div class="other-event row">
+			<div class="title col-lg-12">
 				<h1>More Events</h1>
 			</div>
-			<div class="event">
+                    <div class="title col-lg-12">
+                        <div class="row">
+                    <div class="event col-lg-8" >
 				<div>
-					<img src="image/30228a0b-98d7-41ef-83d4-208e1b90aa37.jpg" class="image ">
-					<div class="text"><a href="#"><em>More infomation</em></a></div>
+					<img src="image/30228a0b-98d7-41ef-83d4-208e1b90aa37.jpg" class="image " width="100%" height="auto">		
 				</div>
 			</div>
-			<div class="other">
-				<div class="more">
+			<div class="other col-lg-4 " >
+                            
+                            <div class="more">
 					<img src="image/DG_GSC_movies_website_banners_690x380_Web_thumb.jpg" class="side zoom">
 
-				</div>
-				<div class="more">
+                            </div>
+                            <div class="more">
 					<img src="image/Standard_Chartered_RM7_Thumb_v3.jpg" class="side zoom">
 
-				</div>
-				<div class="more">
+                            </div>
+                            <div class="more">
 					<img src="image/Buy1Free1_Ambank_Credit_Card_Thumb_v2.jpg" class="side zoom">
-				</div>
+                            </div>
 			</div>
-		</div>
-	</div>
+                    </div>
+                        </div>
+                </div>
+            </div>
 
 
 	<!-------------footer-------------->
@@ -146,35 +152,7 @@
 		<%@ include file="../layout/footer.jsp"%>
 	</footer>
 
-	<script>
-		var slideIndex = 1;
-		showSlides(slideIndex);
-
-		function plusSlides(n) {
-			showSlides(slideIndex += n);
-		}
-
-		function currentSlide(n) {
-			showSlides(slideIndex = n);
-		}
-
-
-		function showSlides(n) {
-			var i;
-			var slides = document.getElementsByClassName("mySlides");
-			if (n > slides.length) {
-				slideIndex = 1
-			}
-			if (n < 1) {
-				slideIndex = slides.length
-			}
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-			slides[slideIndex - 1].style.display = "block";
-		}
-
-	</script>
+	
 </body>
 
 </html>

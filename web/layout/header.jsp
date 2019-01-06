@@ -75,12 +75,21 @@
         <%
         } else {
         %>
-        <a class="nav-link" href="../account/SignOut"><i class="fas fa-sign-out-alt"></i> &nbsp; Sign Out</a>
         <!-- <a class="nav-link" href="../account/Settings.jsp"><i class="fas fa-cog"></i> &nbsp; Settings</a> -->
-        <a class="nav-link" href="../account/Settings.jsp"><i class="fas fa-user"></i> &nbsp; <%= customerLogged.getCustname()%></a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fas fa-user"></i> &nbsp; <%= customerLogged.getCustname()%></a>
+            <ul class="dropdown-menu">
+                <a class="dropdown-item" href="../account/Settings.jsp"><i class="fas fa-cog"></i>Settings</a>
+                <a class="dropdown-item" href="../account/MyOrder.jsp"><i class="fas fa-history"></i>My Orders</a>
+            </ul>
+        </li>
+        <a class="nav-link" href="../account/SignOut"><i class="fas fa-sign-out-alt"></i> &nbsp; Sign Out</a>
         <%
             }
         %>
+        
+        
+        
 
 
 

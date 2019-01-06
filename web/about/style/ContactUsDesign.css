@@ -6,7 +6,6 @@
 	
 	background-color: rgba(34, 34, 34, 0.8);
 	border-radius: 15px;
-	
         padding: 0; 
         color: white;
         text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;
@@ -35,9 +34,9 @@
 	border-radius: 15px;
 }*/
 
-/*.image:hover {
+.image:hover {
 	transform: scale(1.1);
-}*/
+}
 
 .submit {
 	color: #900;
