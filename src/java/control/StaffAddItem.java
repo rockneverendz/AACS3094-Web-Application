@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
 
 import entity.Product;
@@ -17,11 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-/**
- *
- * @author taita
- */
 public class StaffAddItem extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +32,8 @@ public class StaffAddItem extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    } 
+    }
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,7 +49,6 @@ public class StaffAddItem extends HttpServlet {
 
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Register customer";
     }// </editor-fold>
-
 }
