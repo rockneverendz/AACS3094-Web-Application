@@ -35,11 +35,17 @@
         </style>
 
 </head>
+    <%
+            String message = (String) request.getAttribute("message");
+            
+            if(message == null) message = "";
+    %>
 <body>
     <header>
         <%@ include file="../layout/header.jsp"%>
     </header>
 <h1 align="center" style="color:white">Add New Product</h1>
+<p align="center"><i style="color:white; background: red"><%= message %></i></p>
 <form action="StaffAddItem">
     <table border="0">
      <tr>

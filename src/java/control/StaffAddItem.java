@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,12 @@ public class StaffAddItem extends HttpServlet {
             int rating = Integer.parseInt(request.getParameter("rating"));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String genre = request.getParameter("genre");
-                
+            
+            if (description.equals("")) throw new Exception(); 
+            if (name.equals("")) throw new Exception();
+            if (sdf.equals("")) throw new Exception(); 
+            if (genre.equals("")) throw new Exception(); 
+            
             Product product = new Product();
             product.setName(name);
             product.setPrice(price);
@@ -42,7 +48,11 @@ public class StaffAddItem extends HttpServlet {
             session.setAttribute("success", success);
             response.sendRedirect("StaffAddConfirm.jsp");
         } catch (Exception ex) {
-            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+            String message = "Incomplete data. Please Try Again";
+            String url = "/staff/StaffAdd.jsp";
+            request.setAttribute("message", message);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
         } 
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
