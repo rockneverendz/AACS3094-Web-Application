@@ -41,7 +41,7 @@ public class CustOrderService {
     }
 
     public boolean deleteCustorder(int id) throws RollbackException {
-        Custorder custorder = findCustorderByID(id);
+        Custorder custorder = findByOrderID(id);
         if (custorder != null) {
             em.getTransaction().begin();
             em.remove(custorder);

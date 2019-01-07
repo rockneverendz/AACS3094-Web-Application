@@ -42,12 +42,11 @@ public class Settings extends HttpServlet {
                 throw new IllegalArgumentException("You have to be logged in to do that");
             }
 
-
             // Do the user want to change password?
             if (!password.equals("")) {
                 // Check both passwords
                 if (!password.equals(passwordRe)) {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Retyped password does not match");
                 }
                 customer.setPassword(password);
             }
