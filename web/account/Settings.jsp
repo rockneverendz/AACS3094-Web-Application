@@ -102,7 +102,7 @@
         %>
 
         <div class="article-container">
-            <form action="Settings" method="GET">
+            <form action="Settings" method="POST">
                 <div class="container-fluid settings-box">
                     <h1>Settings</h1>
                     <div class="form-row">
