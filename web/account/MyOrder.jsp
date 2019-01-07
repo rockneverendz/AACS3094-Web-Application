@@ -4,13 +4,17 @@
 <%@page import="entity.Customer" %>
 <%@page import="entity.Custorder" %>
 <%@page import="entity.Orderlist" %>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%
     Customer customer = (Customer) session.getAttribute("customer");
     CustOrderService custOrderService = new CustOrderService();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     int custID = customer.getCustid();
-    List<Custorder> custorder = custOrderService.findByCustID(custID);
-
+    int quantity;
+    double price, total, subtotal;
+    String name;
+    List<Custorder> custorderlist = custOrderService.findByCustID(custID);
 %>
 
 <html>
@@ -38,12 +42,21 @@
         </header>
 
         <!--Container Start-->
-        <div class="article-container">
+        <div class="article-container" style="color:white;">
             <h1 style="color: white">Order History</h1><br>
 
-            <div class="row" style="color:white;">
-                <h4>&nbsp;&nbsp;&nbsp;Order ID : "GET ID" Order Date: "GET ORDER DATE" Tracking No : "GET TRACKING NUM" Status: "GET STATUS"</h4>
-            </div>
+            <%  for (Custorder custorder : custorderlist) {
+                    subtotal = 0;
+            %>
+
+            <div class="row"><h4>Order ID : #<%= custorder.getOrderid()%>
+                </h4></div>
+            <div class="row"><h5>Order Date: <%= sdf.format(custorder.getOrderdate())%>
+                </h5></div>
+            <div class="row"><h5>Tracking No : ABCD12345678
+                </h5></div>
+            <div class="row"><h5>Status: <%= custorder.getStatus()%>
+                </h5></div>
 
             <table class="table table-dark table-bordered table-hover">
                 <thead>
@@ -54,28 +67,46 @@
                         <th scope="col">Total</th>
                     </tr>
                 </thead>
+
                 <tbody>
+
+                    <%
+                        for (Orderlist orderlist : custorder.getOrderlistList()) {
+                            name = orderlist.getProduct().getName();
+                            quantity = orderlist.getQty();
+                            price = orderlist.getProduct().getPrice();
+                            total = price * quantity;
+                            subtotal += total;
+                    %>
+
                     <tr scope="row" id="list">
                         <td>
-                            <h4>"GET NAME"</h4>
+                            <h4><%= name%></h4>
                         </td>
                         <td>
-                            <h4>"GET QTY"</h4>
+                            <h4><%= quantity%></h4>
                         </td>
-                        <td>RM "GET PRICE"</td>
-                        <td><strong>RM "GET TOTAL"</strong></td>
+                        <td><%= price%></td>
+                        <td><strong>RM <%= total%></strong></td>
 
+                        <%
+                            }
+                        %>
                     </tr>
                     <tr scope="row">
                         <td colspan="3"><strong>Subtotal:</strong></td>
-                        <td><strong>"GET SUBTOTAL"</strong></td>
+                        <td><strong>RM <%= subtotal%></strong></td>
                     </tr>
 
                 </tbody>
+
+
             </table>
+
+            <%                }
+            %>
+
         </div>
-
-
 
         <!-- Footer  -->
         <footer>
