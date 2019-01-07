@@ -2,7 +2,7 @@
 
 .article-container {
 	display: grid;
-	grid-template-columns: 70% 30%;
+	grid-template-columns: 75% 25%;
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0.75)
 }

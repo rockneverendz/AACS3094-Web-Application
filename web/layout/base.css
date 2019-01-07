@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 /* BODY */
+html, body{
+    height: 100%;
+}
+
 body {
-	font-family: 'Roboto', sans-serif;
-	margin: 0pt auto auto auto;
-	font-size: 16px;
-	background-image: url(image/starry-sky-1655503_1920.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0pt auto auto auto;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+#container{
+    background-image: url(image/starry-sky-1655503_1920.jpg);
+    min-height: 100%;
 }
 
 h1{
@@ -15,95 +23,79 @@ h1{
 }
 
 a {
-	color: rgb(153, 204, 255);
-	text-decoration: none;
+    color: rgb(153, 204, 255);
+    text-decoration: none;
 }
 
 .article-container {
-	background-color: rgba(0, 0, 0, 0.5);
-	padding-top: 15px;
-	padding-bottom: 15px;
-	min-width: 600pt;
-	max-width: 920pt;
-	width: 95%;
-	margin: auto;
-	justify-content: space-around;
-}
-
-.article-item {
-	background-color: rgba(0, 0, 0, 0.5);
-	border: 1px solid rgba(0, 0, 0, 0.8);
-	box-shadow: 0 0 20px 0px white;
-	font-size: 1.5em;
-	text-align: left;
-	background-repeat: no-repeat;
-	background-position: 95% center;
-}
-
-div header {
-	background-color: rgba(0, 0, 200, 0.5);
-	padding: 10px;
-	font-size: 30px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-div article {
-	padding: 10px;
-}
-
-
-div p {
-	font-size: 15px;
-	line-height: 1.5em;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 15px;
+    padding-bottom: 100px;
+    min-width: 600pt;
+    max-width: 920pt;
+    width: 95%;
+    margin: auto;
+    justify-content: space-around;
 }
 
 /* Footer layout and style */
+#footer{
+    background-color: white;
+    position: relative;
+    height: 100px;
+    margin-top: -100px;
+    clear: both;
+}
 
 .footer {
-	color: aliceblue;
-	margin: auto;
-	padding: 0;
-	width: 100%;
-	background-color: #333;
-	display: grid;
-	grid-template-columns: 15% 15% 30% 15% 25%;
+    color: aliceblue;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    background-color: #333;
+    display: grid;
+    grid-template-columns: 15% 15% 30% 15% 25%;
 }
 
 .footer-box {
-	padding: 20px;
+    padding: 20px;
 }
 
 #foot1 {
-	padding-left: 100px;
+    padding-left: 100px;
 }
 
 .footer img[src="../layout/image/DySpee.png"] {
-	width: 100%;
+    width: 100%;
 }
 
 .footer img[src="../layout/image/DySpeeOnline.png"] {
-	position: relative;
-	top: 35px;
-	right: 70px;
-	width: 100%;
+    position: relative;
+    top: 35px;
+    right: 70px;
+    width: 100%;
 }
 
 .footer ul li {
-	list-style: none;
-	display: block;
-	padding: 5px;
+    list-style: none;
+    display: block;
+    padding: 5px;
 }
 
 .footer ul li a {
-	text-decoration: none;
-	color: aliceblue;
+    text-decoration: none;
+    color: aliceblue;
 }
 
 .footer ul li a:hover {
-	text-decoration: none;
-	text-shadow: 0 0 3px #9ecaed;
+    text-decoration: none;
+    text-shadow: 0 0 3px #9ecaed;
 }
 
+
+
+/*CSS Message div*/
 .message-container, .error-container {
     padding-left: 10px;
     padding-top: 10px;

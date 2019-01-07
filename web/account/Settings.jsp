@@ -76,78 +76,79 @@
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
+        <div id="container">
+            <!--
+                //Status code -1= An error has occured
+                //Status code 0 = Successfully Signed Out
+                //Status code 1 = Successfully Signed In
+                //Status code 2 = Successfully Signed Up
+            -->
 
-        <!--
-            //Status code -1= An error has occured
-            //Status code 0 = Successfully Signed Out
-            //Status code 1 = Successfully Signed In
-            //Status code 2 = Successfully Signed Up
-        -->
+            <%  String status = request.getParameter("status");
+                String message = (String) request.getAttribute("message");
+                //If no status are recieved, no need division
+                if (status != null) {
+                    char code = status.charAt(0);
+                    if (code == '1') {
+            %>
+            <div class="message-container">Successfully Updated!</div>
+            <%      }
+            } //Else if no message are recieved, no need division
+            else if (message != null) {
+            %>
+            <div class="error-container"><%= message%></div>
+            <%
+                }
+            %>
 
-        <%  String status = request.getParameter("status");
-            String message = (String) request.getAttribute("message");
-            //If no status are recieved, no need division
-            if (status != null) {
-                char code = status.charAt(0);
-                if (code == '1') {
-        %>
-        <div class="message-container">Successfully Updated!</div>
-        <%      }
-        } //Else if no message are recieved, no need division
-        else if (message != null) {
-        %>
-        <div class="error-container"><%= message%></div>
-        <%
-            }
-        %>
-
-        <div class="article-container">
-            <form action="Settings" method="POST">
-                <div class="container-fluid settings-box">
-                    <h1>Settings</h1>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Name :&ensp;</label>
-                            <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>
+            <div class="article-container">
+                <form action="Settings" method="POST">
+                    <div class="container-fluid settings-box">
+                        <h1>Settings</h1>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Name :&ensp;</label>
+                                <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type = "text" placeholder = "Name" required = "true"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>*Email :&ensp;</label>
+                                <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "email@example.com" disabled = "true"/>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>*Email :&ensp;</label>
-                            <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type = "text" placeholder = "email@example.com" disabled = "true"/>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Date Of Birth :&ensp;</label>
+                                <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Phone No. :&ensp;</label>
+                                <input class="form-control" name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="(nnn)nnn-nnnn" />
+                            </div>
+                        </div>
+                        <div class="form-group row col-md-8">
+                            <label>Address :&ensp;</label>
+                            <textarea class="form-control" name = "address" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>*Password :&ensp;</label>
+                            <input class="form-control" name = "password" type = "password" placeholder = "Password" />
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>*Retype Password :&ensp;</label>
+                            <input class="form-control" name = "passwordRe" type = "password" placeholder = "Password" />
+                        </div>
+                        <hr style="border-style: inset; border-width: 1px; " >
+                        <div class="form-group row col-md-6">
+                            <label>*Current Password :&ensp;</label>
+                            <input class="form-control" name = "passwordCu" type = "password" placeholder = "Password" required/>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>&ensp;</label>
+                            <button id="submitBtn" type="submit">Save Settings</button>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Date Of Birth :&ensp;</label>
-                            <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Phone No. :&ensp;</label>
-                            <input class="form-control" name = "phoneno" value = "<%= customer.getPhoneno()%>" type="text" placeholder="(nnn)nnn-nnnn" />
-                        </div>
-                    </div>
-                    <div class="form-group row col-md-8">
-                        <label>Address :&ensp;</label>
-                        <textarea class="form-control" name = "address" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>*Password :&ensp;</label>
-                        <input class="form-control" name = "password" type = "password" placeholder = "Password" />
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>*Retype Password :&ensp;</label>
-                        <input class="form-control" name = "passwordRe" type = "password" placeholder = "Password" />
-                    </div>
-                    <hr style="border-style: inset; border-width: 1px; " >
-                    <div class="form-group row col-md-6">
-                        <label>*Current Password :&ensp;</label>
-                        <input class="form-control" name = "passwordCu" type = "password" placeholder = "Password" required/>
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>&ensp;</label>
-                        <button id="submitBtn" type="submit">Save Settings</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         <footer>
             <%@ include file="../layout/footer.jsp"%>
