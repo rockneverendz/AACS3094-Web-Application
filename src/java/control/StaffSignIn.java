@@ -37,7 +37,8 @@ public class StaffSignIn extends HttpServlet {
             session.setMaxInactiveInterval(-1);
 
             // Redirect back to homepage with status 'Success'
-            response.sendRedirect("staffui.jsp");
+            response.sendRedirect("staffui.jsp?status=1");
+            message = "Welcome.";
             return;
 
         } catch (NoResultException ex) {

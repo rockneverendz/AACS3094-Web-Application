@@ -23,6 +23,10 @@
         <servlet-name>Settings</servlet-name>
         <servlet-class>control.Settings</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffSignIn</servlet-name>
+        <servlet-class>control.StaffSignIn</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/account/SignUp</url-pattern>
@@ -121,6 +125,10 @@
     <servlet-mapping>
         <servlet-name>StaffUpdateProduct</servlet-name>
         <url-pattern>/staff/StaffUpdateProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffSignIn</servlet-name>
+        <url-pattern>/staff/StaffSignIn</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
