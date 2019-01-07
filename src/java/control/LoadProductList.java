@@ -9,9 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 public class LoadProductList extends HttpServlet {
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {
             ProductService productService = new ProductService();
             List<Product> productList = productService.findAll();
@@ -20,7 +20,7 @@ public class LoadProductList extends HttpServlet {
             session.setAttribute("productList", productList);
             response.sendRedirect("DisplayProductList.jsp");
         } catch (Exception ex) {
-            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+            //TODO Add exception
         } 
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">

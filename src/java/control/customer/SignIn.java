@@ -1,4 +1,4 @@
-package control;
+package control.customer;
 
 import entity.Customer;
 import service.CustomerService;

@@ -1,4 +1,4 @@
-package control;
+package control.cart;
 
 import entity.Orderlist;
 
@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class UpdateItem extends HttpServlet {
+public class DeleteItem extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Get parameter from the form
         String indexNumberS = request.getParameter("indexNumber");
-        String quantityS = request.getParameter("quantity");
-        
+
         // Initialize variables
-        int indexNumber, quantity;
+        int indexNumber;
 
         // Get session cart. If null, redirect with status 'Not Sign In'.
         HttpSession session = request.getSession();
@@ -32,13 +31,12 @@ public class UpdateItem extends HttpServlet {
         try {
             // Parse the given parameter
             indexNumber = Integer.parseInt(indexNumberS);
-            quantity = Integer.parseInt(quantityS);
 
-            // Update the specified index of product on the cart
-            cart.get(indexNumber).setQty(quantity);
-            
-            // Update cart and redirect back to cart with status 'Update Success'
-            response.sendRedirect("../checkout/shoppingCart.jsp?&status=2");
+            // Delete the specified index of product on the cart
+            cart.remove(indexNumber);
+
+            // Update cart and redirect back to cart with status 'Removal Success'
+            response.sendRedirect("../checkout/shoppingCart.jsp?&status=1");
 
         } catch (NumberFormatException ex) {
             response.sendRedirect("../video/DySpee.jsp?status=-1");

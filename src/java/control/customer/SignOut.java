@@ -1,4 +1,4 @@
-package control;
+package control.customer;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

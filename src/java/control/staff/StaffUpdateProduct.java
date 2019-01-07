@@ -1,59 +1,60 @@
-package control;
+package control.staff;
 
 import entity.Product;
 import service.ProductService;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
-public class StaffAddItem extends HttpServlet {
+public class StaffUpdateProduct extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            ProductService productService = new ProductService();
+
+            // Get parameters
+            Integer id = Integer.parseInt(request.getParameter("id"));
             String name = request.getParameter("name");
             double price = Double.parseDouble(request.getParameter("price"));
             String description = request.getParameter("description");
             int rating = Integer.parseInt(request.getParameter("rating"));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String genre = request.getParameter("genre");
-            
-            if (description.equals("")) throw new Exception(); 
-            if (name.equals("")) throw new Exception();
-            if (sdf.equals("")) throw new Exception(); 
-            if (genre.equals("")) throw new Exception(); 
-            
-            Product product = new Product();
+
+            if (name.equals("")) {
+                throw new Exception();
+            }
+            if (description.equals("")) {
+                throw new Exception();
+            }
+            if (genre.equals("")) {
+                throw new Exception();
+            }
+
+            // Set parameters
+            Product product = productService.findProdByID(id);
             product.setName(name);
             product.setPrice(price);
             product.setDescription(description);
             product.setRating(rating);
             product.setDaterelease(sdf.parse(request.getParameter("daterelease")));
             product.setGenre(genre);
-            
 
-            ProductService productService = new ProductService();
-            productService.addProduct(product);
+            boolean success = productService.updateProduct(product);
+
             HttpSession session = request.getSession();
-            boolean success = true;
             session.setAttribute("success", success);
-            response.sendRedirect("StaffAddConfirm.jsp");
+            response.sendRedirect("StaffUpdateConfirm.jsp");
         } catch (Exception ex) {
             String message = "Incomplete data. Please Try Again";
-            String url = "/staff/StaffAdd.jsp";
+            String url = "/staff/StaffUpdateConfirmation.jsp";
             request.setAttribute("message", message);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
-        } 
+        }
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
 

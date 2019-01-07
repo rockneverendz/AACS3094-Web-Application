@@ -3,14 +3,13 @@ package control;
 import entity.Product;
 import service.ProductService;
 import java.io.*;
-import java.util.logging.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 public class SearchProduct extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {
             ProductService productService = new ProductService();
             HttpSession session = request.getSession();
@@ -25,9 +24,8 @@ public class SearchProduct extends HttpServlet {
             } else {
                 response.sendRedirect("StaffUpdateConfirmation.jsp");
             }
-  
         } catch (Exception ex) {
-            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex); 
+            //TODO Add exception
         }
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
