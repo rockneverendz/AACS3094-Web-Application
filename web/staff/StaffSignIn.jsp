@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
     <head>
         <meta charset="utf-8" />
         <title>Staff Portal</title>
@@ -27,7 +26,7 @@
 
             h1{
                 padding: 5px 15px;
-                font-size: 100px;
+                font-size: 80px;
                 font-weight: bold;
                 text-decoration: underline;
             }
@@ -59,17 +58,13 @@
     <body>
         <%@ page import="entity.Staff"%>
         <%
-            //If user already logged in
+            //If staff already logged in
             if (session.getAttribute("staff") != null) {
-                response.sendRedirect("staffui.jsp");
+                response.sendRedirect("staffui.jsp?=status=A");
                 return;
             }
 
             //If no object are recieved, create a new object.
-            String email = (String) request.getAttribute("email");
-            if (email == null) {
-                email = "";
-            }
         %>
 
         <header>
@@ -88,7 +83,7 @@
         <div class="article-container">
             <form action="StaffSignIn" method="post">
                 <div class="container-fluid signin-box">
-                    <h1>Sign In</h1>
+                    <h1>Staff Portal</h1>
 
                     <div class="form-group row col-md-6">
                         <label for="exampleInputId">Staff ID</label>
@@ -108,6 +103,11 @@
                     </div>
                 </div>
             </form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
         <footer>
             <%@ include file="../layout/footer.jsp"%>

@@ -42,6 +42,7 @@
             <li><a href="StaffView" style="color: white;margin-top: 20">View All Items</a>
             <li><a href="StaffAdd.jsp" style="color: white;margin-top: 20">Add New Item</a>
             <li><a href="LoadProductList" style="color: white;margin-top: 20">Update/Delete Item</a>
+            <li><a href="StaffSignOut" style="color: white;margin-top: 20">Log Out</a>
             </ul>
         </div>
         <br />

@@ -20,14 +20,11 @@ public class ProductService {
     }
 
     /**
-     * @param id
-     *        ID of the product which needs to be deleted
+     * @param id ID of the product which needs to be deleted
      *
-     * @return true if successfully committed 
-     *         false if product not found
+     * @return true if successfully committed false if product not found
      *
-     * @throws RollbackException 
-     *         If commit fails
+     * @throws RollbackException If commit fails
      */
     public boolean deleteProduct(int id) throws RollbackException {
         Product product = findProdByID(id);
@@ -43,20 +40,23 @@ public class ProductService {
         return (Product) em.find(Product.class, id);
     }
 
+    public List<Product> findProdByName(String name) {
+        return (List<Product>) em.createNamedQuery("Product.findByName")
+                .setParameter("name", name)
+                .getResultList();
+    }
+
     /**
-     * @param newProduct 
-     *        The modified product
-     * 
-     * @return true if successfully committed
-     *         false if product not found
-     * 
-     * @throws RollbackException
-     *         If commit fails
+     * @param newProduct The modified product
+     *
+     * @return true if successfully committed false if product not found
+     *
+     * @throws RollbackException If commit fails
      */
-    public boolean updateProduct(Product newProduct) throws RollbackException{
+    public boolean updateProduct(Product newProduct) throws RollbackException {
         Product thisProduct = findProdByID(newProduct.getProductid());
         if (thisProduct != null) {
-            
+
             thisProduct.setName(newProduct.getName());
             thisProduct.setDescription(newProduct.getDescription());
             thisProduct.setRating(newProduct.getRating());
@@ -71,7 +71,7 @@ public class ProductService {
         }
         return false;
     }
-    
+
     public int countProduct() {
         return (int) em.createNativeQuery("SELECT COUNT(*) FROM NBUSER.PRODUCT").getSingleResult();
     }
@@ -80,7 +80,7 @@ public class ProductService {
         List ProductList = em.createNamedQuery("Product.findAll").getResultList();
         return ProductList;
     }
-    
+
     public void close() {
         this.em.close();
     }
