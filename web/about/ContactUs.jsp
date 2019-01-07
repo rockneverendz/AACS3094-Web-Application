@@ -33,44 +33,51 @@
 
 	<div class="main container-fluid article-container">
 
-            <div class="row title" >
-                <img src="image/banner_contact.png" class="contact">
-                <h1 class="text" style="top: 35%;">CONTACT US </h1>
-                <h5 class="text" style="top: 45%;">Let's make something awesome together.<br>
-            We'd love to hear from you!</h5>  
+            <div class=" title">
+                
+                <h1 class="text" >CONTACT US </h1>
+                <h5 class="text" >Let's make something awesome together.<br>
+                    We'd love to hear from you!</h5>
             </div>
             <div class="row word">
                 <div class="col-lg-8">
 				
                     <div class="">
-			<h3>Message<img src="icon/chat.png"></h3>
-                        <hr>
-				</div>
-				<form>  
-                                    
-                    <div class="form-group">
-                        <label  for="usr" class=" ">Name:</label>
-                        <input type="text" class="form-control" id="usr" placeholder="Name">
+                        <h3>Message<img src="icon/chat.png"></h3><br>
                     </div>
-                                            
-                                    
-                    <div class="form-group">
-                        <label for="usr" >Email:</label>
-                        <input type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
-                             
-                    </div>
-                                        
-                    <br>
+                    
+                    
+                    
+                    
+		<form action="">  
+                    <%@ page import= "entity.Customer"%>
+
+                    <%
+                        Customer custLogged = (Customer) session.getAttribute("customer");
+                        
+                    %>
+                    
+                    <%
+                        if (custLogged == null) {
+                    %>
+                     <h4 style="text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;">Please login before leave us a message.</h4>
+                    <%
+                    } else {
+                    %>
+                    <h4 style="text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;"> Hi <%= custLogged.getCustname()%>, Leave us a message.</h4>
+                    <%
+                        }
+                    %>
                                                 
-                    <div class="form-group">
+                    <div class="form-group" >
 			<label for="message" class="message ">Message*</label>              
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Enter text here..."></textarea>
-                                    
+                        <textarea name = "comment" class="form-control" rows="5" id="comment" placeholder="Enter text here..." required></textarea>
                     </div>
-					
+                    
+			
                                       
-                    <button type="button submit" class="btn btn-light">submit</button>
-                    </form> 	
+                    <button id="submitBtn" type="submit">Summit</button>
+                </form> 	
 		</div>
 
 			
@@ -96,9 +103,6 @@
                             Jalan Malinja, Taman Bunga Raya, <br> 53000 Kuala Lumpur, <br> Wilayah Persekutuan Kuala Lumpur</p>
                 </address>
 		</div>
-				
-					
-				
 			</div>
                 </div>
 
