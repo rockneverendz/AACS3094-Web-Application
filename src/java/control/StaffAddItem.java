@@ -4,6 +4,7 @@ import entity.Product;
 import service.ProductService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,11 +19,22 @@ public class StaffAddItem extends HttpServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
             String name = request.getParameter("name");
             double price = Double.parseDouble(request.getParameter("price"));
+            String description = request.getParameter("description");
+            int rating = Integer.parseInt(request.getParameter("rating"));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String genre = request.getParameter("genre");
+                
+            Product product = new Product();
+            product.setName(name);
+            product.setPrice(price);
+            product.setDescription(description);
+            product.setRating(rating);
+            product.setDaterelease(sdf.parse(request.getParameter("daterelease")));
+            product.setGenre(genre);
             
-            Product product = new Product(id, name, price);
+
             ProductService productService = new ProductService();
             productService.addProduct(product);
             HttpSession session = request.getSession();

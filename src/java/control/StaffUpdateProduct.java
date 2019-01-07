@@ -3,6 +3,7 @@ package control;
 import entity.Product;
 import service.ProductService;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.logging.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -16,7 +17,17 @@ public class StaffUpdateProduct extends HttpServlet {
             Integer id = Integer.parseInt(request.getParameter("id"));
             String name = request.getParameter("name");
             Double price = Double.parseDouble(request.getParameter("price"));
-            Product product = new Product(id, name, price);
+            String description = request.getParameter("description");
+            int rating = Integer.parseInt(request.getParameter("rating"));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String genre = request.getParameter("genre");
+            Product product = productService.findProdByID(id);
+            product.setName(name);
+            product.setPrice(price);
+            product.setDescription(description);
+            product.setRating(rating);
+            product.setDaterelease(sdf.parse(request.getParameter("daterelease")));
+            product.setGenre(genre);
             
             boolean success = productService.updateProduct(product);
  
