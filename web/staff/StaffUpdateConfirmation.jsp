@@ -45,8 +45,12 @@
             Product product = (Product) session.getAttribute("product");
             if (product != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String message = (String) request.getAttribute("message");
+            
+            if(message == null) message = "";
         %>
         <h1 align="center" style="color:white">Update Product</h1>
+        <p align="center"><i style="color:white; background: red"><%= message %></i></p>
         <form action="StaffUpdateProduct" method="post">
             <table border="0">
                                 <tr>

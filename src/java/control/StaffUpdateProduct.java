@@ -5,6 +5,7 @@ import service.ProductService;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.logging.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
@@ -14,13 +15,21 @@ public class StaffUpdateProduct extends HttpServlet {
             throws ServletException, IOException {
         try {
             ProductService productService = new ProductService();
+            
+            // Get parameters
             Integer id = Integer.parseInt(request.getParameter("id"));
             String name = request.getParameter("name");
-            Double price = Double.parseDouble(request.getParameter("price"));
+            double price = Double.parseDouble(request.getParameter("price"));
             String description = request.getParameter("description");
             int rating = Integer.parseInt(request.getParameter("rating"));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String genre = request.getParameter("genre");
+            
+            if (description.equals("")) throw new Exception(); 
+            if (name.equals("")) throw new Exception();  
+            if (sdf.equals("")) throw new Exception(); 
+            if (genre.equals("")) throw new Exception(); 
+            // Set parameters
             Product product = productService.findProdByID(id);
             product.setName(name);
             product.setPrice(price);
@@ -35,7 +44,11 @@ public class StaffUpdateProduct extends HttpServlet {
             session.setAttribute("success", success);
             response.sendRedirect("StaffUpdateConfirm.jsp");
         } catch (Exception ex) {
-            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+            String message = "Incomplete data. Please Try Again";
+            String url = "/staff/StaffUpdateConfirmation.jsp";
+            request.setAttribute("message", message);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
         } 
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
