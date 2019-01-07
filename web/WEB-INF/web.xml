@@ -23,10 +23,6 @@
         <servlet-name>Settings</servlet-name>
         <servlet-class>control.Settings</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>StaffSignIn</servlet-name>
-        <servlet-class>control.StaffSignIn</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/account/SignUp</url-pattern>
@@ -102,6 +98,14 @@
         <servlet-name>StaffUpdateProduct</servlet-name>
         <servlet-class>control.StaffUpdateProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffSignIn</servlet-name>
+        <servlet-class>control.StaffSignIn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffSignOut</servlet-name>
+        <servlet-class>control.StaffSignOut</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StaffView</servlet-name>
         <url-pattern>/staff/StaffView</url-pattern>
@@ -129,6 +133,10 @@
     <servlet-mapping>
         <servlet-name>StaffSignIn</servlet-name>
         <url-pattern>/staff/StaffSignIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffSignOut</servlet-name>
+        <url-pattern>/staff/StaffSignOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

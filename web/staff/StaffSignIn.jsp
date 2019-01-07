@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
     <head>
         <meta charset="utf-8" />
         <title>Staff Portal</title>
@@ -59,7 +58,7 @@
     <body>
         <%@ page import="entity.Staff"%>
         <%
-            //If user already logged in
+            //If staff already logged in
             if (session.getAttribute("staff") != null) {
                 response.sendRedirect("staffui.jsp?=status=A");
                 return;
@@ -104,6 +103,11 @@
                     </div>
                 </div>
             </form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
         <footer>
             <%@ include file="../layout/footer.jsp"%>
