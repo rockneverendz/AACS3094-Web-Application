@@ -41,8 +41,6 @@
                 margin: auto;
                 width: 90%;
                 color: aliceblue;
-
-
             }
 
             .News-review{
@@ -147,32 +145,57 @@
                     <h2>Categories</h2>
                     <div class="row" style="margin: 15px;">
                         <div class="col-sm-3 cateBox">
+                            <h4 class="text-center">Top Rating</h4>
+                            <a href="topRating.jsp">
+                                <img src="image/Home-img/Top-rating.jpg" class="rounded-circle" width="230" height="230" />
+                            </a>
+                        </div>
+                        <div class="col-sm-3 cateBox">
+                            <h4 class="text-center">New Release</h4>
+                            <a href="#">
+                                <img src="image/Home-img/new-release.jpg" class="rounded-circle" width="230" height="230" />
+                            </a>
+                        </div>
+                        <div class="col-sm-3 cateBox">
                             <h4 class="text-center">Action</h4>
                             <a href="#">
-                                <img src="image/Home-img/ff.jpg" class="rounded-circle" alt="superhero-team" width="230" height="230" />
+                                <img src="image/Home-img/ff.jpg" class="rounded-circle" width="230" height="230" />
                             </a>
                         </div>
                         <div class="col-sm-3 cateBox">
                             <h4 class="text-center">Animation</h4>
                             <a href="#">
-                                <img src="image/Home-img/Pixarlogo.jpg" class="rounded-circle" alt="pixarlogo" width="230" height="230" />
+                                <img src="image/Home-img/Pixarlogo.jpg" class="rounded-circle" width="230" height="230" />
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin: 15px;">
+                        <div class="col-sm-3 cateBox">
+                            <h4 class="text-center">Romance</h4>
+                            <a href="#">
+                                <img src="image/Home-img/Romance.jpg" class="rounded-circle" width="230" height="230" />
                             </a>
                         </div>
                         <div class="col-sm-3 cateBox">
                             <h4 class="text-center">Anime</h4>
-                            <a href="#">
-                                <img src="image/Home-img/full-metal-alchemist-brotherhood.jpg" class="rounded-circle" alt="horror" width="230" height="230" />
+                            <a href="TVSeries.jsp">
+                                <img src="image/Home-img/full-metal-alchemist-brotherhood.jpg" class="rounded-circle" width="230" height="230" />
                             </a>
                         </div>
                         <div class="col-sm-3 cateBox">
                             <h4 class="text-center">Horror</h4>
                             <a href="#">
-                                <img src="image/Home-img/Anabelle.png" class="rounded-circle" alt="horror" width="230" height="230" />
+                                <img src="image/Home-img/Anabelle.png" class="rounded-circle" width="230" height="230" />
                             </a>
                         </div>
-
+                        <div class="col-sm-3 cateBox">
+                            <h4 class="text-center">TV-series</h4>
+                            <a href="#">
+                                <img src="image/Home-img/Game-of-Thrones.jpg" class="rounded-circle" width="230" height="230" />
+                            </a>
+                        </div>
                     </div>
-
                 </div>
 
                 <!-- News And Comments -->
@@ -182,14 +205,14 @@
                         <div class="row">
                             <div class="col-sm-4" width="350" style="padding: 0">
                                 <div>
-                                    <img src="image/Home-img/chinese-new-year.jpg" width="100%" />
+                                    <a href="../promo/promotion.jsp"><img src="image/Home-img/chinese-new-year.jpg" width="100%" /></a>
                                 </div>
                                 <div>
-                                    <img src="image/Home-img/classic-sale.jpg" width="100%" />
+                                    <a href="../promo/promotion.jsp"><img src="image/Home-img/classic-sale.jpg" width="100%" /></a>
                                 </div>
                             </div>
                             <div class="col" style="padding: 0">
-                                <img src="image/Home-img/new-year-2019.jpg" width="100%" />
+                                <a href="../promo/promotion.jsp"><img src="image/Home-img/new-year-2019.jpg" width="100%" /></a>
                             </div>
                         </div>
                     </div>
