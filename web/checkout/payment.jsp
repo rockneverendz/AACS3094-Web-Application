@@ -8,9 +8,7 @@
 <%
     ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
     Customer customer = (Customer) session.getAttribute("customer");
-    ProductService productService = new ProductService();
     Product product;
-    int i;
     double total, subtotal = 0;
 
     //If user is not logged in
@@ -23,25 +21,9 @@
 
 <html>
     <head>
-        <meta charset="uft-8">
-        <title>Checkout|Dysee Video</title>
-        <link href="../layout/image/DySpee.png" rel="icon" />
-        <link href="../layout/base.css" rel="stylesheet" />
-
-        <!-- Importing Bootstrap 4-->
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
-        <!-- Font Awesome Allows Input external Icon -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+        <title>Checkout</title>
+        <%@ include file="../layout/meta.jsp"%>
         <style>
-
-
             h2, label{
                 font-weight: bold;
                 color: white;
@@ -63,10 +45,7 @@
             #submitBtn:hover {
                 box-shadow: 0 0 20px 5px rgb(12, 147, 218);
             }
-
-
         </style>
-
     </head>
 
     <body>
