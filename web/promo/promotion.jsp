@@ -23,18 +23,13 @@
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-
-
     </head>
 
     <body>
-        <!-------------header-------------->
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-
-        <!---------------body-------------->
         <div id="container">
             <div class="article-container container-fluid">
                 <div class="main">
@@ -44,31 +39,32 @@
 
                     <div class="row">
                         <div class="poster col-lg-8" >
-                            <img src="image/Screenshot%20(24).png" class="image" width="105%" height="100%">
-                        </div>
-                        <div id="demo" class="carousel slide col-lg-4" data-ride="carousel" style="margin: 0px">
+				<img src="image/Screenshot%20(24).png" class="image" width="105%" height="100%">
+			</div>
+                                <div id="demo" class="carousel slide col-lg-4" data-ride="carousel" style="margin: 0px">
 
-                            <!-- Indicators -->
-                            <ul class="carousel-indicators ">
-                                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                                <li data-target="#demo" data-slide-to="1"></li>
-                                <li data-target="#demo" data-slide-to="2"></li>
-                                <li data-target="#demo" data-slide-to="3"></li>
-                            </ul>
+                                <!-- Indicators -->
+                                <ul class="carousel-indicators ">
+                                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                  <li data-target="#demo" data-slide-to="1"></li>
+                                  <li data-target="#demo" data-slide-to="2"></li>
+                                  <li data-target="#demo" data-slide-to="3"></li>
+                                </ul>
 
-                            <!-- The slideshow -->
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a href="#demo1" data-toggle="collapse" ><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#demo2" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#demo3" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#demo4" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                <!-- The slideshow -->
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                      <a href="#demo1" data-toggle="collapse" ><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <a href="#demo2" data-toggle="collapse"><img src="image/2.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <a href="#demo3" data-toggle="collapse"><img src="image/3.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
+                                    <div class="carousel-item">
+                                    <a href="#demo4" data-toggle="collapse"><img src="image/4.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                  </div>
                                 </div>
                             </div>
 
@@ -112,8 +108,6 @@
 
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -147,14 +141,8 @@
                 </div>
             </div>
         </div>
-
-
-        <!-------------footer-------------->
         <footer>
             <%@ include file="../layout/footer.jsp"%>
         </footer>
-
-
     </body>
-
 </html>
