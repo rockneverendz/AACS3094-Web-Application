@@ -31,7 +31,7 @@
         <style>
             .title{
                 padding: 30px;
-                
+
             }
             .row > .col-sm-3 > a > img{
                 width: 100%;
@@ -43,10 +43,7 @@
                 font-weight: bold;
                 text-align: center;
             }
-
-
         </style>
-
     </head>
 
     <body>
@@ -67,11 +64,11 @@
                     <div class="row">
                         <%  for (j = 0; j < 4; j++) {
                                 indexNum = (i * 4) + j;
-                                product = productService.findProdByID(indexNum);
+                                product = productService.findProdByID(indexNum + 1);
                         %>
 
                         <div class="col-sm-3">
-                            <a href="../video/trailer.jsp?productid=<%= indexNum%>">
+                            <a href="../video/trailer.jsp?productid=<%= indexNum + 1%>">
                                 <img src= "<%= product.getPoster()%>" class="rounded" />
                             </a>
                             <div class="overlay">

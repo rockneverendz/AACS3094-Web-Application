@@ -154,11 +154,11 @@
                     <div class="recom">Recommended</div>
                     <%
                         for (i = 0; i < 3; i++) {
-                            product = productService.findProdByID(recomProd[i]);
+                            product = productService.findProdByID(recomProd[i]+1);
                     %>
 
                     <div class="box">
-                        <a href="../video/trailer.jsp?productid=<%= recomProd[i]%>">
+                        <a href="../video/trailer.jsp?productid=<%= recomProd[i]+1%>">
                             <img src=<%= product.getPoster()%> />
                         </a>
                         <p><%= product.getName()%></p>
