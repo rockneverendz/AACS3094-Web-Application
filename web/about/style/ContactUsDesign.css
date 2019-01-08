@@ -1,17 +1,17 @@
 .main{
-	background-color: rgba(51, 51, 51, 0.8);
+    background-color: rgba(51, 51, 51, 0.8);
 }
 
 .title {
-	
 
-        color: white;
-        text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;
+
+    color: white;
+    text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;
 
 }
 
 .word{
-	color: white;
+    color: white;
 }
 
 .text{
@@ -20,40 +20,40 @@
 
 }
 /*.image {
-	padding: 20px 10px 20px 10px;
-	display: inline-block;
-	border-radius: 15px;
+        padding: 20px 10px 20px 10px;
+        display: inline-block;
+        border-radius: 15px;
 }*/
 
 .image:hover {
-	transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 
 button:active {
-	border-color: aqua;
+    border-color: aqua;
 }
 
 .bordered {
-    
+
     padding: 20px;
     border: 10px inset grey;
-  }
+}
 
-  #submitBtn {
-                display: block;
-                margin-left: 12px;
-                padding: 5px;
-                float: right;
-                color: #fff;
-                background-color: rgba(0, 0, 0, 0.5);
-                font-size: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 20px 5px white;
-                cursor: pointer;
-            }
+#submitBtn {
+    display: block;
+    margin-left: 12px;
+    padding: 5px;
+    float: right;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px white;
+    cursor: pointer;
+}
 
-            #submitBtn:hover {
-                color: rgb(12, 147, 218);
-                box-shadow: 0 0 20px 5px rgb(12, 147, 218);
-            }
+#submitBtn:hover {
+    color: rgb(12, 147, 218);
+    box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+}

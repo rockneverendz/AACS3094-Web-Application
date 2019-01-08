@@ -61,13 +61,13 @@
                                       <a href="#demo1" data-toggle="collapse" ><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
                                   </div>
                                   <div class="carousel-item">
-                                    <a href="#demo2" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                    <a href="#demo2" data-toggle="collapse"><img src="image/2.jpg" alt="Los Angeles" width="100%" height="auto"></a>
                                   </div>
                                   <div class="carousel-item">
-                                    <a href="#demo3" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                    <a href="#demo3" data-toggle="collapse"><img src="image/3.jpg" alt="Los Angeles" width="100%" height="auto"></a>
                                   </div>
                                     <div class="carousel-item">
-                                    <a href="#demo4" data-toggle="collapse"><img src="image/1.jpg" alt="Los Angeles" width="100%" height="auto"></a>
+                                    <a href="#demo4" data-toggle="collapse"><img src="image/4.jpg" alt="Los Angeles" width="100%" height="auto"></a>
                                   </div>
                                 </div>
                                 

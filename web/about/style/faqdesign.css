@@ -1,6 +1,4 @@
-.main {
-	background-color: rgba(41, 36, 33, 0.8);
-}
+
 
 #faq {
 	font-size: 80px;
@@ -12,11 +10,13 @@
 }
 
 #title {
-	background-color: rgb(34, 34, 34, 0.8);
-	margin: 0;
+
 	width: 84%;
 	height: 150px;
 	padding: 0 8% 0 8%;
 	color: white;
 	text-shadow: 0 0 5px #426bf4, 0 0 10px #426bf4;
+}
+.card {
+    margin: 10px;
 }
