@@ -3,6 +3,7 @@
 
     <head>
         <title>About us</title>
+        <link rel="stylesheet" href="style/AboutUsDesign.css">
         <%@ include file="../layout/meta.jsp"%></head>
     <body>
         <header>

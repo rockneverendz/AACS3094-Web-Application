@@ -3,6 +3,7 @@
 
     <head>
         <title>FAQ</title>
+        <link rel="stylesheet" href="style/faqdesign.css">
         <%@ include file="../layout/meta.jsp"%>
     </head>
 

@@ -3,6 +3,7 @@
 
     <head>
         <title>Contact us</title>
+        <link rel="stylesheet" href="style/ContactUsDesign.css">
         <%@ include file="../layout/meta.jsp"%></head>
 
     <body>
