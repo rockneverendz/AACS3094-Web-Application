@@ -1,32 +1,20 @@
 <%@page import="java.util.List"%>
 <%@page import="entity.Product"%>
+<!DOCTYPE html>
+<html>
 
-<!-- retrieve session object, ProductList -->
-<%
-  List<Product> ProductList = (List)session.getAttribute("ProductList");
-%>
-<head>
-    <style>
-        th{
-            color:white;
-            margin-left: 20;
-        }
-        
-        td{
-            color:white;
-            margin-left: 20;           
-        }
-    </style>
-	<meta charset="uft-8">
-	<link rel="stylesheet" href="style/AboutUsDesign.css">
-	<link rel="stylesheet" href="../layout/base.css">
+    <!-- retrieve session object, ProductList -->
+    <%
+        List<Product> ProductList = (List) session.getAttribute("ProductList");
+    %>
+    <head>
 
-	<title>Staff Portal</title>
-	<link href="../layout/image/DySpee.png" rel="icon" />
+        <meta charset="uft-8">
+        <link rel="stylesheet" href="../layout/base.css">
 
-	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-        
+        <title>Staff Portal</title>
+        <link href="../layout/image/DySpee.png" rel="icon" />
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -38,41 +26,65 @@
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+        <style>
+            th{
+                color:white;
+                margin-left: 20;
+            }
 
-</head>
+            td{
+                color:white;
+                margin-left: 20;           
+            }
+            
+            .article-container{
+                padding-top: 110px;
+            }
+            
+        </style>
+    </head>
+
+    <body>
         <header>
-		<%@ include file="../layout/header.jsp"%>
+            <%@ include file="staffHeader.jsp"%>
         </header>
-<h1 align="center" style="color:white">View All Items </h1>
+        <div id="container">
+            <div class="article-container">
+                <h1 align="center" style="color:white">View All Items </h1>
 
-<!-- Display items -->
-<table border="1" style="border-color: white;">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Rating</th>
-        <th>Date Release</th>
-        <th>Genre</th>
-    </tr>
-    <% for (Product product: ProductList){ %>
-        <tr>
-            <td><%= product.getProductid() %></td>
-            <td><%= product.getName() %> </td>
-            <td><%= String.format("%.2f", product.getPrice()) %></td>
-            <td><%= product.getDescription() %></td>
-            <td><%= product.getRating() %></td>
-            <td><%= product.getDaterelease() %></td>
-            <td><%= product.getGenre() %></td>
-        </tr>
-    <% } %>
-</table>
-<br><br>
-<p><a href="staffui.jsp" style="color:white;margin-left: 20">Back to home page</a></p>
-<br />
-<br />
-<br />
-        <footer>
-		<%@ include file="../layout/footer.jsp"%>
-	</footer>
+                <!-- Display items -->
+                <table class="table table-dark table-bordered table-hover">
+                    <thead>
+                        <tr scope="row">
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Date Release</th>
+                            <th scope="col">Genre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (Product product : ProductList) {%>
+
+                        <tr scope="row">
+                            <td><%= product.getProductid()%></td>
+                            <td><%= product.getName()%> </td>
+                            <td><%= String.format("%.2f", product.getPrice())%></td>
+                            <td><%= product.getDescription()%></td>
+                            <td><%= product.getRating()%></td>
+                            <td><%= product.getDaterelease()%></td>
+                            <td><%= product.getGenre()%></td>
+                        </tr>
+                        <% }%>
+                    </tbody>
+                </table>
+                <br><br>
+                <a href="staffui.jsp" style="color:white;margin-left: 20"><button type="button" class="btn btn-dark">Back to Home page</button></a></p>
+            </div>
+        </div>
+
+
+    </body>
+</html>
