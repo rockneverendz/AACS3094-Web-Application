@@ -31,7 +31,18 @@ INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POS
 INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
 	VALUES ('The Nun', 'When a young nun at a cloistered abbey in Romania takes her own life, a priest with a haunted past and a novitiate on the threshold of her final vows are sent by the Vatican to investigate. Together, they uncover the order''s unholy secret. Risking not only their lives but their faith and their very souls, they confront a malevolent force in the form of a demonic nun.', 4, '2018-09-06', 30.0, '../video/image/Movie_Img/Horror/nun.jpg', 'Horror', 'https://www.youtube.com/embed/pzD9zGcUNrw');
 
-	
+INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
+	VALUES ('Steins;Gate', 'The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective "future gadgets" with fellow lab members: Mayuri Shiina, his air-headed childhood friend, and Hashida Itaru, a perverted hacker nicknamed "Daru." The three pass the time by tinkering with their most promising contraption yet, a machine dubbed the "Phone Microwave," which performs the strange function of morphing bananas into piles of green gel.', 5, '2018-04-06', 30.0, '../video/image/Movie_Img/Anime/TV1.jpg', 'Anime', 'https://www.youtube.com/embed/W2JflmKHi54');
+INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
+	VALUES ('Megalo Box', 'Set in a city where the wealthy are licensed citizens and those on the outskirts are unlicensed citizens living in poverty, the sport of megalo boxing has risen. Megalo boxing is a popular sport where the boxers fight while wearing a metal frame -- something that makes their attacks even more lethal. Junk Dog fights in the underground illegal rings with fixed fights overseen by his coach Gansaku Nanbu. After he almost crashes his motorcycle into Yukiko Shirato, her bodyguard challenges Junk Dog to fight him in Megalonia -- something reserved for licensed citizens. Junk Dog now works to prove himself the best fighter and move up the ranks in order to attend Megalonia.', 5, '2018-02-17', 30.0, '../video/image/Movie_Img/Anime/TV4.jpg', 'Anime', 'https://www.youtube.com/embed/-Eg1q9cPvCc');
+INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
+	VALUES ('Food Wars!: Shokugeki no Soma', 'Ever since he was a child, fifteen-year-old Souma Yukihira has helped his father by working as the sous chef in the restaurant his father runs and owns. Throughout the years, Souma developed a passion for entertaining his customers with his creative, skilled, and daring culinary creations. His dream is to someday own his family restaurant as its head chef.', 5, '2012-11-26', 30.0, '../video/image/Movie_Img/Anime/TV5.jpg', 'Anime', 'https://www.youtube.com/embed/--v6zWSR_Ko');
+
+/*
+INSERT INTO NBUSER.PRODUCT ("NAME", DESCRIPTION, RATING, DATERELEASE, PRICE, POSTER, GENRE, TRAILER) 
+	VALUES ('', '', 5, '2018-09-06', 30.0, '../video/image/Movie_Img/Anime/TV1.jpg', 'Anime', 'https://www.youtube.com/embed/W2JflmKHi54');
+*/	
+
 /* INSERT CUSTOMER DATA*/
 	INSERT INTO NBUSER.CUSTOMER (CUSTNAME, PHONENO, ADDRESS, EMAIL, DOB, PASSWORD) 
 	VALUES ('Ahmad', '012-3456789', '42 Jln 34/10A Tmn Perindustrian Iks Mk Batu 68100 Wilayah Persekutuan 68100 Malaysia 68100 Malaysia', 'ahmad@gmail.com', '2019-01-05', 'ahmad99');
