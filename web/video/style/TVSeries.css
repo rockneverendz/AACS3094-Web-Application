@@ -35,3 +35,7 @@
 .article-item span a:hover label {
   opacity: 1;
 }
+
+.article-container > h2{
+    color: white;
+}

@@ -1,17 +1,11 @@
-        <header>
-		<%@ include file="../layout/header.jsp"%>
-	</header>
-<head>
-	<meta charset="uft-8">
-	<link rel="stylesheet" href="style/AboutUsDesign.css">
-	<link rel="stylesheet" href="../layout/base.css">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="uft-8">
+        <link rel="stylesheet" href="../layout/base.css">
+        <title>Staff Portal</title>
+        <link href="../layout/image/DySpee.png" rel="icon" />
 
-	<title>Staff Portal</title>
-	<link href="../layout/image/DySpee.png" rel="icon" />
-
-	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-        
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -22,32 +16,38 @@
         <script src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
         <!-- Font Awesome Allows Input external Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <style>
+            .article-container{
+                padding-top: 110px;
+            }
+            
+            h3{
+                padding: 200px;
+            }
+        </style>
 
+    </head>
+    <body>
 
-</head>
-<h3 style="color:white;margin-left: 10%">
-<%
-  boolean success = (Boolean)session.getAttribute("success");
-  if (success)
-      out.println("Product added successfully.");
-  else
-      out.println("Error: Unable to add new item.");
-%>
-</h3>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<p><a href="staffui.jsp" style="color:white;margin-left: 20">Back to home page</a></p>
-    
-        <footer>
-		<%@ include file="../layout/footer.jsp"%>
-	</footer>
+        <header>
+            <%@ include file="staffHeader.jsp"%>
+        </header>
+
+        <div id="container">
+            <div class="article-container">
+                <h3 style="color:white;margin: auto; font-weight: bold">
+                    <%    boolean success = (Boolean) session.getAttribute("success");
+                        if (success) {
+                            out.println("Product added successfully.");
+                        } else {
+                            out.println("Error: Unable to add new item.");
+                        }
+                    %>
+                </h3>
+                <a href="staffui.jsp"><button  type="button" class="btn btn-dark">Back to home page</button></a>
+            </div>
+        </div>
+
+    </body>
+
+</html>

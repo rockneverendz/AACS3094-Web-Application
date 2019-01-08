@@ -69,99 +69,104 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-        <%--
+
+
+        <div id="container">
+
+            <%--
             Status code -1= An error has occured
             Status code 0 = Successfully Signed Out
             Status code 1 = Successfully Signed In
             Status code 2 = Successfully Signed Up
-        --%>
+            --%>
 
-        <%  String status = request.getParameter("status");
-            String message;
-            if (status == null) {
-                message = "";
-            } else {
-                char code = status.charAt(0);
-                if (code == '2') {
-                    message = "Item already in cart!";
-                } else if (code == '1') {
-                    message = "Successfully added to cart!";
+            <%  String status = request.getParameter("status");
+                String message;
+                if (status == null) {
+                    message = "";
                 } else {
-                    message = "Error has occured";
+                    char code = status.charAt(0);
+                    if (code == '2') {
+                        message = "Item already in cart!";
+                    } else if (code == '1') {
+                        message = "Successfully added to cart!";
+                    } else {
+                        message = "Error has occured";
+                    }
+            %>
+
+            <div class="message-container">
+                <%=message%>
+            </div>
+
+            <%
                 }
-        %>
-
-        <div class="message-container">
-            <%=message%>
-        </div>
-
-        <%
-            }
-        %>
-        <div class="article-container">
-            <div class="video">
-                <iframe width="850" height="390" src=<%= product.getTrailer()%> frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-
-            <div class="detailBox">
-
-                <div class="poster">
-                    <img src=<%= product.getPoster()%> alt="" />
+            %>
+            <div class="article-container">
+                <div class="video">
+                    <iframe width="850" height="390" src=<%= product.getTrailer()%> frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
 
-                <div class="title">
-                    <h1><%= product.getName()%></h1>
+                <div class="detailBox">
+
+                    <div class="poster">
+                        <img src=<%= product.getPoster()%> alt="" />
+                    </div>
+
+                    <div class="title">
+                        <h1><%= product.getName()%></h1>
+                    </div>
+
+                    <div class="rating">
+                        <span>Rating : </span>
+                        <%
+                            for (i = 0; i < product.getRating(); i++) {
+                        %>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <%
+                            }
+                        %>
+                        <span class="rate"><%= product.getRating()%>/5</span>
+                    </div>
+
+                    <div class="summary">
+                        <p><%= product.getDescription()%></p>
+                    </div>
+
+                    <div class="tags">
+                        <p>Genre: <a href="#"><%= product.getGenre()%></a></p>
+                        <p>Duration: 2h 40m</p>
+                    </div>
+
+                    <div class="tags2">
+                        <p>Disc format: DVD, Blu-ray</p>
+                        <p>Release: <%= sdf.format(product.getDaterelease())%></p>
+                        <p><em>Price: RM<%= String.format("%.2f", product.getPrice())%> (Free shipping!) </em></p>
+
+                        <form action="AddItem" method="GET">
+                            <input type="hidden" name="productid" value="<%= product.getProductid()%>" />
+                            <button class="add"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
+                        </form>    
+                    </div>
                 </div>
 
-                <div class="rating">
-                    <span>Rating : </span>
+                <div class="suggestionBox">
+                    <div class="recom">Recommended</div>
                     <%
-                        for (i = 0; i < product.getRating(); i++) {
+                        for (i = 0; i < 3; i++) {
+                            product = productService.findProdByID(recomProd[i]);
                     %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <%
-                        }
+
+                    <div class="box">
+                        <a href="../video/trailer.jsp?productid=<%= recomProd[i]%>">
+                            <img src=<%= product.getPoster()%> />
+                        </a>
+                        <p><%= product.getName()%></p>
+                    </div>
+
+                    <% }
                     %>
-                    <span class="rate"><%= product.getRating()%>/5</span>
                 </div>
-
-                <div class="summary">
-                    <p><%= product.getDescription()%></p>
-                </div>
-
-                <div class="tags">
-                    <p>Genre: <a href="#"><%= product.getGenre()%></a></p>
-                    <p>Duration: 2h 40m</p>
-                </div>
-
-                <div class="tags2">
-                    <p>Disc format: DVD, Blu-ray</p>
-                    <p>Release: <%= sdf.format(product.getDaterelease())%></p>
-                    <p><em>Price: RM<%= String.format("%.2f", product.getPrice())%> (Free shipping!) </em></p>
-
-                    <form action="AddItem" method="GET">
-                        <input type="hidden" name="productid" value="<%= product.getProductid()%>" />
-                        <button class="add"><i class="fas fa-plus"></i> &nbsp;&nbsp;Add To Cart</button>
-                    </form>    
-                </div>
-            </div>
-
-            <div class="suggestionBox">
-                <div class="recom">Recommended</div>
-                <%
-                    for (i = 0; i < 3; i++) {
-                        product = productService.findProdByID(recomProd[i]);
-                %>
-
-                <div class="box">
-                    <a href="../video/trailer.jsp?productid=<%= recomProd[i]%>">
-                        <img src=<%= product.getPoster()%> />
-                    </a>
-                    <p><%= product.getName()%></p>
-                </div>
-
-                <% }
-                %>
             </div>
         </div>
 

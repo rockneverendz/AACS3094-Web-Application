@@ -27,7 +27,7 @@
         <title>Checkout|Dysee Video</title>
         <link href="../layout/image/DySpee.png" rel="icon" />
         <link href="../layout/base.css" rel="stylesheet" />
-        
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         <style>
-            
+
 
             h2, label{
                 font-weight: bold;
@@ -74,71 +74,73 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-        <div class="article-container">
-            <div class="container-fluid row" style="height: 40em;">
-                <div class="col-md-6" style="padding-left: 5%;">
-                    <form action="NewOrder" method="GET">
-                        <h2>Delivery Information</h2>
-                        <div class="form-group row col-md-6">
-                            <label for="name">*Name :</label>
-                            <input class="form-control"name="rcvName" value = "<%= customer.getCustname()%>" id="custName" type="text" placeholder="e.g. First name & last name" required />
-                        </div>
-                        <div class="form-group row col-md-6">
-                            <label for="phone">*Phone Number :</label>
-                            <input class="form-control"name="rcvPhone" value = "<%= customer.getPhoneno()%>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
-                        </div>
-                        <div class="form-group row col-md-8">
-                            <label for="address">*Address :</label>
-                            <textarea class="form-control" name = "rcvAddress" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
-                        </div>
-                        <div class="form-group row col-md-6">
-                            <button id="submitBtn" type="submit">Continue</button>
-                        </div>
-                    </form>
-                </div>
+        <div id="container">
+            <div class="article-container">
+                <div class="container-fluid row" style="height: 40em;">
+                    <div class="col-md-6" style="padding-left: 5%;">
+                        <form action="NewOrder" method="GET">
+                            <h2>Delivery Information</h2>
+                            <div class="form-group row col-md-6">
+                                <label for="name">*Name :</label>
+                                <input class="form-control"name="rcvName" value = "<%= customer.getCustname()%>" id="custName" type="text" placeholder="e.g. First name & last name" required />
+                            </div>
+                            <div class="form-group row col-md-6">
+                                <label for="phone">*Phone Number :</label>
+                                <input class="form-control"name="rcvPhone" value = "<%= customer.getPhoneno()%>" id="phone" type="tel" placeholder="e.g. (nnn)nnn-nnnn" required />
+                            </div>
+                            <div class="form-group row col-md-8">
+                                <label for="address">*Address :</label>
+                                <textarea class="form-control" name = "rcvAddress" type="text" placeholder="Address" rows="4" cols="50"><%= customer.getAddress()%></textarea>
+                            </div>
+                            <div class="form-group row col-md-6">
+                                <button id="submitBtn" type="submit">Continue</button>
+                            </div>
+                        </form>
+                    </div>
 
 
-                <!--Order Summary-->
-                <div class="col-md-6">
-                    <h2>Order Summary</h2>
-                    <table class="table table-dark table-bordered table-hover">
-                        <thead>
-                            <tr scope="row">
-                                <th scope="col">Items</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Total(RM)</th>
-                            </tr>
-                        </thead>
+                    <!--Order Summary-->
+                    <div class="col-md-6">
+                        <h2>Order Summary</h2>
+                        <table class="table table-dark table-bordered table-hover">
+                            <thead>
+                                <tr scope="row">
+                                    <th scope="col">Items</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total(RM)</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            <%  for (Orderlist cartmember : cart) {
-                                    product = cartmember.getProduct();
-                                    total = cartmember.getQty() * product.getPrice();
-                                    subtotal += total;
-                            %>      
+                            <tbody>
+                                <%  for (Orderlist cartmember : cart) {
+                                        product = cartmember.getProduct();
+                                        total = cartmember.getQty() * product.getPrice();
+                                        subtotal += total;
+                                %>      
 
-                            <tr scope="row" id="list">
-                                <td><%= product.getName()%></td>
-                                <td><%= cartmember.getQty()%></td>
-                                <td><em><%= product.getPrice()%></em></td>
-                                <td><em><%= String.format("%.2f", total)%></em></td>
-                            </tr>
+                                <tr scope="row" id="list">
+                                    <td><%= product.getName()%></td>
+                                    <td><%= cartmember.getQty()%></td>
+                                    <td><em><%= product.getPrice()%></em></td>
+                                    <td><em><%= String.format("%.2f", total)%></em></td>
+                                </tr>
 
-                            <%    }
-                            %>   
+                                <%    }
+                                %>   
 
-                            <tr>
-                                <td colspan="2">Shipping fee:</td>
-                                <td>FREE!</td>
-                                <td><em>0.00</em></td>
-                            </tr>
-                            <tr scope="row">
-                                <td colspan="3"><strong>Subtotal:</strong></td>
-                                <td><strong style="color: yellow"><%= String.format("%.2f", subtotal)%></strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td colspan="2">Shipping fee:</td>
+                                    <td>FREE!</td>
+                                    <td><em>0.00</em></td>
+                                </tr>
+                                <tr scope="row">
+                                    <td colspan="3"><strong>Subtotal:</strong></td>
+                                    <td><strong style="color: yellow"><%= String.format("%.2f", subtotal)%></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

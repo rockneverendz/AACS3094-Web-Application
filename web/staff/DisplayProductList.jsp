@@ -1,17 +1,14 @@
 <%@page import="java.util.List"%>
 <%@page  import="entity.Product" %>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="uft-8">
-	<link rel="stylesheet" href="style/AboutUsDesign.css">
-	<link rel="stylesheet" href="../layout/base.css">
+    <head>
+        <meta charset="uft-8">
+        <link rel="stylesheet" href="../layout/base.css">
 
-	<title>Staff Portal</title>
-	<link href="../layout/image/DySpee.png" rel="icon" />
+        <title>Staff Portal</title>
+        <link href="../layout/image/DySpee.png" rel="icon" />
 
-	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-        
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -24,6 +21,19 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         <style>
+            .article-container{
+                padding-top: 110px;
+            }
+
+            .box{
+                margin: auto;
+                width: 60%;
+            }
+
+            #container{
+                color: #fff;
+            }
+
             table{
                 margin-left: 10%;
             }
@@ -32,58 +42,50 @@
                 margin-left: 10%;
                 margin-top: 50;
             }
-            
+
             tr{
                 margin-left: 10%;
                 margin-top: 50;
             }
-            
+
             td{
                 color:white;
                 margin-top: 50;
             }
         </style>
 
-</head>
-        <header>
-		<%@ include file="../layout/header.jsp"%>
-	</header>
-<%
-  List<Product> productList = (List)session.getAttribute("productList");
-%>
-<h1 align="center" style="color:white">Search Product </h1>
-<table border="0" cellspacing="10">
-<form action="SearchProduct.jsp" method="post">
-    <tr>
-        <td>Product ID</td>
-        <td><select name="id">
-                <% for (Product product: productList){%>
-                <option value="<%=product.getProductid()%>">
-                    <%=product.getProductid()%>
-                <%}%>
-            </select>
-            <br>
-        </td>
-    </tr>
-    <tr style=" margin-top: 50">
-        <td colspan="2">
-            <input type="submit" value="Delete" name="button"/>
-            <input type="submit" value="Update" name="button"/>
-        </td>
-    </tr>
-</form>
-</table>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p><a href="staffui.jsp" style="color:white;margin-left: 20">Back to home page</a></p>
-        <br />
-        <footer>
-		<%@ include file="../layout/footer.jsp"%>
-	</footer>
+    </head>
+    <header>
+        <%@ include file="staffHeader.jsp"%>
+    </header>
+    <%        List<Product> productList = (List) session.getAttribute("productList");
+    %>
+    <div id="container">
+        <div class="article-container">
+            <div class="box">
+                <h1 align="center" style="color:white">Search Product </h1>
+                <form action="SearchProduct.jsp" method="post">
+                    <div class="form-group col-md-5">
+                        <label>Product ID</label>
+                        <select class="form-control" name="id">
+                            <% for (Product product : productList) {%>
+                            <option value="<%=product.getProductid()%>">
+                                <%=product.getProductid()%>
+                                <%}%>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-dark" name="button" value="Delete" type="submit">Delete</button>
+                    <button class="btn btn-dark" name="button" value="Update" type="submit">Update</button>
+
+                </form>
+                <br>
+                <a href="staffui.jsp"><button  type="button" class="btn btn-dark">Back to home page</button></a>
+
+            </div>
+        </div>
+    </div>
+
+
+
 </html>

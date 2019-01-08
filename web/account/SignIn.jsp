@@ -76,38 +76,41 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-        <%  //If no message are recieved, no need division
-            String message = (String) request.getAttribute("message");
-            if (message != null) {
-        %>
-        <div class="error-container"><%= message%></div>
-        <%
-            }
-        %>
 
-        <div class="article-container">
-            <form action="SignIn" method="post">
-                <div class="container-fluid signin-box">
-                    <h1>Sign In</h1>
 
-                    <div class="form-group row col-md-6">
-                        <label for="exampleInputEmail1">*Email address</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<%=email%>" required />
+        <div id="container">
+            <%  //If no message are recieved, no need division
+                String message = (String) request.getAttribute("message");
+                if (message != null) {
+            %>
+            <div class="error-container"><%= message%></div>
+            <%
+                }
+            %>
+            <div class="article-container">
+                <form action="SignIn" method="post">
+                    <div class="container-fluid signin-box">
+                        <h1>Sign In</h1>
+
+                        <div class="form-group row col-md-6">
+                            <label for="exampleInputEmail1">*Email address</label>
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<%=email%>" required />
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required />
+                        </div>
+                        <div class="form-group row">
+                            <button id="submitBtn" type="submit">Sign In</button>
+                        </div>
+                        <div class="form-group row" >
+                            <medium class="form-text" style="margin: -10px 10px;">
+                                <a href="#" style="color: white;">Forget password?</a>
+                            </medium>                    
+                        </div>
                     </div>
-                    <div class="form-group row col-md-6">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required />
-                    </div>
-                    <div class="form-group row">
-                        <button id="submitBtn" type="submit">Sign In</button>
-                    </div>
-                    <div class="form-group row" >
-                        <medium class="form-text" style="margin: -10px 10px;">
-                            <a href="#" style="color: white;">Forget password?</a>
-                        </medium>                    
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         <footer>
             <%@ include file="../layout/footer.jsp"%>

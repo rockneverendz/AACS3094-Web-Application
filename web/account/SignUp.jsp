@@ -31,7 +31,7 @@
         <link href="../layout/reset.css" rel="stylesheet" />
         <link href="../layout/base.css" rel="stylesheet" />
         <link href="../layout/image/DySpee.png" rel="icon" />
-        
+
         <!-- Importing Bootstrap 4-->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
@@ -48,18 +48,18 @@
                 margin: auto;
                 width: 50%;
             }
-            
+
             h1{
                 padding: 5px 15px;
                 font-size: 100px;
                 font-weight: bold;
                 text-decoration: underline;
             }
-            
+
             h1, label{
                 color: white;
             }
-            
+
             #submitBtn {
                 display: block;
                 margin-left: 12px;
@@ -77,7 +77,7 @@
                 color: rgb(12, 147, 218);
                 box-shadow: 0 0 20px 5px rgb(12, 147, 218);
             }
-            
+
         </style>
     </head>
 
@@ -90,46 +90,49 @@
             String message = (String) request.getAttribute("message");
             if (message != null) {
         %>
-        <div class="error-container"><%= message %></div>
+        <div class="error-container"><%= message%></div>
         <%
             }
         %>
-        
-        <div class="article-container">
-            <form action="SignUp" method="post">
-                <div class="container-fluid signup-box">
-                    <h1>Sign Up</h1>
-                    
-                    <div class="form-group row col-md-6">
-                        <label>*Name :&ensp;</label>
-                        <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
+
+
+        <div id="container">
+            <div class="article-container">
+                <form action="SignUp" method="post">
+                    <div class="container-fluid signup-box">
+                        <h1>Sign Up</h1>
+
+                        <div class="form-group row col-md-6">
+                            <label>*Name :&ensp;</label>
+                            <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>*Phone Number :&ensp;</label>
+                            <input class="form-control" name = "phone" value = "<%= customer.getPhoneno()%>" type="text" placeholder="012-3456789" required/>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>*Email :&ensp;</label>
+                            <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>Date Of Birth :&ensp;</label>
+                            <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>*Password :&ensp;</label>
+                            <input class="form-control" name = "password" type="password" placeholder="Password" required/>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>*Retype Password :&ensp;</label>
+                            <input class="form-control" name = "passwordRe" type="password" placeholder="Password" required/>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label>&ensp;</label>
+                            <button id="submitBtn" type="submit">Sign Up</button>
+                        </div>
                     </div>
-                    <div class="form-group row col-md-6">
-                        <label>*Phone Number :&ensp;</label>
-                        <input class="form-control" name = "phone" value = "<%= customer.getPhoneno()%>" type="text" placeholder="012-3456789" required/>
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>*Email :&ensp;</label>
-                        <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>Date Of Birth :&ensp;</label>
-                        <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>*Password :&ensp;</label>
-                        <input class="form-control" name = "password" type="password" placeholder="Password" required/>
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>*Retype Password :&ensp;</label>
-                        <input class="form-control" name = "passwordRe" type="password" placeholder="Password" required/>
-                    </div>
-                    <div class="form-group row col-md-6">
-                        <label>&ensp;</label>
-                        <button id="submitBtn" type="submit">Sign Up</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         <footer>
             <%@ include file="../layout/footer.jsp"%>

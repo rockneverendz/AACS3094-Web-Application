@@ -1,3 +1,8 @@
+<%@page import="entity.Customer"%>
+<%
+    Customer customerLogged = (Customer) session.getAttribute("customer");
+%>
+
 <!-- HEADER IS HERE-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <!-- Brand -->
@@ -33,25 +38,11 @@
                 <a class="dropdown-item" href="../about/faq.jsp">FAQ</a>
             </ul>
         </li>
-        <li style="color: white; font-size: 9px;">
-            <!--Debug start-->
 
-            <%@page import="entity.Customer"%>
-            <%= session.getId()%>
-            <br>
-            <%
-                Customer customerLogged = (Customer) session.getAttribute("customer");
-                if (customerLogged != null) {
-            %>
-            Cust ID = <%= customerLogged.getCustid()%>
-            <br>
-            Cust Name = <%= customerLogged.getCustname()%>
-            <%
-                }
-            %>
+        <br>
 
-            <!--Debug end-->
-        </li>
+
+
     </ul>
 
     <div class="input-group ml-auto col-3">
@@ -87,9 +78,9 @@
         <%
             }
         %>
-        
-        
-        
+
+
+
 
 
 
@@ -98,4 +89,4 @@
 </nav>
 
 
-<div style="height: 110px; background-color: rgba(0,0,0,0.70); "></div>
+<div style="height: 100px; background-color: rgba(0,0,0,0.70); "></div>
