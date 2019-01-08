@@ -150,14 +150,14 @@
                                 <img src="<%= product.getPoster()%>" width="100px"/>
                                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= product.getName()%></h4>
                                 <a href="../checkout/DeleteItem?indexNumber=<%= i%>" >
-                                    <button type="submit" id="bin"><i class="fas fa-trash-alt"></i> Remove</button>
+                                    <button type="submit" id="bin" onclick="return window.confirm('Are you sure you want to delete this item?')"><i class="fas fa-trash-alt"></i> Remove</button>
                                 </a>
                             </td>
                             <td>
                                 <form action="UpdateItem" method="POST">
                                     <input type="hidden" name="indexNumber" value="<%= i%>" />
                                     <input type="number" name="quantity" style="width: 50px;"  value="<%= cartmember.getQty()%>" min="1" />
-                                    <button type="submit" id="qty">Update Qty</button>
+                                    <button type="submit" id="qty" >Update Qty</button>
                                 </form>
                             </td>
                             <td>RM <%= String.format("%.2f", product.getPrice())%></td>
@@ -186,8 +186,10 @@
         } else {
         %>
         <div id="container">
-            <div class="article-container">
-                <h1 style="margin: 25%; color: white;"> Your cart is empty! :( </h1>
+            <div class="article-container text-center">
+                <h1 style="color: white; text-align: center; margin: 150px 0 50px 0;"> Your cart is empty! :( </h1>
+                <a href="Dyspee.jsp"><button type="button" class="btn btn-dark" >Back to Home page</button></a>
+
             </div>
         </div>
 
