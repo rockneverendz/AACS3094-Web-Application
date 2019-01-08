@@ -4,7 +4,7 @@
         <h3>Movies</h3><br />
         <ul>
             <li><a href="#">Action</a></li>
-            <li><a href="#">Anime</a></li>
+            <li><a href="../video/TVSeries.jsp">Anime</a></li>
             <li><a href="#">Sci-Fic</a></li>
             <li><a href="#">Romance</a></li>
         </ul>
@@ -24,11 +24,11 @@
     <div class="footer-box" id="foot3">
         <h3>Question? Contact Us.</h3><br />
         <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="../about/faq.jsp">FAQ</a></li>
+            <li><a href="../about/AboutUs.jsp">Account</a></li>
+            <li><a href="../about/ContactUs.jsp">Contact Us</a></li>
             <li><a href="#">Help Center</a></li>
-            <li><a href="#">Promotion</a></li>
+            <li><a href="../promo/promotion.jsp">Promotion</a></li>
         </ul>
     </div>
     <div class="footer-box" id="foot4">
