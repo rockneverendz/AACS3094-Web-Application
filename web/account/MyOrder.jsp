@@ -7,7 +7,12 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%
+    //If user is not logged in
     Customer customer = (Customer) session.getAttribute("customer");
+    if (customer == null) {
+        response.sendRedirect("../video/DySpee.jsp?status=Y");
+        return;
+    }
     CustOrderService custOrderService = new CustOrderService();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     int custID = customer.getCustid();
@@ -41,9 +46,9 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-        
-            <!--Container Start-->
-            
+
+        <!--Container Start-->
+
         <div id="container">
             <div class="article-container" style="color:white;">
                 <h1 style="color: white">Order History</h1><br>
