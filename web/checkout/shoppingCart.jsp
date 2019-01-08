@@ -188,7 +188,7 @@
         <div id="container">
             <div class="article-container text-center">
                 <h1 style="color: white; text-align: center; margin: 150px 0 50px 0;"> Your cart is empty! :( </h1>
-                <a href="Dyspee.jsp"><button type="button" class="btn btn-dark" >Back to Home page</button></a>
+                <a href="../video/DySpee.jsp"><button type="button" class="btn btn-dark" >Back to Home page</button></a>
 
             </div>
         </div>
