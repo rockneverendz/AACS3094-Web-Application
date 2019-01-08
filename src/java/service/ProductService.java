@@ -11,10 +11,10 @@ public class ProductService {
     public ProductService() {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AACS3094-Web-ApplicationPU");
         this.em = emfactory.createEntityManager();
-        this.em.getTransaction().begin();
     }
 
     public void addProduct(Product product) throws RollbackException {
+        em.getTransaction().begin();
         em.persist(product);
         em.getTransaction().commit();
     }
@@ -29,6 +29,7 @@ public class ProductService {
     public boolean deleteProduct(int id) throws RollbackException {
         Product product = findProdByID(id);
         if (product != null) {
+            em.getTransaction().begin();
             em.remove(product);
             em.getTransaction().commit();
             return true;
@@ -56,7 +57,7 @@ public class ProductService {
     public boolean updateProduct(Product newProduct) throws RollbackException {
         Product thisProduct = findProdByID(newProduct.getProductid());
         if (thisProduct != null) {
-
+            em.getTransaction().begin();
             thisProduct.setName(newProduct.getName());
             thisProduct.setDescription(newProduct.getDescription());
             thisProduct.setRating(newProduct.getRating());
@@ -65,7 +66,6 @@ public class ProductService {
             thisProduct.setPoster(newProduct.getPoster());
             thisProduct.setGenre(newProduct.getGenre());
             thisProduct.setTrailer(newProduct.getTrailer());
-
             em.getTransaction().commit();
             return true;
         }

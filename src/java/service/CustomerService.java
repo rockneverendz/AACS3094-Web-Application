@@ -12,10 +12,10 @@ public class CustomerService {
     public CustomerService() {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AACS3094-Web-ApplicationPU");
         this.em = emfactory.createEntityManager();
-        this.em.getTransaction().begin();
     }
 
     public void addCust(Customer customer) throws RollbackException{
+        em.getTransaction().begin();
         em.persist(customer);
         em.getTransaction().commit();
     }
@@ -36,6 +36,7 @@ public class CustomerService {
     public boolean deleteCustomer(String email) {
         Customer customer = findCustByEmail(email);
         if (customer != null) {
+            em.getTransaction().begin();
             em.remove(customer);
             em.getTransaction().commit();
             return true;
@@ -51,6 +52,7 @@ public class CustomerService {
     public boolean updateCustomer(Customer newCustomer) {
         Customer thisCustomer = findCustByID(newCustomer.getCustid());
         if (thisCustomer != null) {
+            em.getTransaction().begin();
             thisCustomer.setCustname(newCustomer.getCustname());
             thisCustomer.setDob(newCustomer.getDob());
             thisCustomer.setPassword(newCustomer.getPassword());
