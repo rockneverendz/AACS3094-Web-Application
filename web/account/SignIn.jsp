@@ -1,6 +1,21 @@
 <!doctype html>
-<html>
 
+<%@ page import="entity.Customer"%>
+<%
+    //If user already logged in
+    if (session.getAttribute("customer") != null) {
+        response.sendRedirect("../video/DySpee.jsp?status=A");
+        return;
+    }
+
+    //If no object are recieved, create a new object.
+    String email = (String) request.getAttribute("email");
+    if (email == null) {
+        email = "";
+    }
+%>
+
+<html>
     <head>
         <meta charset="utf-8" />
         <title>DySpee</title>
@@ -56,26 +71,9 @@
     </head>
 
     <body>
-        <%@ page import="entity.Customer"%>
-        <%
-            //If user already logged in
-            if (session.getAttribute("customer") != null) {
-                response.sendRedirect("../video/DySpee.jsp?status=A");
-                return;
-            }
-
-            //If no object are recieved, create a new object.
-            String email = (String) request.getAttribute("email");
-            if (email == null) {
-                email = "";
-            }
-        %>
-
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-
-
 
         <div id="container">
             <%  //If no message are recieved, no need division

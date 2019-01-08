@@ -1,8 +1,8 @@
 <!doctype html>
 
-<%@ page import = "entity.Customer" %>
 <%@ page import = "java.util.Date" %>
 <%@ page import = "java.text.SimpleDateFormat" %>
+
 <%
     //If user already logged in
     if (session.getAttribute("customer") != null) {
@@ -10,19 +10,18 @@
         return;
     }
 
-    //If no object are recieved, create a new object.
-    Customer customer = (Customer) request.getAttribute("customer");
-    if (customer == null) {
-        customer = new Customer();
-        customer.setCustname("");
-        customer.setPhoneno("");
-        customer.setEmail("");
-        customer.setDob(new Date());
-    }
-
     //For parsing date in Date of Birth field
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 %>
+
+<jsp:useBean id="customer" class="entity.Customer" scope="request">
+    <!-- Note! These statements run only if a new bean is created. --> 
+    <jsp:setProperty name="customer" property="custname" value="" />
+    <jsp:setProperty name="customer" property="phoneno" value="" />
+    <jsp:setProperty name="customer" property="address" value="" />
+    <jsp:setProperty name="customer" property="email" value="" />
+    <jsp:setProperty name="customer" property="dob" value="<%= new Date()%>" />
+</jsp:useBean>
 
 <html>
     <head>
@@ -94,7 +93,6 @@
             }
         %>
 
-
         <div id="container">
             <div class="article-container">
                 <form action="SignUp" method="post">
@@ -103,19 +101,23 @@
 
                         <div class="form-group row col-md-6">
                             <label>*Name :&ensp;</label>
-                            <input class="form-control" name = "name" value = "<%= customer.getCustname()%>" type="text" placeholder="Name" required/>
+                            <input class="form-control" name = "name" type="text" placeholder="Name" required
+                                   value = "<jsp:getProperty name="customer" property="custname"/>"/>
                         </div>
                         <div class="form-group row col-md-6">
                             <label>*Phone Number :&ensp;</label>
-                            <input class="form-control" name = "phone" value = "<%= customer.getPhoneno()%>" type="text" placeholder="012-3456789" required/>
+                            <input class="form-control" name = "phone" type="text" placeholder="012-3456789" required
+                                   value = "<jsp:getProperty name="customer" property="phoneno"/>"/>
                         </div>
                         <div class="form-group row col-md-6">
                             <label>*Email :&ensp;</label>
-                            <input class="form-control" name = "email" value = "<%= customer.getEmail()%>" type="text" placeholder="email@example.com" required/>
+                            <input class="form-control" name = "email" type="text" placeholder="email@example.com" required
+                                   value = "<jsp:getProperty name="customer" property="email"/>"/>
                         </div>
                         <div class="form-group row col-md-6">
                             <label>Date Of Birth :&ensp;</label>
-                            <input class="form-control" name = "dob" value = "<%= sdf.format(customer.getDob())%>" type="date" />
+                            <input class="form-control" name = "dob" type="date" 
+                                   value = "<%= sdf.format(customer.getDob())%>"/>
                         </div>
                         <div class="form-group row col-md-6">
                             <label>*Password :&ensp;</label>

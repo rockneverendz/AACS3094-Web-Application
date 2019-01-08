@@ -3,8 +3,6 @@ package service;
 import entity.Customer;
 import javax.persistence.*;
 
-//import java.util.List;
-
 public class CustomerService {
 
     EntityManager em;
