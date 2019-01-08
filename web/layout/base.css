@@ -97,14 +97,14 @@ a {
 
 /*CSS Message div*/
 .message-container, .error-container {
-    padding-left: 10px;
-    padding-top: 10px;
+    padding-left: 25%;
+    padding-top: 15px;
     padding-bottom: 10px;
-    min-width: 590pt;
-    max-width: 910pt;
-    width: 95%;
-    margin: auto;
-    justify-content: space-around;
+    /* min-width: 590pt; */
+    /* max-width: 910pt; */
+    /* width: 95%; */
+    /* margin: auto; */
+    /* justify-content: space-around; */
     color: white;
 }
 
