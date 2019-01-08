@@ -3,11 +3,13 @@ package control.staff;
 import entity.Staff;
 
 import java.io.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
+import javax.persistence.Persistence;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.RequestDispatcher;
-import service.StaffService;
 
 public class StaffSignIn extends HttpServlet {
 
@@ -16,15 +18,18 @@ public class StaffSignIn extends HttpServlet {
         // Get parameter from the form
         String id = request.getParameter("id");
         String password = request.getParameter("password");
-        StaffService staffService = new StaffService();
 
         // Initialize variables
+        EntityManager em;
         String message;
         String url = "/staff/StaffSignIn.jsp";
 
         try {
+            EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AACS3094-Web-ApplicationPU");
+            em = emfactory.createEntityManager();
+            
             // Find by Staff ID which is Unique.
-            Staff staff = staffService.findStaffByID(id);
+            Staff staff = em.find(Staff.class, id);
             if (staff == null) {
                 throw new NoResultException("No such staff.");
             }
