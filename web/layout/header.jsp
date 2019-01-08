@@ -4,7 +4,7 @@
 %>
 
 <!-- HEADER IS HERE-->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="height: 100px;">
     <!-- Brand -->
     <a class="navbar-brand" href="../video/DySpee.jsp">
         <img src="../layout/image/DySpee.png" width="80" height="80" />
@@ -38,11 +38,7 @@
                 <a class="dropdown-item" href="../about/faq.jsp">FAQ</a>
             </ul>
         </li>
-
         <br>
-
-
-
     </ul>
 
     <div class="input-group ml-auto col-3">
@@ -78,15 +74,7 @@
         <%
             }
         %>
-
-
-
-
-
-
     </ul>
-
 </nav>
-
 
 <div style="height: 100px; background-color: rgba(0,0,0,0.70); "></div>

@@ -30,7 +30,7 @@
             .pannel{
                 margin: 100px;
             }
-            
+
             .signin-box{
                 margin: auto;
                 width: 50%;
@@ -74,23 +74,21 @@
                 response.sendRedirect("staffui.jsp?=status=A");
                 return;
             }
-
-            //If no object are recieved, create a new object.
         %>
 
         <header>
             <%@ include file="staffHeader.jsp"%>
         </header>
 
-        <%  //If no message are recieved, no need division
-            String message = (String) request.getAttribute("message");
-            if (message != null) {
-        %>
-        <div class="error-container"><%= message%></div>
-        <%
-            }
-        %>
         <div id="container">
+            <%  //If no message are recieved, no need division
+                String message = (String) request.getAttribute("message");
+                if (message != null) {
+            %>
+            <div class="error-container"><%= message%></div>
+            <%
+                }
+            %>
             <div class="article-container">
                 <form action="StaffSignIn" method="post">
                     <div class="container-fluid signin-box">

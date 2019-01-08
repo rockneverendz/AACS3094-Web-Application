@@ -44,12 +44,14 @@
                 <div class="pannel">
                     <h2>Control Panel</h2>
                     <h5>Select a task to do...</h5>
-                    <ul>
-                        <a href="StaffView"><button type="button" class="btn btn-dark">View All Items</button></a>
-                        <a href="StaffAdd.jsp"><button type="button" class="btn btn-dark">Add New Item</button></a>
-                        <a href="LoadProductList"><button type="button" class="btn btn-dark">Update/Delete Item</button></a>
-                        <a href="StaffSignOut"><button type="button" class="btn btn-dark">Log Out</button></a>
-                    </ul>
+                    <p><a href="StaffView"><button type="button" class="btn btn-dark">View All Items</button></a>
+                    </p>
+                    <p><a href="StaffAdd.jsp"><button type="button" class="btn btn-dark">Add New Item</button></a>
+                    </p>
+                    <p><a href="LoadProductList"><button type="button" class="btn btn-dark">Update/Delete Item</button></a>
+                    </p>
+                    <p><a href="StaffSignOut"><button type="button" class="btn btn-dark">Log Out</button></a>
+                    </p>
                 </div>
             </div>
         </div>

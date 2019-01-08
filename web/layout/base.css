@@ -97,8 +97,8 @@ a {
 
 /*CSS Message div*/
 .message-container, .error-container {
-    padding-left: 25%;
-    padding-top: 15px;
+    padding-left: 20%;
+    padding-top: 10px;
     padding-bottom: 10px;
     /* min-width: 590pt; */
     /* max-width: 910pt; */
