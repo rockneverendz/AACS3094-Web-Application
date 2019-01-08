@@ -28,7 +28,6 @@
             h1{
                 padding: 5px 15px;
                 font-size: 100px;
-                font-weight: bold;
                 text-decoration: underline;
             }
 

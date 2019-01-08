@@ -4,7 +4,6 @@ import entity.Product;
 import service.ProductService;
 import java.io.*;
 import java.util.List;
-import java.util.logging.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 

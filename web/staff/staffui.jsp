@@ -1,9 +1,3 @@
-<%-- 
-    Document   : staffui
-    Created on : Jan 4, 2019, 11:24:54 AM
-    Author     : taita
---%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,13 +26,12 @@
                 padding-top: 110px;
                 color: white;
             }
-            
+
             .pannel{
                 margin: 100px;
             }
-            
-        </style>
 
+        </style>
     </head>
     <body>
         <header>
@@ -55,14 +48,10 @@
                         <a href="StaffView"><button type="button" class="btn btn-dark">View All Items</button></a>
                         <a href="StaffAdd.jsp"><button type="button" class="btn btn-dark">Add New Item</button></a>
                         <a href="LoadProductList"><button type="button" class="btn btn-dark">Update/Delete Item</button></a>
-                        <a href="StaffSignOut" style="color: white;margin-top: 20">Log Out</a>
+                        <a href="StaffSignOut"><button type="button" class="btn btn-dark">Log Out</button></a>
                     </ul>
                 </div>
-
             </div>
-
         </div>
-
-
     </body>
 </html>
