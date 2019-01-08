@@ -41,8 +41,6 @@
                 margin: auto;
                 width: 90%;
                 color: aliceblue;
-
-
             }
 
             .News-review{

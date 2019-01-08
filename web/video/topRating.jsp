@@ -31,7 +31,7 @@
         <style>
             .title{
                 padding: 30px;
-                
+
             }
             .row > .col-sm-3 > a > img{
                 width: 100%;
@@ -87,6 +87,20 @@
                         }
                     %>
                 </div>
+
+                <nav style="margin: 50px 0 0 0;">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link text-muted bg-dark" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link text-white bg-dark" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link text-white bg-dark" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link text-white bg-dark" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link text-white bg-dark" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
 
