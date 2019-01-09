@@ -69,16 +69,15 @@
             <%@ include file="../layout/header.jsp"%>
         </header>
 
-        <%  //If no message are recieved, no need division
-            String message = (String) request.getAttribute("message");
-            if (message != null) {
-        %>
-        <div class="error-container"><%= message%></div>
-        <%
-            }
-        %>
-
         <div id="container">
+            <%  //If no message are recieved, no need division
+                String message = (String) request.getAttribute("message");
+                if (message != null) {
+            %>
+            <div class="error-container"><%= message%></div>
+            <%
+                }
+            %>
             <div class="article-container">
                 <form action="SignUp" method="post">
                     <div class="container-fluid signup-box">

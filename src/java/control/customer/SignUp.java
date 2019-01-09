@@ -46,7 +46,7 @@ public class SignUp extends HttpServlet {
 
             // Check both passwords
             if (!password.equals(passwordRe)) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Retyped password does not match.");
             }
             customer.setPassword(password);
 
@@ -69,7 +69,7 @@ public class SignUp extends HttpServlet {
 
         } catch (IllegalArgumentException ex) {
 
-            message = "Retyped password does not match.";
+            message = ex.getMessage();
             customer.setPassword("");
 
         } catch (RollbackException ex) {
