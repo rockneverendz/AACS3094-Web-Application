@@ -131,7 +131,7 @@
                     <div class="row" style="margin: 15px;">
                         <div class="col-sm-3 cateBox">
                             <h4 class="text-center">Top Rating</h4>
-                            <a href="topRating.jsp">
+                            <a href="topRating.jsp?page=1">
                                 <img src="image/Home-img/Top-rating.jpg" class="rounded-circle" width="230" height="230" />
                             </a>
                         </div>
