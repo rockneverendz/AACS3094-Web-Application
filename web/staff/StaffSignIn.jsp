@@ -65,9 +65,14 @@
         <div id="container">
             <%  //If no message are recieved, no need division
                 String message = (String) request.getAttribute("message");
+                String status = (String) request.getParameter("status");
                 if (message != null) {
             %>
             <div class="error-container"><%= message%></div>
+            <%
+            } else if (status != null) {
+            %>
+            <div class="message-container">Successfully Signed Out!</div>
             <%
                 }
             %>

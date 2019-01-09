@@ -19,8 +19,14 @@
         <header>
             <%@ include file="staffHeader.jsp"%>
         </header>
-
         <div id="container">
+            <%  String status = (String) request.getParameter("status");
+                if (status != null) {
+            %>
+            <div class="message-container">Successfully Signed In!</div>
+            <%
+                }
+            %>
             <div class="article-container">
                 <h1 align="center">Staff Portal</h1>
                 <div class="pannel">

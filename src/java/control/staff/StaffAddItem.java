@@ -39,6 +39,7 @@ public class StaffAddItem extends HttpServlet {
             product.setPrice(price);
             product.setDescription(description);
             product.setRating(rating);
+            product.setPoster("../video/image/empty.png");
             product.setDaterelease(sdf.parse(request.getParameter("daterelease")));
             product.setGenre(genre);
 
