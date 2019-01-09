@@ -47,13 +47,13 @@
                     <!-- Row 1 -->
                     <div class="row">
                         <%  for (j = 0; j < 4; j++) {
-                                indexNum = (i * 4) + j + offset;
-                                product = productService.findProdByID(indexNum + 1);
+                                indexNum = (i * 4) + j + offset + 1;
+                                product = productService.findProdByID(indexNum);
                                 if (product != null) {
                         %>
 
                         <div class="col-sm-3">
-                            <a href="../video/trailer.jsp?productid=<%= indexNum + 1%>">
+                            <a href="../video/trailer.jsp?productid=<%= indexNum %>">
                                 <img src= "<%= product.getPoster()%>" class="rounded" />
                             </a>
                             <div class="overlay">
