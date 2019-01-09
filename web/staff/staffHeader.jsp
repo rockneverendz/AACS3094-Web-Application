@@ -13,6 +13,10 @@
     <ul class="navbar-nav">
         <h2 style="color: #fff; font-weight: bold; margin-left: 50px;">Welcome to Staff Portal</h2>     
     </ul>
+
+    <ul class="navbar-nav ml-auto">
+        <a href="../video/DySpee.jsp"><button  type="button" class="btn btn-secondary">Back to Customer Portal</button></a>
+    </ul>
 </nav>
 
 <div style="height: 100px; background-color: rgba(0,0,0,0.70); "></div>

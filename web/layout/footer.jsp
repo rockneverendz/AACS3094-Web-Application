@@ -36,9 +36,13 @@
 
     </div>
     <div class="footer-box" id="foot5">
+        <div id="backtotop">
+            <a href="#"><button  type="button" class="btn btn-secondary"><i class="fas fa-angle-double-up"></i></button></a>
+        </div>
         <img src="../layout/image/DySpeeOnline.png" />
         <div id="staffportal">
-            <a href="../staff/StaffSignIn.jsp"><button  type="button" class="btn btn-dark">Staff Portal</button></a>
+            <a href="../staff/StaffSignIn.jsp"><button  type="button" class="btn btn-secondary">Staff Portal</button></a>
         </div>
     </div>
+
 </div>

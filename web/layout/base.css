@@ -72,7 +72,6 @@ a {
 
 .footer img[src="../layout/image/DySpeeOnline.png"] {
     position: relative;
-    top: 35px;
     right: 70px;
     width: 100%;
 }
@@ -91,6 +90,18 @@ a {
 .footer ul li a:hover {
     text-decoration: none;
     text-shadow: 0 0 3px #9ecaed;
+}
+
+#staffportal{
+    position: relative;
+    float: right;
+    bottom: -30px;
+
+}
+
+#backtotop{
+    position: relative;
+    float: right;
 }
 
 
@@ -117,9 +128,3 @@ a {
     background-color: rgba(191, 63, 63, 0.75);
 }
 
-#staffportal{
-    position: relative;
-    float: right;
-    margin-top: 50px;
-    
-}
