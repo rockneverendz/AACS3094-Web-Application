@@ -116,3 +116,10 @@ a {
 .error-container {
     background-color: rgba(191, 63, 63, 0.75);
 }
+
+#staffportal{
+    position: relative;
+    float: right;
+    margin-top: 50px;
+    
+}

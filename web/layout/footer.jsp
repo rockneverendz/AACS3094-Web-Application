@@ -37,5 +37,8 @@
     </div>
     <div class="footer-box" id="foot5">
         <img src="../layout/image/DySpeeOnline.png" />
+        <div id="staffportal">
+            <a href="../staff/StaffSignIn.jsp"><button  type="button" class="btn btn-dark">Staff Portal</button></a>
+        </div>
     </div>
 </div>
