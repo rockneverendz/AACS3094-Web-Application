@@ -3,6 +3,7 @@
 
     <head>
         <title>Promotion</title>
+        <link rel="stylesheet" href="style/promotiondesign.css">
         <%@ include file="../layout/meta.jsp"%>
     </head>
 
@@ -20,7 +21,7 @@
 
                     <div class="row">
                         <div class="poster col-lg-8" >
-                            <img src="image/Screenshot%20(24).png" class="image" width="105%" height="100%">
+                            <img src="image/Screenshot%20(24).png" class="image" width="105%" >
                         </div>
                         <div id="demo" class="carousel slide col-lg-4" data-ride="carousel" style="margin: 0px">
 
