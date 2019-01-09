@@ -6,6 +6,7 @@
 <%@page import="entity.Orderlist" %>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%
     //If user is not logged in
     Customer customer = (Customer) session.getAttribute("customer");
@@ -13,13 +14,21 @@
         response.sendRedirect("../video/DySpee.jsp?status=Y");
         return;
     }
-    
+
+    //
+    ArrayList<Orderlist> cart = (ArrayList) session.getAttribute("cart");
+    if (cart == null) {
+        response.sendRedirect("../video/DySpee.jsp?status=E");
+        return;
+    }
+
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     CustOrderService custOrderService = new CustOrderService();
     List<Custorder> custorderlist = custOrderService.findByCustID(customer.getCustid());
     String name;
-    int quantity;
-    double price, total, subtotal;
+    int quantity, last;
+    double price, total, subtotal = 0;
+    Custorder custorder;
 %>
 
 <html>
@@ -30,6 +39,24 @@
             #main{
                 padding: 50px;
             }
+
+            #cekOut {
+                color: #fff;
+                display: block;
+                float: right;
+                padding: 10px;
+                margin: 15px 20px;
+                background-color: rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 3px 3px rgb(255, 255, 255);
+                border-radius: 10px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            #cekOut:hover {
+                box-shadow: 0 0 20px 5px rgb(12, 147, 218);
+            }
+
         </style>
     </head>
     <body>
@@ -37,18 +64,15 @@
         <header>
             <%@ include file="../layout/header.jsp"%>
         </header>
-        <%  // If Orderlist object exists and not empty
-            if (!custorderlist.isEmpty()) {
-        %>
         <!--Container Start-->
-
         <div id="container">
+            <div class="message-container">Order created successfully.</div>
             <div class="article-container" style="color:white;">
                 <div id="main">
-                    <h1 style="color: white">Order History</h1><br>
+                    <h1 style="color: white">Order Receipt</h1><br>
 
-                    <%  for (Custorder custorder : custorderlist) {
-                            subtotal = 0;
+                    <%  last = custorderlist.size() - 1;
+                        custorder = custorderlist.get(last);
                     %>
 
                     <div class="row"><h4>Order ID : #<%= custorder.getOrderid()%>
@@ -99,34 +123,23 @@
                                 <td colspan="3"><strong>Subtotal:</strong></td>
                                 <td><strong>RM <%= subtotal%></strong></td>
                             </tr>
-
                         </tbody>
-
-
                     </table>
 
-                    <%                }
-                    %>
+                    <a href="../video/DySpee.jsp">
+                        <button type="submit" id="cekOut">Back To Home Page</button>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <%  // If Orderlist object does not exist or empty
-        } else {
-        %>
-        
-        <div id="container">
-            <div class="article-container text-center">
-                <h1 style="color: white; text-align: center; margin: 150px 0 50px 0;"> Your order history is empty! :( </h1>
-                <a href="../video/DySpee.jsp"><button type="button" class="btn btn-dark" >Back to Home page</button></a>
-            </div>
-        </div>
-
-        <%  }
-        %>
         <!-- Footer  -->
         <footer>
             <%@ include file="../layout/footer.jsp"%>
         </footer>
     </body>
 </html>
+
+<%
+    session.removeAttribute("cart");
+%>

@@ -80,11 +80,6 @@
         %>
         <!--Container Start-->
         <div id="container">
-            <%--
-                Status code 0 = Successfully Signed Out
-                Status code 1 = Successfully Signed In
-            --%>
-
             <%  String status = request.getParameter("status");
                 String message;
                 if (status == null) {
