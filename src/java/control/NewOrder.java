@@ -43,7 +43,7 @@ public class NewOrder extends HttpServlet {
         custOrderService.close();
         
         // Redirect to order page..?
-        response.sendRedirect("../checkout/receipt.jsp?status=1");
+        response.sendRedirect("../checkout/receipt.jsp");
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods">
     @Override
