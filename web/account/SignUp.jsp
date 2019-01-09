@@ -95,7 +95,7 @@
                         </div>
                         <div class="form-group row col-md-6">
                             <label>*Email :&ensp;</label>
-                            <input class="form-control" name = "email" type="text" placeholder="email@example.com" required
+                            <input class="form-control" name = "email" type="email" placeholder="email@example.com" required
                                    value = "<jsp:getProperty name="customer" property="email"/>"/>
                         </div>
                         <div class="form-group row col-md-6">
