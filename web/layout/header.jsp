@@ -22,7 +22,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fas fa-film"></i> Movies</a>
             <ul class="dropdown-menu">
-                <a class="dropdown-item" href="../video/topRating.jsp">Top Rating</a>
+                <a class="dropdown-item" href="../video/topRating.jsp?page=1">Top Rating</a>
                 <a class="dropdown-item" href="#">New Release</a>
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Animation</a>

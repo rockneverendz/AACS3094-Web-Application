@@ -4,19 +4,18 @@
 <%@ page import = "service.ProductService" %>
 <%  ProductService productService = new ProductService();
     Product product = new Product();
-    int i, j, indexNum;
+    int i, j, indexNum, offset;
+    offset = (Integer.parseInt(request.getParameter("page")) - 1) * 12;
 %>
 
 <html>
-
     <head>
-        <title>Top Rating|Dyspee Video</title>
+        <title>Top Rating</title>
         <script src="style/add.js"></script>
         <%@ include file="../layout/meta.jsp"%>
         <style>
             .title{
                 padding: 30px;
-
             }
             .row > .col-sm-3 > a > img{
                 width: 100%;
@@ -48,8 +47,9 @@
                     <!-- Row 1 -->
                     <div class="row">
                         <%  for (j = 0; j < 4; j++) {
-                                indexNum = (i * 4) + j;
+                                indexNum = (i * 4) + j + offset;
                                 product = productService.findProdByID(indexNum + 1);
+                                if (product != null) {
                         %>
 
                         <div class="col-sm-3">
@@ -61,7 +61,11 @@
                             </div>
                         </div>
 
-                        <%
+                        <%      } else {
+                                    //Break the loop, no product left.
+                                    i = 3;
+                                    j = 4;
+                                }
                             }
                         %>
                     </div>
@@ -75,9 +79,9 @@
                         <li class="page-item disabled">
                             <a class="page-link text-muted bg-dark" href="#" tabindex="-1">Previous</a>
                         </li>
-                        <li class="page-item"><a class="page-link text-white bg-dark" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link text-white bg-dark" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link text-white bg-dark" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link text-white bg-dark" href="?page=1">1</a></li>
+                        <li class="page-item"><a class="page-link text-white bg-dark" href="?page=2">2</a></li>
+                        <li class="page-item"><a class="page-link text-white bg-dark" href="?page=3">3</a></li>
                         <li class="page-item">
                             <a class="page-link text-white bg-dark" href="#">Next</a>
                         </li>
@@ -85,7 +89,6 @@
                 </nav>
             </div>
         </div>
-
 
         <!-- Footer  -->
         <footer>
